@@ -1,12 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import './css/Catalogo.css';
 import App from './App';
+import Catalogo from './Classes/Catalogo';
+import TopBar from './TopBar';
+import Footer from './footer';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
+    <TopBar />
     <App />
+    <Catalogo />
+    <Footer/>
   </React.StrictMode>,
   document.getElementById('root')
 );

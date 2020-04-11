@@ -1,0 +1,31 @@
+.Catalogo
+{
+    background-color: #FDE74C;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.BotellaList
+{
+    border-radius: 5px;
+    background-color:#F2F6D0;
+    align-items: center;
+    text-align: center;
+    display: inline-flex;
+    width: auto;
+}
+
+.cardMB
+{
+    background-color: #222E50;
+    border-radius: 20px;
+    margin: 10px;
+    /*padding: -10px;*/
+    width: 260px;
+}
+
+.cardMB p
+{
+    color:white;
+    font-size: large;
+}
