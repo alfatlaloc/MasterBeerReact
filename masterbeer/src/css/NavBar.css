@@ -1,0 +1,21 @@
+.navItemMB p
+{
+    color:white;
+    margin-top: 10px;
+    margin-right: 20px;
+}
+
+.navBrandMB p
+{
+    color:white;
+    font-size: x-large;
+    margin-top: 5px;
+}
+
+.navItemMB p:hover
+{
+    color:blue;
+    position: relative;
+    margin-top: 5px;
+    font-size: 16px;
+}

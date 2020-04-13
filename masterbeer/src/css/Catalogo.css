@@ -24,8 +24,26 @@
     width: 260px;
 }
 
+.cardMB ul li
+{
+    text-align: center;
+    align-content: center;
+    list-style-type: none;
+}
+
 .cardMB p
 {
     color:white;
     font-size: large;
+}
+
+.cardMB button
+{
+    color:black;
+    background-color: white;
+    border-radius: 5px;
+    border-width: 0px;
+    width:55%;
+    margin-top: 7px;
+    margin-bottom: 7px;
 }

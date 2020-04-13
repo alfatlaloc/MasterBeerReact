@@ -1,6 +1,6 @@
 import React from 'react';
 import Botella from'./Botella';
-
+import Topbar from '../Common/TopBar';
 const BotellasArray = [new Botella("XX",35.45,10),new Botella("Stella",40.20,15),
 new Botella("Corona",32,50),new Botella("Bud Light",34,15),new Botella("Tecate",32.50,26)];
 
@@ -15,6 +15,7 @@ const BotellaList = (props) =>(
 );
 
 //No es una clase simplemente esta definiendo las cartas donde iran las botellas y bebidas
+//Es un componente de React que no representa nada de el diagrama de clases
 class Card extends React.Component{
     render(){
         const elements = this.props; /* */
@@ -27,8 +28,9 @@ class Card extends React.Component{
                         <li class="list-group-item">{elements.Precio}</li>
                         <li class="list-group-item">{elements.Stock}</li>
                         <li class="list-group-item">Vestibulum at eros</li>
+                        <li class=""><button>Agregar al carrito</button></li>
                     </ul>
-                </div>
+            </div>
         );
     };
 }

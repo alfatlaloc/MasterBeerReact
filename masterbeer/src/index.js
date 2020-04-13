@@ -2,18 +2,17 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import './css/Catalogo.css';
-import App from './App';
-import Catalogo from './Classes/Catalogo';
-import TopBar from './TopBar';
-import Footer from './footer';
+import App from './Components/App';
 import * as serviceWorker from './serviceWorker';
+import { BrowserRouter as Router } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.min.js"
 
 ReactDOM.render(
   <React.StrictMode>
-    <TopBar />
-    <App />
-    <Catalogo />
-    <Footer/>
+    <Router>
+      <App />
+    </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );
