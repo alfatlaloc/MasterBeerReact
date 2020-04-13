@@ -1,6 +1,5 @@
 import React from 'react';
 import Botella from'./Botella';
-import Topbar from '../Common/TopBar';
 const BotellasArray = [new Botella("XX",35.45,10),new Botella("Stella",40.20,15),
 new Botella("Corona",32,50),new Botella("Bud Light",34,15),new Botella("Tecate",32.50,26)];
 

@@ -1,0 +1,12 @@
+.HomeBackground
+{
+    background-image: url("../img/Home.jpg");
+    display: block;
+    color: white;
+}
+
+.Promocionales
+{
+
+    margin-bottom: 20px;
+}
