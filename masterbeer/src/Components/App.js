@@ -4,8 +4,10 @@ import TopBar from './Common/TopBar';
 import Footer from './Common/footer';
 import HomePage from './HomePage/HomePage';
 import Catalogo from './Catalogo/Catalogo';
+import Login from './Login/Login';
 import'bootstrap/dist/js/bootstrap.bundle.min';
 import {Route, Switch} from 'react-router-dom';
+import PageNotFound from './PageNotFound';
 
 function App() {
   return (
@@ -14,6 +16,8 @@ function App() {
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route path="/Catalogo" component={Catalogo}/>
+        <Route path="/Login" component={Login}/>
+        <Route component={PageNotFound}/>
       </Switch>  
       <Footer/>
     </div>

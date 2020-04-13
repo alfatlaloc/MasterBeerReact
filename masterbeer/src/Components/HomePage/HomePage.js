@@ -22,7 +22,7 @@ const HomePage = () => (
 
 const Promocionales = () =>(
   <div className="Promocionales">
-    <img src={promo1} style={{ width: "600px"}}></img>
+    <img src={promo1} style={{ width: "600px"}} alt=""></img>
   </div>
 );
 
