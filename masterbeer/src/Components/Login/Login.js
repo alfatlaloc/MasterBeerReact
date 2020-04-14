@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
     Container, Col, Form,
     FormGroup, Label, Input,
@@ -7,19 +7,34 @@ import {
 
   
 class Login extends React.Component{
+  
+  state ={
+          Usuario: {Correo: ""}
+      };
+
+  handleChange = event =>{
+    const Usuario = {...this.state.Usuario,Correo:event.target.value};
+    this.setState({Usuario});
+  }
+
+  handleSummit = event =>{
+    event.preventDefault();
+    alert(this.state.Usuario.Correo);
+  }
+
   render (){
     return(
       <Container className="App">
       <h2>Sign In</h2>
-      <Form className="form">
+      <Form className="form" onSubmit={this.handleSummit}>
         <Col>
           <FormGroup>
             <Label>Email</Label>
             <Input
-              type="email"
+              type="text"
               name="email"
-              id="exampleEmail"
               placeholder="myemail@email.com"
+              onChange={this.handleChange}
             />
           </FormGroup>
         </Col>
