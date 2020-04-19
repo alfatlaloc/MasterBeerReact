@@ -1,4 +1,9 @@
 import React from 'react';
+import {connect} from 'react-redux';
+import * as UserActions from '../../Redux/Actions/UserActions'
+import PropTypes from 'prop-types';
+import {bindActionCreators} from 'redux';
+
 import {
     Container, Col, Form,
     FormGroup, Label, Input,
@@ -19,7 +24,7 @@ class Login extends React.Component{
 
   handleSummit = event =>{
     event.preventDefault();
-    alert(this.state.Usuario.Correo);
+    this.props.actions.crearUsuario(this.state.Usuario);
   }
 
   render (){
@@ -50,10 +55,29 @@ class Login extends React.Component{
           </FormGroup>
         </Col>
         <Button>Submit</Button>
+     <link></link>    
+        {this.props.Usuarios.map(Usuario => (<div key={Usuario.Correo}>{Usuario.Correo}</div>))}
       </Form>
     </Container>
     );
     }
 }
 
-export default Login;
+  Login.propTypes={
+    Usuarios: PropTypes.array.isRequired,
+    actions: PropTypes.object.isRequired
+  };
+
+function mapStateToProps(state) {
+  return{
+    Usuarios: state.Usuarios
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return{
+    actions: bindActionCreators(UserActions, dispatch)
+    }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(Login);

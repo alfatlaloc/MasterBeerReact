@@ -1,4 +1,6 @@
+import * as types from './actionTypes';
+
 export function crearUsuario(Usuario)
 {
-    return {type : `CREATE_USUARIO` , Usuario };
+    return {type : types.CREATE_USUARIO , Usuario };
 }

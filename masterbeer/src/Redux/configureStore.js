@@ -1,5 +1,5 @@
-import {createStore} from 'redux';
-import rootReducer from './Reducers/index';
+import { createStore, applyMiddleware, compose } from "redux";
+import rootReducer from './Reducers';
 import reduxImmutableStateInvariant from "redux-immutable-state-invariant";
 
 export default function configureStore(initialState) {
