@@ -1,0 +1,17 @@
+const express =require('express');
+const cors = require('cors');
+const bodyParser =require('body-parser');
+const {dbConnector} = require('./MongoDB');
+
+const app = express();
+const port = 8080;
+
+app.use(express.json());
+
+app.listen(port,console.log("listening on port ",port));
+
+const UsuarioRoutes = require('./Routes/Usuario');
+
+app.use('/Usuario', UsuarioRoutes)
+
+

@@ -1,0 +1,12 @@
+GET http://localhost:8080/Usuario/
+
+###
+
+POST http://localhost:3000/MasterBeer/
+Content-Type: application/json
+
+{
+  "Nombre": "Rasasasaaart",
+  "Correo": "robert@masterbeer.com",
+  "Contraseña": "elkks"
+}
