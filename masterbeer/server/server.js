@@ -14,6 +14,7 @@ app.use(express.json(),
 app.listen(port,console.log("listening on port ",port));
 
 const UsuarioRoutes = require('./Routes/Usuario');
+app.use('/Usuario', UsuarioRoutes);
 
-app.use('/Usuario', UsuarioRoutes)
-
+const BotellaRoutes = require('./Routes/Botella');
+app.use('/Botella',BotellaRoutes);
