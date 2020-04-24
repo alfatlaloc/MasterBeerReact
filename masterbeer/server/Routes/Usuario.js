@@ -63,17 +63,16 @@ router.get('/', async (req, res) => {
   })
   
   async function getUsuario(req, res, next) {
-    let Usuario
     try {
-      Usuario = await Usuario.findById(req.params.id)
-      if (Usuario == null) {
+      user = await Usuario.findById(req.params.id)
+      if (user == null) {
         return res.status(404).json({ message: 'Cannot find user' })
       }
     } catch (err) {
       return res.status(500).json({ message: err.message })
     }
   
-    res.Usuario = Usuario
+    res.user = user
     next()
   }
 

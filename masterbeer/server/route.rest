@@ -2,7 +2,7 @@ GET http://localhost:8080/Usuario/
 
 ###
 
-POST http://localhost:3000/MasterBeer/
+POST http://localhost:8080/Usuario/
 Content-Type: application/json
 
 {

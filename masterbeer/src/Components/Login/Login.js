@@ -12,26 +12,17 @@ import {
 
   
 class Login extends React.Component{
+  componentDidMount(){
+    this.props.actions.loadUsuarios().catch(error => {
+      alert("Loading courses failed" + error);
+    });
+  }
   
-  state ={
-          Usuario: {Correo: ""}
-      };
-
-  handleChange = event =>{
-    const Usuario = {...this.state.Usuario,Correo:event.target.value};
-    this.setState({Usuario});
-  }
-
-  handleSummit = event =>{
-    event.preventDefault();
-    this.props.actions.crearUsuario(this.state.Usuario);
-  }
-
   render (){
     return(
       <Container className="App">
       <h2>Sign In</h2>
-      <Form className="form" onSubmit={this.handleSummit}>
+      <Form className="form">
         <Col>
           <FormGroup>
             <Label>Email</Label>
@@ -39,7 +30,7 @@ class Login extends React.Component{
               type="text"
               name="email"
               placeholder="myemail@email.com"
-              onChange={this.handleChange}
+              onChange=""
             />
           </FormGroup>
         </Col>
@@ -56,8 +47,12 @@ class Login extends React.Component{
         </Col>
         <Button>Submit</Button>
      <link></link>    
-        {this.props.Usuarios.map(Usuario => (<div key={Usuario.Correo}>{Usuario.Correo}</div>))}
       </Form>
+      <div>
+      {this.props.Usuarios.map(Usuario => (
+          <div key={Usuario.Correo}>{Usuario.Correo}{Usuario.Nombre}</div>
+        ))}
+      </div>
     </Container>
     );
     }

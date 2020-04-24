@@ -29,6 +29,7 @@
     "react-scripts": "3.4.1",
     "reactstrap": "^8.4.1",
     "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0",
     "resolve-url-loader": "^3.1.1",
     "run-all": "^1.0.1",
     "run-p": "0.0.0",
