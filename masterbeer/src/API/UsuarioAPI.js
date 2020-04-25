@@ -1,5 +1,8 @@
 import { handleResponse, handleError } from "./apiUtils";
-const baseUrl = "http://localhost:8080/Usuario/";
+
+require('dotenv').config();
+
+const baseUrl = "http://192.168.0.9:8080/Usuario/";
 
 export function getUsuarios() {
   return fetch(baseUrl)

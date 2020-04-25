@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import * as UserActions from '../../Redux/Actions/UserActions'
 import PropTypes from 'prop-types';
 import {bindActionCreators} from 'redux';
+import {Link} from "react-router-dom";
 
 import {
     Container, Col, Form,
@@ -16,11 +17,12 @@ class Login extends React.Component{
     this.props.actions.loadUsuarios().catch(error => {
       alert("Loading courses failed" + error);
     });
+    
   }
   
   render (){
     return(
-      <Container className="App">
+      <Container className="Login">
       <h2>Sign In</h2>
       <Form className="form">
         <Col>
@@ -53,6 +55,12 @@ class Login extends React.Component{
           <div key={Usuario.Correo}>{Usuario.Correo}{Usuario.Nombre}</div>
         ))}
       </div>
+
+      <h4>
+        <Link to='/Register'>
+          Aún no tienes cuenta? Registrate
+        </Link>
+      </h4>
     </Container>
     );
     }

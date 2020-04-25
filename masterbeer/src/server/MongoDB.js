@@ -1,10 +1,9 @@
 //Import the mongoose module
 const mongoose = require('mongoose');
+require('dotenv').config();
 
 //Set up default mongoose connection
-const mongoDB = 'mongodb://127.0.0.1:27017:MasterBeer';
-
-mongoose.connect(mongoDB, { useNewUrlParser: true });
+mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true ,useUnifiedTopology: true });
 
 //Get the default connection
 const db = mongoose.connection;

@@ -11,6 +11,10 @@ const BotellaSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  Stock: {
+    type: Number,
+    required: true,
+  },
   Precio: {
     type: Number,
     required: true,

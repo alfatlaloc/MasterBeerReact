@@ -1,18 +1,19 @@
 import React from 'react';
-import Botella from'./Botella';
-
-const BotellasArray = [new Botella("XX",35.45,10),new Botella("Stella",40.20,15),
-new Botella("Corona",32,50),new Botella("Bud Light",34,15),new Botella("Tecate",32.50,26)];
+import PropTypes from "prop-types";
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
+import * as botellaActions from '../../Redux/Actions/BotellaActions'; 
 
 //Tambien es una "clase" pero con el operador flecha
 //En este caso reprentara el arreglo de botellas en Catalogo
-const BotellaList = (props) =>(
+const BotellaList = ({Botellas}) =>(
     <div className="container">
         <div className="BotellasList row mt-8 justify-content-center">
-            {BotellasArray.map(elements => <Card {...elements}/>)}
+            {Botellas.map(elements => <Card {...elements}/>)}
         </div>
     </div>
 );
+
 
 //No es una clase simplemente esta definiendo las cartas donde iran las botellas y bebidas
 //Es un componente de React que no representa nada de el diagrama de clases
@@ -25,9 +26,13 @@ class Card extends React.Component{
                     <p>{elements.Nombre}</p>
                 </div>
                     <ul className="list-group list-group-flush">
+                    
+                        <li className="list-group-item">
+                            <img alt="" src={require(`../../img/Botellas/${elements.Nombre}.png`)}/>
+                        </li>
                         <li className="list-group-item">{elements.Precio}</li>
+                        <li className="list-group-item">{elements.Marca}</li>
                         <li className="list-group-item">{elements.Stock}</li>
-                        <li className="list-group-item">Vestibulum at eros</li>
                         <li className=""><button>Agregar al carrito</button></li>
                     </ul>
             </div>
@@ -36,17 +41,45 @@ class Card extends React.Component{
 }
 
 class Catalogo extends React.Component{
+
+    componentDidMount() {
+        if (this.props.Botellas.length === 0) {
+          this.props.actions.loadBotellas().catch(error => {
+            alert("Loading Botellas failed" + error);
+          });
+        }
+    }
+
     render (){
         return(
-            <div className="Catalogo">s
+            <div className="Catalogo">
                 <h2>Catálogo MasterBeer</h2>
                 <div>
                     <h3>Bebidas</h3>
-                    <BotellaList />
+                    <BotellaList Botellas={this.props.Botellas}/>
                     <p>Hola{}</p>
                 </div>
             </div>
         );
     };
 }
-export default Catalogo;
+
+Catalogo.propTypes = {
+    Botellas: PropTypes.array.isRequired,
+    actions: PropTypes.object.isRequired
+};
+
+function mapStateToProps(state) {
+    return{
+      Botellas: state.Botellas
+    };
+  }
+  
+  function mapDispatchToProps(dispatch) {
+    return {
+      actions: {
+        loadBotellas: bindActionCreators(botellaActions.loadBotellas, dispatch)
+      }
+    };
+  }
+export default connect(mapStateToProps,mapDispatchToProps)(Catalogo);

@@ -1,0 +1,23 @@
+.formCont{
+    margin-bottom: 15px;
+}
+
+.Register{
+    background-color: #222E50;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.Register Button{
+    border-radius: 10px;
+    background: white;
+    color:black;
+}
+
+.maxdivCont{
+    border-radius: 20px;
+    width:90%;
+    margin: 0 auto;
+    padding: 10px;
+    
+}

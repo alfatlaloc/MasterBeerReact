@@ -2,4 +2,7 @@
 export const CREATE_USUARIO = "CREATE_USER";
 export const LOAD_USUARIOS_SUCCESS = "LOAD_USUARIOS_SUCCESS";
 
+//Botellas
+export const LOAD_BOTELLAS_SUCCESS = "LOAD_BOTELLAS_SUCCESS";
+export const CREATE_BOTELLA = "CREATE_BOTELLA";
 //Bebidas
