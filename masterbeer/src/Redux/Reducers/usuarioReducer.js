@@ -8,6 +8,8 @@ export default function usuarioReducer(state =[],action)
             return [...state,{...action.Usuario}];
         case types.LOAD_USUARIOS_SUCCESS:
             return action.Usuarios;
+        case types.GET_USER_BY_CORREO:
+            return action.Usuario;
         default:
             return state;
     }

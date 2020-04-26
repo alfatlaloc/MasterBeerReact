@@ -2,12 +2,19 @@ import { handleResponse, handleError } from "./apiUtils";
 
 require('dotenv').config();
 
-const baseUrl = "http://192.168.0.9:8080/Usuario/";
+const baseUrl = "http://192.168.0.8:8080/Usuario";
 
 export function getUsuarios() {
   return fetch(baseUrl)
     .then(handleResponse)
     .catch(handleError);
+}
+
+export function getUserByCorreo(Correo){
+  console.log(`${baseUrl}?${new URLSearchParams({Correo}).toString()}`);
+  return fetch(`${baseUrl}?${new URLSearchParams({Correo}).toString()}`)
+  .then(handleResponse)
+  .catch(handleResponse);
 }
 
 export function saveUsuario(Usuario) {

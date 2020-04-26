@@ -10,3 +10,8 @@ Content-Type: application/json
   "Correo": "robert@masterbeer.com",
   "Contraseña": "elkks"
 }
+
+###
+GET http://localhost:8080/Usuario/5e9f5ed238d348db9572d0d4
+
+###

@@ -9,7 +9,27 @@ import * as botellaActions from '../../Redux/Actions/BotellaActions';
 const BotellaList = ({Botellas}) =>(
     <div className="container">
         <div className="BotellasList row mt-8 justify-content-center">
-            {Botellas.map(elements => <Card {...elements}/>)}
+            {Botellas.map(elements => 
+                {
+                    return( <div className="cardMB mx-2 mb-3" key={elements.Nombre}>
+                    <div className="card-header">
+                        <p>{elements.Nombre}</p>
+                    </div>
+                        <ul className="list-group list-group-flush">
+                        
+                            <li className="list-group-item">
+                                <img alt="" src={require(`../../img/Botellas/${elements.Nombre}.png`)}/>
+                            </li>
+                            <li className="list-group-item">{elements.Precio}</li>
+                            <li className="list-group-item">{elements.Marca}</li>
+                            <li className="list-group-item">{elements.Stock}</li>
+                            <li className=""><button>Agregar al carrito</button></li>
+                        </ul>
+                </div>
+                )
+                }
+                )
+            }
         </div>
     </div>
 );
@@ -17,28 +37,6 @@ const BotellaList = ({Botellas}) =>(
 
 //No es una clase simplemente esta definiendo las cartas donde iran las botellas y bebidas
 //Es un componente de React que no representa nada de el diagrama de clases
-class Card extends React.Component{
-    render(){
-        const elements = this.props; /* */
-        return(
-            <div className="cardMB mx-2 mb-3">
-                <div className="card-header">
-                    <p>{elements.Nombre}</p>
-                </div>
-                    <ul className="list-group list-group-flush">
-                    
-                        <li className="list-group-item">
-                            <img alt="" src={require(`../../img/Botellas/${elements.Nombre}.png`)}/>
-                        </li>
-                        <li className="list-group-item">{elements.Precio}</li>
-                        <li className="list-group-item">{elements.Marca}</li>
-                        <li className="list-group-item">{elements.Stock}</li>
-                        <li className=""><button>Agregar al carrito</button></li>
-                    </ul>
-            </div>
-        );
-    };
-}
 
 class Catalogo extends React.Component{
 
@@ -57,7 +55,6 @@ class Catalogo extends React.Component{
                 <div>
                     <h3>Bebidas</h3>
                     <BotellaList Botellas={this.props.Botellas}/>
-                    <p>Hola{}</p>
                 </div>
             </div>
         );

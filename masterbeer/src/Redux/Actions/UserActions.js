@@ -6,6 +6,24 @@ export function crearUsuario(Usuario)
     return {type : types.CREATE_USUARIO , Usuario };
 }
 
+export function getUserByCorreo(Correo)
+{
+  return function(dispatch)
+  {
+    return UsuarioApi
+    .getUserByCorreo(Correo)
+    .then(Usuario=>{
+      dispatch(getUserByCorreoSucess(Usuario));
+    })
+    .catch(error=>{throw error;});
+  };
+}
+
+export function getUserByCorreoSucess(Usuario)
+{
+  return {type: types.GET_USER_BY_CORREO,Usuario}
+}
+
 export function loadUsuarioSuccess(Usuarios) {
     return { type: types.LOAD_USUARIOS_SUCCESS, Usuarios };
 }

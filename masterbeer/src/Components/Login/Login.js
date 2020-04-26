@@ -13,26 +13,49 @@ import {
 
   
 class Login extends React.Component{
-  componentDidMount(){
-    this.props.actions.loadUsuarios().catch(error => {
-      alert("Loading courses failed" + error);
-    });
-    
+  //Es para recibier los parametros insertados en el form
+    state ={
+        Correo: '',
+        Contraseña:''
+    };
+
+  handleChange = event => {
+    const { name, value } = event.target;
+    this.setState({ [name]: value });
   }
   
+  logear = event =>
+  {
+    event.preventDefault();
+    this.props.actions.getUserByCorreo(this.state.Correo).catch(error => {
+      alert("Usuario no Registrado" + error);
+    });
+
+    if(this.props.Usuario !== null){
+      alert(this.props.Usuario.Contraseña);
+      alert(this.state.Contraseña);
+      if(this.props.Usuario.Contraseña === this.state.Contraseña)
+        alert('Logeado!');
+      else
+        alert('Contraseña incorrecta');
+    }
+
+  }
+
   render (){
     return(
       <Container className="Login">
       <h2>Sign In</h2>
-      <Form className="form">
+      <Form className="form" onSubmit={this.logear}>
         <Col>
           <FormGroup>
             <Label>Email</Label>
             <Input
               type="text"
-              name="email"
+              name="Correo"
               placeholder="myemail@email.com"
-              onChange=""
+              onChange={this.handleChange}
+              value={this.state.Correo}
             />
           </FormGroup>
         </Col>
@@ -41,8 +64,9 @@ class Login extends React.Component{
             <Label for="examplePassword">Password</Label>
             <Input
               type="password"
-              name="password"
-              id="examplePassword"
+              name="Contraseña"
+              onChange={this.handleChange}
+              value={this.state.Contraseña}
               placeholder="********"
             />
           </FormGroup>
@@ -50,12 +74,6 @@ class Login extends React.Component{
         <Button>Submit</Button>
      <link></link>    
       </Form>
-      <div>
-      {this.props.Usuarios.map(Usuario => (
-          <div key={Usuario.Correo}>{Usuario.Correo}{Usuario.Nombre}</div>
-        ))}
-      </div>
-
       <h4>
         <Link to='/Register'>
           Aún no tienes cuenta? Registrate
@@ -67,19 +85,21 @@ class Login extends React.Component{
 }
 
   Login.propTypes={
-    Usuarios: PropTypes.array.isRequired,
+    Usuario: PropTypes.object.isRequired,
     actions: PropTypes.object.isRequired
   };
 
 function mapStateToProps(state) {
   return{
-    Usuarios: state.Usuarios
+    Usuario: state.Usuario
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return{
-    actions: bindActionCreators(UserActions, dispatch)
+    actions: {
+      getUserByCorreo: bindActionCreators(UserActions.getUserByCorreo, dispatch)
+    }
     }
 }
 

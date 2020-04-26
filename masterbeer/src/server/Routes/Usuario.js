@@ -5,17 +5,25 @@ const Usuario = require('../Models/UsuarioModel').Usuario;
 // Getting all
 
 router.get('/', async (req, res) => {
+    if(req.query.Correo)
+      loginUser(req,res);
+    else{
     try {
       const usuarios = await Usuario.find()
       res.json(usuarios)
     } catch (err) {
       res.status(500).json({ message: err.message })
     }
+    }
   })
 
   // Getting One
   router.get('/:id', getUsuario, (req, res) => {
     res.json(res.Usuario)
+  })
+
+  router.get('/:Correo',loginUser,(req,res)=>{
+    res.json(res.Usuario);
   })
   
   // Creating one
@@ -72,8 +80,22 @@ router.get('/', async (req, res) => {
       return res.status(500).json({ message: err.message })
     }
   
-    res.user = user
-    next()
+    res.Usuario = user;
+    next();
+  }
+
+  async function loginUser(req,res)
+  {
+    try{
+      usuario = await Usuario.findOne({ Correo : req.query.Correo });
+      if (usuario == null)
+        return res.status(404).json({message: 'Usuario no registrado' });
+    }catch(err){
+      return res.status(500).json({ message: err.message })
+    }
+    console.log(usuario.Contraseña);
+    //res.Usuario=usuario;
+    res.json(usuario);
   }
 
 module.exports=router;
