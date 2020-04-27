@@ -5,7 +5,7 @@ const Usuario = require('../Models/UsuarioModel').Usuario;
 // Getting all
 
 router.get('/', async (req, res) => {
-    if(req.query.Correo)
+    if(req.query.Correo && req.query.Contraseña)
       loginUser(req,res);
     else{
     try {
@@ -95,6 +95,11 @@ router.get('/', async (req, res) => {
     }
     console.log(usuario.Contraseña);
     //res.Usuario=usuario;
+    if(req.query.Contraseña===usuario.Contraseña)
+      console.log('Logueado')
+    else
+      console.log('Error pass')
+      
     res.json(usuario);
   }
 

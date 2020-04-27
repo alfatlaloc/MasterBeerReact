@@ -10,9 +10,9 @@ export function getUsuarios() {
     .catch(handleError);
 }
 
-export function getUserByCorreo(Correo){
+export function getUserByCorreo(Correo,Contraseña){
   console.log(`${baseUrl}?${new URLSearchParams({Correo}).toString()}`);
-  return fetch(`${baseUrl}?${new URLSearchParams({Correo}).toString()}`)
+  return fetch(`${baseUrl}?${new URLSearchParams({Correo}).toString()}&${new URLSearchParams({Contraseña}).toString()}`)
   .then(handleResponse)
   .catch(handleResponse);
 }

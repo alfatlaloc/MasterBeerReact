@@ -27,19 +27,10 @@ class Login extends React.Component{
   logear = event =>
   {
     event.preventDefault();
-    this.props.actions.getUserByCorreo(this.state.Correo).catch(error => {
+    console.log(this.state.Contraseña);
+    this.props.actions.getUserByCorreo(this.state.Correo,this.state.Contraseña).catch(error => {
       alert("Usuario no Registrado" + error);
     });
-
-    if(this.props.Usuario !== null){
-      alert(this.props.Usuario.Contraseña);
-      alert(this.state.Contraseña);
-      if(this.props.Usuario.Contraseña === this.state.Contraseña)
-        alert('Logeado!');
-      else
-        alert('Contraseña incorrecta');
-    }
-
   }
 
   render (){
@@ -85,7 +76,6 @@ class Login extends React.Component{
 }
 
   Login.propTypes={
-    Usuario: PropTypes.object.isRequired,
     actions: PropTypes.object.isRequired
   };
 

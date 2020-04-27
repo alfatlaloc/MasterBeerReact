@@ -6,12 +6,12 @@ export function crearUsuario(Usuario)
     return {type : types.CREATE_USUARIO , Usuario };
 }
 
-export function getUserByCorreo(Correo)
+export function getUserByCorreo(Correo,Contraseña)
 {
   return function(dispatch)
   {
     return UsuarioApi
-    .getUserByCorreo(Correo)
+    .getUserByCorreo(Correo,Contraseña)
     .then(Usuario=>{
       dispatch(getUserByCorreoSucess(Usuario));
     })
