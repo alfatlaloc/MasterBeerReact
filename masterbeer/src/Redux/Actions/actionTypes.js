@@ -1,0 +1,9 @@
+//Usuarios
+export const CREATE_USUARIO = "CREATE_USER";
+export const LOAD_USUARIOS_SUCCESS = "LOAD_USUARIOS_SUCCESS";
+export const GET_USER_BY_CORREO="GET_USER_BY_CORREO";
+
+//Botellas
+export const LOAD_BOTELLAS_SUCCESS = "LOAD_BOTELLAS_SUCCESS";
+export const CREATE_BOTELLA = "CREATE_BOTELLA";
+//Bebidas

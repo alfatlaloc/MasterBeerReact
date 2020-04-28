@@ -1,19 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import './css/Home.css';
 import './css/Catalogo.css';
-import App from './App';
-import Catalogo from './Classes/Catalogo';
-import TopBar from './TopBar';
-import Footer from './footer';
+import './css/Registro.css';
+import './css/Footer.css';
+import App from './Components/App';
 import * as serviceWorker from './serviceWorker';
+import { BrowserRouter as Router } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
+import configureStore from './Redux/configureStore';
+import {Provider as ReduxProvider} from 'react-redux';
+
+const Store = configureStore()
 
 ReactDOM.render(
   <React.StrictMode>
-    <TopBar />
-    <App />
-    <Catalogo />
-    <Footer/>
+    <ReduxProvider store={Store}>
+      <Router>
+        <App />
+      </Router>
+    </ReduxProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
