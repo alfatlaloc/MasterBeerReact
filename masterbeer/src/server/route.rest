@@ -6,8 +6,8 @@ POST http://localhost:8080/Usuario/
 Content-Type: application/json
 
 {
-  "Nombre": "Rasasasaaart",
-  "Correo": "robert@masterbeer.com",
+  "Nombre": "Mary",
+  "Correo": "mary@masterbeer.com",
   "Contraseña": "elkks"
 }
 
@@ -15,3 +15,7 @@ Content-Type: application/json
 GET http://localhost:8080/Usuario/5e9f5ed238d348db9572d0d4
 
 ###
+
+GET http://localhost:8080/Usuario?Correo=mr.alfatlaloc@gmail.com
+###
+GET http://192.168.0.8:8080/Usuario?Correo=mr.alfatlaloc%40gmail.com

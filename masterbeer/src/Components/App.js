@@ -4,6 +4,7 @@ import TopBar from './Common/TopBar';
 import Footer from './Common/footer';
 import HomePage from './HomePage/HomePage';
 import Catalogo from './Catalogo/Catalogo';
+
 import Login from './Login/Login';
 import Register from './Register/Registro';
 import'bootstrap/dist/js/bootstrap.bundle.min';
