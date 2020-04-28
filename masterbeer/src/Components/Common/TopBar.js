@@ -18,7 +18,7 @@ const TopBar = () => {
     const toggle = () => setIsOpen(!isOpen);
     return(
         <div>
-        <Navbar color="dark" light expand="md">
+        <Navbar className="navbarMB" light expand="md">
           <img src={logoi} alt=" " style={{ paddingRight: "10px"}}/>
           <NavbarBrand className="navBrandMB" href="/"><p>MasterBeer</p></NavbarBrand>
           <NavbarToggler onClick={toggle} />

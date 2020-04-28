@@ -1,7 +1,7 @@
 import React from 'react';
 import '../../css/NavBar.css';
 const Footer = () => (
-    <footer className="footerMB font-small pt-4" style={{ backgroundColor: "#3891A6"}}>
+    <footer className="footerMB font-small pt-4" style={{ backgroundColor: "#565d47"}}>
       <div className="container-fluid text-center text-md-left">
         <div className="row">
           <div className="col-md-6 mt-md-0 mt-3">

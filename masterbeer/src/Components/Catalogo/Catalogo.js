@@ -23,7 +23,7 @@ const BotellaList = ({Botellas}) =>(
                             <li className="list-group-item">{elements.Precio}</li>
                             <li className="list-group-item">{elements.Marca}</li>
                             <li className="list-group-item">{elements.Stock}</li>
-                            <li className=""><button>Agregar al carrito</button></li>
+                            <div><button>Agregar al carrito</button></div>
                         </ul>
                 </div>
                 )
@@ -53,7 +53,6 @@ class Catalogo extends React.Component{
             <div className="Catalogo">
                 <h2>Catálogo MasterBeer</h2>
                 <div>
-                    <h3>Bebidas</h3>
                     <BotellaList Botellas={this.props.Botellas}/>
                 </div>
             </div>
