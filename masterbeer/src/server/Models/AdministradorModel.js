@@ -13,6 +13,22 @@ const AdministradorSchema = new mongoose.Schema({
   Contraseña: {
     type: String,
     required: true,
+  },
+  Apellido: {
+    type: String,
+    required: true,
+  },
+  RFC: {
+    type: String,
+    required: false,
+  },
+  Fecha: {
+    type: Date,
+    required: true,
+  },
+  Sueldo: {
+    type: Number,
+    required: true,
   }
 })
 
