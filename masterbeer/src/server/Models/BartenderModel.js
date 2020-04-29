@@ -20,7 +20,7 @@ const BartenderSchema = new mongoose.Schema({
       },
       RFC: {
         type: String,
-        required: false,
+        required: true,
       },
       Fecha: {
         type: Date,

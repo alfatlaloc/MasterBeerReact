@@ -11,7 +11,7 @@ const HomePage = () => (
         Esta diseñada para facilitar los pedidos y acelerar los tiempos atención y preparación.  
         Aqui puedes crear cualquier bebida que puedas imaginar.</p>
         <hr className="my-2" />
-        <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+        <p>Este proyecto hace uso de React,Redux,Express,MongoDB y una API REST propia.</p>
         <p className="lead">
           <Button color="primary">Learn More</Button>
         </p>
