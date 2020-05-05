@@ -6,6 +6,7 @@ import HomePage from './HomePage/HomePage';
 import Catalogo from './Catalogo/Catalogo';
 import AdminPanel from './AdminPanel/AdminPanel';
 import Creador from './Creador/Creador';
+import ManageBotella from './AdminPanel/ManageBotella';
 
 import Login from './Login/Login';
 import Register from './Register/Registro';
@@ -24,6 +25,7 @@ function App() {
         <Route path="/Creador" component={Creador}/>
         <Route path="/Register" component={Register}/>
         <Route path="/AdminPanel" component={AdminPanel}/>
+        <Route path="/ManageBotella" component={ManageBotella}/>
         <Route component={PageNotFound}/>
       </Switch>  
       <Footer/>

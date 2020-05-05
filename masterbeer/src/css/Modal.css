@@ -1,0 +1,44 @@
+.modal-overlay {
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    z-index: 100;
+    width: 85%;
+    background-color:#708160;
+    margin-top: 20px;
+    border: 0;
+    border-radius: 20px;
+    max-height: 90vh;
+    overflow:scroll;
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+  }
+
+.modalClose
+{
+    background-color: red;
+    border-radius: 30px;
+    border: 0px;
+    color: white;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.modalContent{
+    border-radius: 30px;
+    text-align: center;
+    color: white;
+}
+
+  .button-default {
+    background: #247BA0;
+    border: 0px;
+    color: #fff;
+  }
+
+  .submitInsertButton{
+    background-color: steelblue;
+    border-radius: 10px;
+    border: 0;
+    color:white;
+  }

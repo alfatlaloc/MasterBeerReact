@@ -1,6 +1,6 @@
 import * as types from '../Actions/actionTypes';
 
-export default function usuarioReducer(state =[],action)
+export default function botellaReducer(state =[],action)
 {
     switch(action.type)
     {

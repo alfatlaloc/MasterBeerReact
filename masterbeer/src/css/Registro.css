@@ -3,9 +3,11 @@
 }
 
 .Register{
-    background-color: #222E50;
+    background-color: #937d14;
     color: white;
     margin-bottom: 10px;
+    margin-top: 10px;
+    border-radius: 30px;
 }
 
 .Register Button{

@@ -9,7 +9,7 @@ import {
 class DatosFormulario extends Component{
     render(){
         return(
-        <Container className="App" >
+        <Container className="Register" >
             <h2>Formulario de Registro</h2>
             <Form className="form maxdivCont Register">
                 <Col>
