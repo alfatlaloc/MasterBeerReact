@@ -1,12 +1,12 @@
 const express =require('express');
 const cors = require('cors');
 const bodyParser =require('body-parser');
-const {dbConnector} = require('./MongoDB');
 
 const app = express();
 const port = 8080;
 
-app.use(express.json(),
+app.use(
+    express.json(),
     cors(),
     bodyParser()
 );

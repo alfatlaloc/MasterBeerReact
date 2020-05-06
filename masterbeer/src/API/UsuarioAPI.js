@@ -18,7 +18,7 @@ export function getUserByCorreo(Correo,Contraseña){
 }
 
 export function saveUsuario(Usuario) {
-  return fetch(baseUrl + (Usuario.correo || ""), {
+  return fetch(`${baseUrl}?`, {
     method: Usuario.Correo ? "PUT" : "POST", // POST for create, PUT to update when id already exists.
     headers: { "content-type": "application/json" },
     body: JSON.stringify(Usuario)

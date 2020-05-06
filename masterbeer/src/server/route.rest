@@ -11,6 +11,7 @@ Content-Type: application/json
   "Contraseña": "elkks"
 }
 
+
 ###
 GET http://localhost:8080/Usuario/5e9f5ed238d348db9572d0d4
 
@@ -19,3 +20,18 @@ GET http://localhost:8080/Usuario/5e9f5ed238d348db9572d0d4
 GET http://localhost:8080/Usuario?Correo=mr.alfatlaloc@gmail.com
 ###
 GET http://192.168.0.8:8080/Usuario?Correo=mr.alfatlaloc%40gmail.com
+
+###
+POST http://localhost:8080/Botella/
+Content-Type: application/json
+{
+        "Nombre": "Bud Light",
+        "Marca": "Anheuser Busch",
+        "Stock" : 3000,
+        "Precio" : 96,
+        "Desc": "American-style pale lager beer",
+        "Contenido_N": "355 ml",
+        "Tipo": "Cerveza Obscura",
+        "Volumen_A": 4.2,
+        "volBP":7
+}

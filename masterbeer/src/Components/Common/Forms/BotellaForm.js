@@ -1,6 +1,6 @@
 import React,{useEffect,useState} from 'react';
 import {useSelector,useDispatch} from "react-redux";
-import {} from '../../../Redux/Actions/BotellaActions';
+import {crearBotella} from '../../../Redux/Actions/BotellaActions';
 
 import {
   Container, Col, Form,
@@ -10,14 +10,20 @@ import {
 
 function BotellaForm (){
   const dispatch = useDispatch();
+  
+  const handleSubmit = (e) => {
+        e.preventDefault();
+        let data = new FormData(document.getElementById("botellaForm"));
+        dispatch(crearBotella(data));
+    }
 
     return(
-          <Container className="BotellaMForm">
-            <Form >
+          <Container className="botellaForm">
+            <Form id="botellaForm" onSubmit={handleSubmit}>
                 <Col>
                     <FormGroup className="formCont">
-                        <Label htmlFor="Nombre">Botella (Nombre) </Label><br></br>
-                        <Input name="Nombre" id="Nombre" type="text"/>                
+                        <Label htmlFor="Nombre">Nombre </Label><br></br>
+                        <input name="Nombre" id="Nombre" type="text"/>                
                     </FormGroup> 
                 </Col>
 
@@ -66,7 +72,8 @@ function BotellaForm (){
                         <Input name="Volumen_A" id="Volumen_A" type="text"/>
                     </FormGroup> 
                 </Col>                                     
-                    <button className="submitInsertButton">Agregar al almacén!</button>
+                    <Button type="submit"  className="submitInsertButton"
+                    >Agregar al almacén!</Button>
             </Form>
           </Container>
     );

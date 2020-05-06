@@ -1,9 +1,18 @@
 import * as types from './actionTypes';
 import * as BotellaApi from '../../API/BotellaAPI';
 
-export function crearBotella(Botella)
+export function crearBotella(data)
 {
-    return {type : types.CREATE_BOTELLA , Botella };
+  return function(dispatch){
+    return BotellaApi
+      .crearBotella(data)
+      .then(Botella => {
+        dispatch({type : types.CREATE_BOTELLA , Botella})
+      })
+      .catch(error => {
+        throw error;
+      });
+  };
 }
 
 export function loadBotellaSuccess(Botellas) {
