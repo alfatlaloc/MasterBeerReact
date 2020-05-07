@@ -13,10 +13,10 @@ export function getBotellas() {
 export function crearBotella(formData){
   let headers = {
     method: 'POST',
-    'Content-Type' : "application/json",
-    body: formData
+    body:formData
   };
   return fetch(baseUrl,headers)
   .then(handleResponse)
   .catch(handleError);
 }
+

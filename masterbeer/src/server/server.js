@@ -6,10 +6,21 @@ const app = express();
 const port = 8080;
 
 app.use(
-    express.json(),
     cors(),
-    bodyParser()
+    bodyParser(),
+    bodyParser.urlencoded({ extended: false })
 );
+
+app.use(express.json({
+    type: ['application/json', 'text/plain']
+  }))
+
+  app.options('*', (req, res) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type'); // Add other headers here
+    res.setHeader('Access-Control-Allow-Methods', 'POST'); // Add other methods here
+    res.send();
+  });
 
 app.listen(port,console.log("listening on port ",port));
 

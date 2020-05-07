@@ -2,9 +2,11 @@ const express = require('express')
 const router = express.Router();
 const BotellaM = require('../Models/BotellaModel');
 
+const bp = require('body-parser').urlencoded({ extended: false});
 // Getting all
 //Obtiene todas las botellas de la BD
 router.get('/', async (req, res) => {
+  console.log("RES"+req.body);
     try {
       const botellas = await BotellaM.find()
       res.json(botellas)
@@ -14,8 +16,8 @@ router.get('/', async (req, res) => {
   })
 
     // Creating one
-    router.post('/', async (req, res) => {
-      console.log(req.body.Nombre);
+    router.post('/',bp ,async (req, res) => {
+      console.log("req"+req.body.Nombre);
       const botella = new BotellaM({
         Nombre: req.body.Nombre,
         Marca: req.body.Marca,
