@@ -1,13 +1,16 @@
-import React from 'react';
+import React,{useEffect, useReducer} from 'react';
 
-class Creador extends React.Component{
-    render(){
-        return(
+function Creador (){
+
+    useEffect(() => {
+        
+    });
+
+    return(
             <div>
                 Creador hello world
             </div>
         );
-    }
 }
 
 export default Creador;
