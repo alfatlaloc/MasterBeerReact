@@ -31,6 +31,7 @@ export function saveUsuario(Usuario) {
   return fetch(`${baseUrl}?`, {
     method: Usuario.Correo ? "PUT" : "POST", // POST for create, PUT to update when id already exists.
     headers: { "content-type": "application/json" },
+    mode:"no-cors",
     body: JSON.stringify(Usuario)
   })
     .then(handleResponse)

@@ -29,3 +29,6 @@ app.use('/Usuario', UsuarioRoutes);
 
 const BotellaRoutes = require('./Routes/Botella');
 app.use('/Botella',BotellaRoutes);
+
+const IngredienteRoutes = require('./Routes/Ingrediente');
+app.use('/Ingrediente',IngredienteRoutes);

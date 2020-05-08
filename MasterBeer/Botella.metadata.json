@@ -1,0 +1,1 @@
+{"options":{},"indexes":[{"v":{"$numberInt":"2"},"key":{"_id":{"$numberInt":"1"}},"name":"_id_","ns":"MasterBeer.Botella"}],"uuid":"89c0c9b137ed4b369432dbb185c1d858"}
