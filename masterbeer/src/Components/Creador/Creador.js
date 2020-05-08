@@ -4,7 +4,7 @@ class Creador extends React.Component{
     render(){
         return(
             <div>
-                Creador
+                Creador hello world
             </div>
         );
     }
