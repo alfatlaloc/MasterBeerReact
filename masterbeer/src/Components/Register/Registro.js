@@ -22,12 +22,13 @@ function Registro() {
       Correo: "",
       Fecha: "YYYY-mm-dd",
       Contrasena: "",
-      ContrasenaC: "",
       RFC: "",
+      Tipo:"USER"
     }
   );
 
-  const { TyC, setTyC } = useState(false);
+  const [ TyC, setTyC ] = useState(false);
+  const [contrasenaC,setContrasenaC] = useState("");
 
   const handleChange = (evt) => {
     const name = evt.target.name;
@@ -37,8 +38,11 @@ function Registro() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(crearUsuario(JSON.stringify(usuarioInput)));
-  };
+    if(usuarioInput.Contrasena === contrasenaC)
+      dispatch(crearUsuario(JSON.stringify(usuarioInput)));
+    else
+      alert("Password not match");
+    };
 
   return (
     <Container className="Register">
@@ -54,6 +58,7 @@ function Registro() {
               value={usuarioInput.Nombre}
               type="text"
               onChange={handleChange}
+              required
             />
           </FormGroup>
         </Col>
@@ -68,6 +73,7 @@ function Registro() {
               type="email"
               value={usuarioInput.Correo}
               onChange={handleChange}
+              required
             />
           </FormGroup>
         </Col>
@@ -82,6 +88,7 @@ function Registro() {
               value={usuarioInput.Fecha}
               type="date"
               onChange={handleChange}
+              required
             />
           </FormGroup>
         </Col>
@@ -96,6 +103,7 @@ function Registro() {
               value={usuarioInput.Contraseña}
               type="password"
               onChange={handleChange}
+              required
             />
           </FormGroup>
         </Col>
@@ -106,9 +114,10 @@ function Registro() {
             <Input
               name="ContrasenaC"
               className="inputFormMB"
-              value={usuarioInput.ContrasenaC}
+              value={contrasenaC}
               type="password"
-              onChange={handleChange}
+              onChange={e => setContrasenaC(e.target.value)}
+              required
             />
           </FormGroup>
         </Col>
@@ -123,6 +132,7 @@ function Registro() {
               value={usuarioInput.RFC}
               type="text"
               onChange={handleChange}
+              required
             />
           </FormGroup>
         </Col>
@@ -133,13 +143,14 @@ function Registro() {
               id="condiciones"
               name="condiciones"
               onClick={() => setTyC(!TyC)}
+              required
             />
             Aceptas terminos y condiciones
           </FormGroup>
         </Col>
 
         <Button type="submit" className="submitInsertButton">
-          Agregar al almacén!
+          Registrame!
         </Button>
       </Form>
     </Container>

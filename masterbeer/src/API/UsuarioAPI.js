@@ -10,6 +10,16 @@ export function getUsuarios() {
     .catch(handleError);
 }
 
+export function crearUsuario(Data){
+  let headers = {
+    method: 'POST',
+    body:Data
+  };
+  return fetch(baseUrl,headers)
+  .then(handleResponse)
+  .catch(handleError);
+}
+
 export function getUserByCorreo(Correo,Contraseña){
   console.log(`${baseUrl}?${new URLSearchParams({Correo}).toString()}`);
   return fetch(`${baseUrl}?${new URLSearchParams({Correo}).toString()}&${new URLSearchParams({Contraseña}).toString()}`)

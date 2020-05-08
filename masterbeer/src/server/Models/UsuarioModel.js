@@ -18,10 +18,6 @@ const UsuarioSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  Apellido: {
-    type: String,
-    required: true,
-  },
   RFC: {
     type: String,
     required: false,
@@ -30,6 +26,11 @@ const UsuarioSchema = new mongoose.Schema({
     type: Date,
     required: true,
   },
+  Tipo: {
+    type: String,
+    required: true,
+  }
+
 });
 
 module.exports.Usuario = mongoose.model("Usuario", UsuarioSchema, "Usuario");

@@ -25,10 +25,6 @@ const AdministradorSchema = new mongoose.Schema({
   Fecha: {
     type: Date,
     required: true,
-  },
-  Sueldo: {
-    type: Number,
-    required: true,
   }
 })
 
