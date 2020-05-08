@@ -20,7 +20,7 @@ function Registro() {
     {
       Nombre: "",
       Correo: "",
-      Fecha: "YYYY-mm-dd",
+      Fecha: "dd-mm-YYYY",
       Contrasena: "",
       RFC: "",
       Tipo:"USER"
