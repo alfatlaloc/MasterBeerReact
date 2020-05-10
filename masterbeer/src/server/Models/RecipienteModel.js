@@ -8,8 +8,9 @@ const RecipienteSchema = new mongoose.Schema({
     required: true
   },
   Volumen: {
-    type: Number,
-    required: true
+    Cantidad: {type: Number,required:true},
+    Unidad: {type:String,required:true},
+    required:true
   },
   Material: {
     type: String,
@@ -17,6 +18,7 @@ const RecipienteSchema = new mongoose.Schema({
   },
   Stock: {
     type: Number,
+    min:0,
     required: true,
   }
 })

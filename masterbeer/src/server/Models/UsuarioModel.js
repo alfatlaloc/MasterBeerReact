@@ -16,10 +16,13 @@ const UsuarioSchema = new mongoose.Schema({
   },
   Contrasena: {
     type: String,
+    minlength: 6,
     required: true,
   },
   RFC: {
     type: String,
+    minlength:12,
+    maxlength:13,
     required: false,
   },
   Fecha: {

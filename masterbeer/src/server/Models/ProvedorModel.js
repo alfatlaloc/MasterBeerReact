@@ -9,6 +9,9 @@ const ProvedoresSchema = new mongoose.Schema({
   },
   RFC: {
     type: String,
+    unique: true,
+    min:12,
+    max:13,
     required: true
   }
 })

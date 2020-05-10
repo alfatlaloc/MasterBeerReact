@@ -4,6 +4,7 @@ mongoose.connect("mongodb://localhost:27017/MasterBeer", { useNewUrlParser: true
 const BartenderSchema = new mongoose.Schema({
     Correo: {
         type: String,
+        unique: true,
         required: true
       },
       Nombre: {
@@ -12,6 +13,7 @@ const BartenderSchema = new mongoose.Schema({
       },
       Contraseña: {
         type: String,
+        minlength: 6,
         required: true,
       },
       Apellido: {
@@ -20,6 +22,8 @@ const BartenderSchema = new mongoose.Schema({
       },
       RFC: {
         type: String,
+        minlength:12,
+        maxlength:13,
         required: true,
       },
       Fecha: {

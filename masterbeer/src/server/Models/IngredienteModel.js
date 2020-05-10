@@ -5,6 +5,7 @@ mongoose.connect("mongodb://localhost:27017/MasterBeer",{useNewUrlParser: true, 
 const IngredienteSchema = new mongoose.Schema({
   Nombre: {
     type: String,
+    unique: true,
     required: true
   },
   Tipo: {
@@ -16,11 +17,13 @@ const IngredienteSchema = new mongoose.Schema({
     required: true
   },
   Volumen: {
-    type: String,
-    required: true
+    Cantidad: {type: Number,required:true},
+    Unidad: {type:String,required:true},
+    required:true
   },
   Stock: {
     type: Number,
+    min:0,
     required: true,
   }
 })
