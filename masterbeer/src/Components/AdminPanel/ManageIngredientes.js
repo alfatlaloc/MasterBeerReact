@@ -40,8 +40,8 @@ function ManageIngredientes({Nombre}){
         dispatch(crearIngrediente(JSON.stringify(ingredienteInput)));
       };
     return(
-        <Container className="botellaForm">
-        <Form id="botellaForm" onSubmit={handleSubmit}>
+        <Container className="ingredienteForm">
+        <Form id="ingredienteForm" onSubmit={handleSubmit}>
           <Col>
             <FormGroup className="formCont">
               <Label htmlFor="Nombre">Nombre </Label>
@@ -49,7 +49,7 @@ function ManageIngredientes({Nombre}){
               <Input
                 className="inputFormMB"
                 name="Nombre"
-                value={botellaInput.Nombre}
+                value={ingredienteInput.Nombre}
                 type="text"
                 onChange={handleChange}
               />
@@ -64,7 +64,7 @@ function ManageIngredientes({Nombre}){
                 className="inputFormMB"
                 name="Marca"
                 type="text"
-                value={botellaInput.Marca}
+                value={ingredienteInput.Marca}
                 onChange={handleChange}
               />
             </FormGroup>
@@ -77,7 +77,7 @@ function ManageIngredientes({Nombre}){
               <Input
                 name="Precio"
                 className="inputFormMB"
-                value={botellaInput.Precio}
+                value={ingredienteInput.Precio}
                 type="text"
                 onChange={handleChange}
               />
@@ -91,7 +91,7 @@ function ManageIngredientes({Nombre}){
               <Input
                 name="Stock"
                 className="inputFormMB"
-                value={botellaInput.Stock}
+                value={ingredienteInput.Stock}
                 type="text"
                 onChange={handleChange}
               />
@@ -104,7 +104,7 @@ function ManageIngredientes({Nombre}){
               <Input
                 name="Desc"
                 className="inputFormMB"
-                value={botellaInput.Desc}
+                value={ingredienteInput.Desc}
                 type="text"
                 onChange={handleChange}
               />
@@ -118,7 +118,7 @@ function ManageIngredientes({Nombre}){
               <Input
                 name="Tipo"
                 className="inputFormMB"
-                value={botellaInput.Tipo}
+                value={ingredienteInput.Tipo}
                 type="text"
                 onChange={handleChange}
               />
@@ -132,27 +132,14 @@ function ManageIngredientes({Nombre}){
               <Input
                 name="Contenido_N"
                 className="inputFormMB"
-                value={botellaInput.Contenido_N}
+                value={ingredienteInput.Contenido_N}
                 type="text"
                 onChange={handleChange}
               />
             </FormGroup>
           </Col>
   
-          <Col>
-            <FormGroup className="formCont">
-              <Label htmlFor="Volumen_A">Volumen de Alcohol </Label>
-              <br></br>
-              <Input
-                name="Volumen_A"
-                className="inputFormMB"
-                value={botellaInput.Volumen_A}
-                type="text"
-                onChange={handleChange}
-              />
-            </FormGroup>
-          </Col>
-  
+          
           <Col>
             <FormGroup className="formCont">
               <Label htmlFor="volBP">Volumen BP</Label>
@@ -160,7 +147,7 @@ function ManageIngredientes({Nombre}){
               <Input
                 name="volBP"
                 className="inputFormMB"
-                value={botellaInput.volBP}
+                value={ingredienteInput.volBP}
                 type="text"
                 onChange={handleChange}
               />
