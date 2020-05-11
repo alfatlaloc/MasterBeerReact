@@ -9,6 +9,8 @@ import './css/AdminPanel.css';
 import './css/Modal.css';
 import './css/AdminPanelForms/BotellaManagerForm.css';
 import './css/ScrollBar.css';
+import './css/Carrito.css';
+
 import App from './Components/App';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter as Router } from "react-router-dom";

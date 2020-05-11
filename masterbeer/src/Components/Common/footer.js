@@ -1,54 +1,63 @@
-import React from 'react';
-import '../../css/NavBar.css';
-const Footer = () => (
-    <footer className="footerMB font-small pt-4">
-      <div className="container-fluid text-center text-md-left">
-        <div className="row">
-          <div className="col-md-6 mt-md-0 mt-3">
-            <h5 className="text-uppercase">`Footer Content`</h5>
-            <p>Here you can use rows and columns to organize your footer content.</p>
+import React from "react";
+import "../../css/NavBar.css";
+function Footer() {
+  function handleChange(event) {
+    event.precentDefault();
+  }
+  return (
+    <footer className="footerMB font-small justify-content-center">
+      <div className="row">
+        {/* A JSX sahsahjashjsaj comment */}
+        <div className="col-4">
+          <h5 className="text-uppercase">`Footer Content`</h5>
+          <p>
+            Here you can use rows and columns to organize your footer content.
+          </p>
+        </div>
+        <div className="footerInformation col-8">
+          <div className="">
+            <i className="">Tokio, Japón</i>
+            <i className="">Phone: +00 151515</i>
+            <i className="">Email: mail@mail.com </i>
           </div>
-          <hr className="clearfix w-100 d-md-none pb-3"></hr>
-          <div className="col-md-3 mb-md-0 mb-3">
-            <h5 className="text-uppercase">Links</h5>
-            <ul className="list-unstyled">
-              <li>
-                <a href="#!">Link 1</a>
-              </li>
-              <li>
-                <a href="#!">Link 2</a>
-              </li>
-              <li>
-                <a href="#!">Link 3</a>
-              </li>
-              <li>
-                <a href="#!">Link 4</a>
-              </li>
-            </ul>
-          </div>
-          <div className="col-md-3 mb-md-0 mb-3">
-            <h5 className="text-uppercase">Links</h5>
-            <ul className="list-unstyled">
-              <li>
-                <a href="#!">Link 1</a>
-              </li>
-              <li>
-                <a href="#!">Link 2</a>
-              </li>
-              <li>
-                <a href="#!">Link 3</a>
-              </li>
-              <li>
-                <a href="#!">Link 4</a>
-              </li>
-            </ul>    
+          <div className="col-8 footerForm">
+            <form onSubmit={handleChange}>
+                <input
+                  className="w3-input w3-border"
+                  type="text"
+                  placeholder="Name"
+                  required
+                  name="Name"
+                ></input>
+                <input
+                  className="w3-input w3-border"
+                  type="text"
+                  placeholder="Email"
+                  required
+                  name="Email"
+                ></input>
+                <input
+                  className="w3-input w3-border"
+                  type="text"
+                  placeholder="Message"
+                  required
+                  name="Message"
+                ></input>
+
+              <button class="footerButton" type="submit">
+                ENVIAR
+              </button>
+            </form>
           </div>
         </div>
       </div>
-      <div className="footer-copyright text-center py-3">© 2020 Copyright:
+      <div className="footer-copyright text-center py-3">
+        © 2020 Copyright:
         <a href="https://masterber.com/"> MasterBeer.com</a>
-      </div>    
+      </div>
+      
     </footer>
   );
+}
 
 export default Footer;
