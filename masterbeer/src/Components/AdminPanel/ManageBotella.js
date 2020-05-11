@@ -3,20 +3,21 @@ import { useSelector, useDispatch } from "react-redux";
 import { Table } from "reactstrap";
 import { loadBotellas } from "../../Redux/Actions/BotellaActions";
 import { newBotella } from "../../API/DefaultObjects/BotellaObject";
-import useModal from "../Common/ModalMB/useModal";
+import useModal from "../Common/ModalMB/useModalObject";
 import Modal from "../Common/ModalMB/Modal";
 import BotellaForm from "../Common/Forms/BotellaForm";
 
-function BotellaTable({ BotellaArray ,isShowing}){
+function BotellaTable({ BotellaArray ,toogle,changeObject}){
+
   return BotellaArray.map((elements) => {
     return (
-      <tr key={elements.Nombre}>
+      <tr key={elements._id}>
         <td>{elements.Nombre}</td>
         <td>{elements.Marca}</td>
         <td>{elements.Precio}</td>
         <td>{elements._id}</td>
         <td>
-          <button onClick={isShowing}>Editar</button>
+          <button onClick={function(event){ toogle(); changeObject(elements)}}>Editar</button>
         </td>
         <td>
 
@@ -33,8 +34,7 @@ const Buscador = () => {
 
 function ManageBotella() {
   const Botellas = useSelector((state) => state.Botellas);
-  const Botella = useSelector(() => newBotella);
-  const { isShowing, toggle } = useModal();
+  const { isShowing, toggle ,Obj,changeObject} = useModal();
 
   const dispatch = useDispatch();
 
@@ -53,19 +53,21 @@ function ManageBotella() {
             <th>Nombre</th>
             <th>Marca</th>
             <th>Precio</th>
+            <th>ID</th>
             <th>MB</th>
           </tr>
         </thead>
         <tbody>
-          <BotellaTable BotellaArray={Botellas}  isShowing={toggle}/>
+          <BotellaTable BotellaArray={Botellas}  toogle={toggle} changeObject={changeObject}/>
         </tbody>
       </Table>
       <button className="button-default" onClick={toggle}>
-        Show Modal
+        Crear Botella
       </button>
       <Modal
         isShowing={isShowing}
         hide={toggle}
+        obj={Obj}
         form={BotellaForm}
         textH={"Editar Botella"}
       />

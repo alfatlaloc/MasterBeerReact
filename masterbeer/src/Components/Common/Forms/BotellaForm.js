@@ -30,9 +30,11 @@ function BotellaForm(Botella) {
     }
   );
   useEffect(() => {
-    if (Botella)
+    if (Botella!==undefined){
       alert("Mandaste una botella");
-    else
+      alert(Botella.Nombre);
+    }
+      else
       alert("Sin botella");
   });
 
