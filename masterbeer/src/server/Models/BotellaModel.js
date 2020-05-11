@@ -1,20 +1,23 @@
-const mongoose = require('mongoose')
+const mongoose = require("mongoose");
 
-mongoose.connect("mongodb://localhost:27017/MasterBeer",{useNewUrlParser: true, useUnifiedTopology: true,}); //Si no existe, se crea
+mongoose.connect("mongodb://localhost:27017/MasterBeer", {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+}); //Si no existe, se crea
 
 const BotellaSchema = new mongoose.Schema({
   Nombre: {
     type: String,
     unique: true,
-    required: true
+    required: true,
   },
   Marca: {
     type: String,
-    required: true
+    required: true,
   },
   Stock: {
     type: Number,
-    min:0,
+    min: 0,
     required: true,
   },
   Precio: {
@@ -23,25 +26,30 @@ const BotellaSchema = new mongoose.Schema({
   },
   Desc: {
     type: String,
-    required: true
+    required: true,
   },
   Contenido_N: {
     type: Number,
-    required: true
+    required: true,
   },
   Tipo: {
     type: String,
-    required: true
+    required: true,
   },
   Volumen_A: {
-    Cantidad: {type: Number,required:true},
-    Unidad: {type:String,required:true},
-    required:true
+    Cantidad: {
+      required: true,
+      type: Number
+    },
+    Unidad: { 
+      required: true,
+      type: String
+    },
   },
   volBP: {
     type: Number,
-    required: true
-  }
-})
+    required: true,
+  },
+});
 
-module.exports = mongoose.model('Botella', BotellaSchema,'Botella')
+module.exports = mongoose.model("Botella", BotellaSchema, "Botella");

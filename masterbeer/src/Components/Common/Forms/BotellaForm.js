@@ -1,4 +1,4 @@
-import React, { useReducer } from "react";
+import React, { useReducer,useEffect} from "react";
 import { useDispatch } from "react-redux";
 import { crearBotella } from "../../../Redux/Actions/BotellaActions";
 
@@ -12,7 +12,7 @@ import {
   Button,
 } from "reactstrap";
 
-function BotellaForm() {
+function BotellaForm(Botella) {
   const dispatch = useDispatch();
 
   const [botellaInput, setBotellaInput] = useReducer(
@@ -29,6 +29,12 @@ function BotellaForm() {
       volBP: 0,
     }
   );
+  useEffect(() => {
+    if (Botella)
+      alert("Mandaste una botella");
+    else
+      alert("Sin botella");
+  });
 
   const handleChange = (evt) => {
     const name = evt.target.name;

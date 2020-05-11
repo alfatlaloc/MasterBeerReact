@@ -7,17 +7,22 @@ import useModal from "../Common/ModalMB/useModal";
 import Modal from "../Common/ModalMB/Modal";
 import BotellaForm from "../Common/Forms/BotellaForm";
 
-const BotellaTable = ({ BotellaArray }) => {
+function BotellaTable({ BotellaArray ,isShowing}){
   return BotellaArray.map((elements) => {
     return (
       <tr key={elements.Nombre}>
         <td>{elements.Nombre}</td>
         <td>{elements.Marca}</td>
         <td>{elements.Precio}</td>
+        <td>{elements._id}</td>
         <td>
-          <button>Editar</button>
+          <button onClick={isShowing}>Editar</button>
+        </td>
+        <td>
+
         </td>
       </tr>
+
     );
   });
 };
@@ -37,6 +42,7 @@ function ManageBotella() {
     if (Botellas.length === 0) dispatch(loadBotellas());
   });
 
+
   return (
     <div className="ManageBotella" id="ManageBotella">
       <h2>Manage Botellas</h2>
@@ -51,7 +57,7 @@ function ManageBotella() {
           </tr>
         </thead>
         <tbody>
-          <BotellaTable BotellaArray={Botellas} />
+          <BotellaTable BotellaArray={Botellas}  isShowing={toggle}/>
         </tbody>
       </Table>
       <button className="button-default" onClick={toggle}>
@@ -61,7 +67,7 @@ function ManageBotella() {
         isShowing={isShowing}
         hide={toggle}
         form={BotellaForm}
-        textH={"Agregar Botella"}
+        textH={"Editar Botella"}
       />
     </div>
   );

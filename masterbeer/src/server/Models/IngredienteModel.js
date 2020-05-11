@@ -18,8 +18,7 @@ const IngredienteSchema = new mongoose.Schema({
   },
   Volumen: {
     Cantidad: {type: Number,required:true},
-    Unidad: {type:String,required:true},
-    required:true
+    Unidad: {type:String,required:true}
   },
   Stock: {
     type: Number,
