@@ -1,15 +1,13 @@
 .footerMB{
     color:white;
-    background-color: yellowgreen;
+    width: auto;
+    background-color: #259b39;
     height: 250px;
 }
 
 .footerInformation input
 {
-    width:150px;
     margin-bottom: 5px;
-    margin-left: 10px;
-    margin-right: 0px;
 
 }
 

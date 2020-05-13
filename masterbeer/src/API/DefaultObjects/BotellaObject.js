@@ -1,10 +1,17 @@
 
 const newBotella = {
-    Nombre: "rolllo",
-    PreviuosName: "",
+    Nombre: "",
     Marca: "",
-    Precio: null,
-    Stock:null
+    Precio: 0,
+    Stock: 0,
+    Desc: "",
+    Tipo: "",
+    Volumen_A: 0,
+    Contenido_N:{
+        Cantidad:0,
+        Unidad:""
+    },
+    volBP: 0
   };
 
   module.exports = {

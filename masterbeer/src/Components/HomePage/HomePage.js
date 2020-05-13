@@ -1,7 +1,7 @@
 import React from "react";
 import { Jumbotron, Button } from 'reactstrap';
 import '../../css/Home.css';
-import promo1 from '../../img/Masterbeerpromo.png';
+import promo1 from '../../img/Masterbeer promo.png';
 
 const HomePage = () => (
   <div>

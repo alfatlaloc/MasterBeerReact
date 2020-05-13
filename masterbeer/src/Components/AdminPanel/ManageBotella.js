@@ -7,7 +7,7 @@ import useModal from "../Common/ModalMB/useModalObject";
 import Modal from "../Common/ModalMB/Modal";
 import BotellaForm from "../Common/Forms/BotellaForm";
 
-function BotellaTable({ BotellaArray ,toogle,changeObject}){
+function BotellaTable({ BotellaArray ,toggle,changeObject}){
 
   return BotellaArray.map((elements) => {
     return (
@@ -17,7 +17,7 @@ function BotellaTable({ BotellaArray ,toogle,changeObject}){
         <td>{elements.Precio}</td>
         <td>{elements._id}</td>
         <td>
-          <button onClick={function(event){ toogle(); changeObject(elements)}}>Editar</button>
+          <button onClick={function(event){ toggle(); changeObject(elements)}}>Editar</button>
         </td>
         <td>
 
@@ -47,6 +47,9 @@ function ManageBotella() {
     <div className="ManageBotella" id="ManageBotella">
       <h2>Manage Botellas</h2>
       <Buscador />
+      <button className="buttonAddBotella" onClick={function(event){ toggle(); changeObject(newBotella)}}>
+        Crear Botella
+      </button>
       <Table dark className="col">
         <thead>
           <tr>
@@ -58,12 +61,10 @@ function ManageBotella() {
           </tr>
         </thead>
         <tbody>
-          <BotellaTable BotellaArray={Botellas}  toogle={toggle} changeObject={changeObject}/>
+          <BotellaTable BotellaArray={Botellas}  toggle={toggle} changeObject={changeObject}/>
         </tbody>
       </Table>
-      <button className="button-default" onClick={toggle}>
-        Crear Botella
-      </button>
+
       <Modal
         isShowing={isShowing}
         hide={toggle}

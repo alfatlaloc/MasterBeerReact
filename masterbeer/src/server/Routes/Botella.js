@@ -27,6 +27,7 @@ router.get('/', async (req, res) => {
         Contenido_N: req.body.Contenido_N,
         Tipo: req.body.Tipo,
         Volumen_A: req.body.Volumen_A,
+
         volBP:req.body.volBP
       })
       try {
