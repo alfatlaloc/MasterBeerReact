@@ -6,21 +6,18 @@ function Footer() {
   }
   return (
     <footer className="footerMB font-small justify-content-center">
+      <h5 className="text-uppercase">CONTACTO</h5>
+      <p>¿Tienes alguna duda, queja o sugerencia? Contáctanos.</p>
       <div className="row">
         {/* A JSX sahsahjashjsaj comment */}
-        <div className="col-4">
-          <h5 className="text-uppercase">`Footer Content`</h5>
-          <p>
-            Here you can use rows and columns to organize your footer content.
-          </p>
+        <div className="footerDatos col-6 ">
+          <p>México, Ciudad de México</p>
+          <p>Teléfono: (55) 15151515</p>
+          <p>Email: clientes@masterbeer.com</p>
         </div>
-        <div className="footerInformation col-8">
-          <div className="">
-            <i className="">Tokio, Japón</i>
-            <i className="">Phone: +00 151515</i>
-            <i className="">Email: mail@mail.com </i>
-          </div>
-          <div className="col-8 footerForm">
+        <div className="footerInformation col-6">
+          
+          <div className="col-9  footerForm">
             <form onSubmit={handleChange}>
                 <input
                   className="w3-input w3-border"
@@ -44,7 +41,7 @@ function Footer() {
                   name="Message"
                 ></input>
 
-              <button class="footerButton" type="submit">
+              <button className="footerButton" type="submit">
                 ENVIAR
               </button>
             </form>

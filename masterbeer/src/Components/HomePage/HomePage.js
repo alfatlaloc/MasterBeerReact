@@ -1,7 +1,7 @@
 import React from "react";
 import { Jumbotron, Button } from 'reactstrap';
 import '../../css/Home.css';
-import promo1 from '../../img/promo1.png';
+import promo1 from '../../img/Masterbeerpromo.png';
 
 const HomePage = () => (
   <div>
@@ -16,13 +16,24 @@ const HomePage = () => (
           <Button color="primary">Learn More</Button>
         </p>
       </Jumbotron>
-      <Promocionales />
+      <div className="homeInfo">
+        <Promocionales />
+        <h2>¿Quiénes somos?</h2>
+        <h5 className="homeText">Aplicación web para administración y apoyo a bares, la cual permite a los clientes ordenar antes de su llegada 
+          o durante su estancia en el bar. También permite generar tragos personalizados, en los cuales el cliente podrá 
+          escoger los ingredientes, las cantidades  y las proporciones de estos. También se podra escoger la medida del trago 
+          y la presentación a preparar. Añadido a esto contamos con servicio a domicilio.
+        </h5>
+
+      </div>
+      
+      
   </div>
 );
 
 const Promocionales = () =>(
   <div className="Promocionales">
-    <img src={promo1} style={{maxWidth:"95%"}} alt=""></img>
+    <img src={promo1} style={{maxWidth:"40%"}} alt="" ></img>
   </div>
 );
 

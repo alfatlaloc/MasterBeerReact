@@ -1,27 +1,31 @@
 .footerMB{
     color:white;
-    background-color: #D79922;
+    background-color: yellowgreen;
+    height: 250px;
 }
 
 .footerInformation input
 {
-    width:200px;
+    width:150px;
     margin-bottom: 5px;
     margin-left: 10px;
+    margin-right: 0px;
+
 }
 
+/*.footerInformation input:hover{
+    background-color: rgb(red, green, blue);
+}*/
 
-.footerInformation input:hover{
-    background-color: blue;
+/*.footerInputs{
+   /* display: -moz-inline-grid*/
+   /* display: inline-table;
 }
 
-.footerInputs{
-    display: inline-flex;
-}
 
 .footerInputs input{
-    display: inline-flex;
-}
+    display: inline-table;
+}*/
 
 .footerForm{
     margin:0 -16px 8px -16px;
@@ -32,6 +36,7 @@
     width: 200px;
     border-radius: 20px;
     background-color: royalblue;
+    margin-top: 10px;
     border:0px;
 }
 

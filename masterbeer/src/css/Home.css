@@ -4,9 +4,21 @@
     display: block;
     color: white;
 }
-
+.homeText{
+    justify-content: center;
+    margin-bottom: 30px;
+    
+}
+.homeInfo{
+    width: 800px;
+    margin-left: 350px;
+}
 .Promocionales
 {
     background:white;
     margin-bottom: 20px;
+    align-self: left;
+}
+.promo{
+    border-start-end-radius: 10px;
 }
