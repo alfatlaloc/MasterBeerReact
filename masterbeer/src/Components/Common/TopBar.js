@@ -25,7 +25,6 @@ const TopBar = () => {
           <Collapse className="" isOpen={isOpen} navbar>
             <Nav className="mr-auto" navbar>
                 <NavLink className="navItemMB" href="/Catalogo"><p>Catálogo</p></NavLink>
-                <NavLink className="navItemMB" href="/About"><p>Sobre el Proyecto</p></NavLink>
                 <NavLink className="navItemMB" href="/Login"><p>Login</p></NavLink>
             </Nav>
             <NavbarText style={{ color: 'white' }}>Buenos tragos buenos momentos</NavbarText>
