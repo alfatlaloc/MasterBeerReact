@@ -1,24 +1,118 @@
 .HomeBackground
 {
     background-image: url("../img/Home.jpg");
-    display: block;
+    /*display: block;*/
+    height: 700px;
+    /*width: fit-content;*/
     color: white;
 }
+.display-3{
+    margin-top: 100px;
+}
+.lead{
+    margin-top: 100px;
+}
+.QuienesSomos{
+    background-image: url("../img/quienesSomos.jpg");
+    /*display: block;*/
+    height: 700px;
+    color: white;
+}
+.info{
+    margin-top: 150px;
+}
+.promo{
+    margin-top: 90px;
+}
 .homeText{
+    margin-right: 30px;  
+}
+.delimitacion{
+    background-image: url("../img/Delimitacion.jpeg");
+    height:700px;
+    width: fit-content;
+    color:white;
+}
+.delimit{
     justify-content: center;
-    margin-bottom: 30px;
+    /*align-content: center;*/
+    margin-top: 200px;
+}
+.funciones{
+    background-image: url("../img/funciones.jpg");
+    height: fit-content;
+    color: white;
     
 }
-.homeInfo{
-    width: 800px;
-    margin-left: 350px;
+.flip-container{
+    -webkit-perspective: 1000px;
+    perspective: 1000px;
+    padding: 50px;
+    position: relative;
+    margin: 10px auto;
+    width: 500px;
+}
+.card{
+
+    position: relative;
+    width: 300px;
+    height: 500px;
+    transition: 0.6s;
+    transform-style: preserve-3d;
+    transform-origin: 100% 25px;
+    margin: 5px;
+}
+.card:hover, .card.flip{
+    transform:rotateY(180deg);
+}
+.front, .back{
+    position: absolute;
+    width:100%;
+    height:100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    text-align: center;
+}
+.front{
+    transform: rotateY(0deg);
+    z-index: 2;
+    background-color: #e93e29;
+    color:#FFF;
+    font:1em/1.8em Arial;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.back{
+    transform: rotateY(180deg);
+    background: #D3D4DE; 
+    color:black;
+    font:1em/1.8em Arial;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.objetivos{
+    background-image: url("../img/objetivos.jpg");
+    height: 700px;
+    color: white;
+}
+.tituloObjetivos{
+    margin-top: 90px;
+    margin-bottom: 90px;
+}
+.especificos{
+    margin-top: 90px;
 }
 .Promocionales
 {
-    background:white;
-    margin-bottom: 20px;
-    align-self: left;
+    margin-bottom: 20px; 
 }
-.promo{
-    border-start-end-radius: 10px;
+
+
+/*.text{
+    margin-left: 0px;
 }
+/*.bebidaicon{
+    display: inline;
+}*/
