@@ -16,7 +16,7 @@ class Login extends React.Component{
   //Es para recibier los parametros insertados en el form
     state ={
         Correo: '',
-        Contraseña:''
+        Contrasena:''
     };
 
   handleChange = event => {
@@ -27,8 +27,8 @@ class Login extends React.Component{
   logear = event =>
   {
     event.preventDefault();
-    console.log(this.state.Contraseña);
-    this.props.actions.getUserByCorreo(this.state.Correo,this.state.Contraseña).catch(error => {
+    console.log(this.state.Contrasena);
+    this.props.actions.getUserByCorreo(this.state.Correo,this.state.Contrasena).catch(error => {
       alert("Usuario no Registrado" + error);
     });
   }
@@ -55,9 +55,9 @@ class Login extends React.Component{
             <Label for="examplePassword">Password</Label>
             <Input
               type="password"
-              name="Contraseña"
+              name="Contrasena"
               onChange={this.handleChange}
-              value={this.state.Contraseña}
+              value={this.state.Contrasena}
               placeholder="********"
             />
           </FormGroup>

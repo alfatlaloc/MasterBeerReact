@@ -20,9 +20,9 @@ export function crearUsuario(Data){
   .catch(handleError);
 }
 
-export function getUserByCorreo(Correo,Contraseña){
+export function getUserByCorreo(Correo,Contrasena){
   console.log(`${baseUrl}?${new URLSearchParams({Correo}).toString()}`);
-  return fetch(`${baseUrl}?${new URLSearchParams({Correo}).toString()}&${new URLSearchParams({Contraseña}).toString()}`)
+  return fetch(`${baseUrl}?${new URLSearchParams({Correo}).toString()}&${new URLSearchParams({Contrasena}).toString()}`)
   .then(handleResponse)
   .catch(handleResponse);
 }

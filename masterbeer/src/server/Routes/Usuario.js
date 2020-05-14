@@ -5,7 +5,9 @@ const Usuario = require("../Models/UsuarioModel").Usuario;
 // Getting all
 
 router.get("/", async (req, res) => {
-  if (req.query.Correo && req.query.Contraseña) loginUser(req, res);
+  if (req.query.Correo && req.query.Contrasena) {
+    loginUser(req, res);
+  }
   else {
     try {
       const usuarios = await Usuario.find();
@@ -88,17 +90,20 @@ async function getUsuario(req, res, next) {
 async function loginUser(req, res) {
   try {
     const usuario = await Usuario.findOne({ Correo: req.query.Correo });
+    console.log(req.query.Correo);
+    //res.Usuario=usuario;
     if (usuario == null)
       return res.status(404).json({ message: "Usuario no registrado" });
+    console.log(usuario.Contrasena);
+    if (req.query.Contrasena === usuario.Contrasena) 
+      console.log("Logueado");
+    else
+      console.log("Error pass");
+    
+      res.json(usuario);
   } catch (err) {
     return res.status(500).json({ message: err.message });
   }
-  console.log(usuario.Contraseña);
-  //res.Usuario=usuario;
-  if (req.query.Contraseña === usuario.Contraseña) console.log("Logueado");
-  else console.log("Error pass");
-
-  res.json(usuario);
 }
 
 module.exports = router;

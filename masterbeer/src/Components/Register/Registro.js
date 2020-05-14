@@ -8,7 +8,7 @@ import {
   Form,
   FormGroup,
   Label,
-  Input,
+  input,
   Button,
 } from "reactstrap";
 
@@ -45,14 +45,15 @@ function Registro() {
     };
 
   return (
-    <Container className="Register">
+    <div className="row no-gutters justify-content-center" >
+      
+      <Form onSubmit={handleSubmit} className="maxdivCont" id="Register">
       <h2>Formulario de Registro</h2>
-      <Form onSubmit={handleSubmit} className="form maxdivCont Register">
         <Col>
           <FormGroup className="formCont">
             <Label htmlFor="Nombre">Nombre o Alias</Label>
             <br></br>
-            <Input
+            <input
               className="inputFormMB"
               name="Nombre"
               value={usuarioInput.Nombre}
@@ -67,7 +68,7 @@ function Registro() {
           <FormGroup className="formCont">
             <Label htmlFor="Correo">Email </Label>
             <br></br>
-            <Input
+            <input
               className="inputFormMB"
               name="Correo"
               type="email"
@@ -82,7 +83,7 @@ function Registro() {
           <FormGroup className="formCont">
             <Label htmlFor="Fecha">Fecha de Nacimiento </Label>
             <br></br>
-            <Input
+            <input
               name="Fecha"
               className="inputFormMB"
               value={usuarioInput.Fecha}
@@ -97,7 +98,7 @@ function Registro() {
           <FormGroup className="formCont">
             <Label htmlFor="Contrasena">Contraseña </Label>
             <br></br>
-            <Input
+            <input
               name="Contrasena"
               className="inputFormMB"
               value={usuarioInput.Contraseña}
@@ -111,7 +112,7 @@ function Registro() {
           <FormGroup className="formCont">
             <Label htmlFor="ContrasenaC">Confirmar Contraseña </Label>
             <br></br>
-            <Input
+            <input
               name="ContrasenaC"
               className="inputFormMB"
               value={contrasenaC}
@@ -126,7 +127,7 @@ function Registro() {
           <FormGroup className="formCont">
             <Label htmlFor="RFC">RFC</Label>
             <br></br>
-            <Input
+            <input
               name="RFC"
               className="inputFormMB"
               value={usuarioInput.RFC}
@@ -138,7 +139,7 @@ function Registro() {
         </Col>
         <Col>
           <FormGroup className="formCont">
-            <Input
+            <input
               type="checkbox"
               id="condiciones"
               name="condiciones"
@@ -153,7 +154,7 @@ function Registro() {
           Registrame!
         </Button>
       </Form>
-    </Container>
+    </div>
   );
 }
 

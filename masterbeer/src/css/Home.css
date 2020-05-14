@@ -6,6 +6,10 @@
     /*width: fit-content;*/
     color: white;
 }
+
+#jumboHome{
+    margin-bottom: 0;
+}
 .display-3{
     margin-top: 20px;
 }
@@ -13,7 +17,7 @@
     margin-top: 20px;
 }
 .QuienesSomos{
-    background:#575555ad;
+    background:#249b9f;
     /*display: block;*/
     height: auto;
     color: white;

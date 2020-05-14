@@ -29,8 +29,17 @@ export function loadBotellas() {
   };
 }
 
-export function eliminarBotella(_id) {
-  alert(_id);
+export function eliminarBotellaO(Botella) {
+  return { type: types.ELIMINAR_BOTELLA,Botella};
+}
+
+export function eliminarBotella(Botella) {
+  return function (dispatch) {
+    dispatch(eliminarBotellaO(Botella));
+    return BotellaApi.eliminarBotella(Botella._id);
+  }
+}
+/*export function eliminarBotella(_id) {
   return function (dispatch) {
     return BotellaApi.eliminarBotella(_id)
       .then((Botella) => {
@@ -40,4 +49,4 @@ export function eliminarBotella(_id) {
         throw error;
       });
   };
-}
+}*/

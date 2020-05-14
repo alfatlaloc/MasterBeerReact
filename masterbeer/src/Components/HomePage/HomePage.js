@@ -9,7 +9,7 @@ import mundo from "../../img/icons/mundo.png";
 
 const HomePage = () => (
   <React.Fragment>
-    <Jumbotron className="HomeBackground">
+    <Jumbotron className="HomeBackground" id="jumboHome">
       <h1 className="display-3">Hola, bienvenido!</h1>
       <h5 className="lead ">
         {" "}

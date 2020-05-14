@@ -47,6 +47,8 @@
   .inputFormMB{
     width: 500px;
     height: 45px;
+    resize: horizontal;
+    outline:none;
     border-color: grey;
     border-radius: 10px;
   }

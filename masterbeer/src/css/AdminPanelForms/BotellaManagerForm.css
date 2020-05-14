@@ -1,38 +1,56 @@
-
-.BotellaMForm{
-    max-height: 100vh;
+.BotellaMForm {
+  max-height: 100vh;
 }
 
-.inputFormMB{
-    max-height: 100vh;
-    text-align: center;
+.inputFormMB {
+  max-height: 100vh;
+  text-align: center;
 }
 
-.ManageBotella{
-    background-color: #e8eefc;
+.ManageBotella {
+  background-color: #e8eefc;
 }
 
-.buttonAddBotella{
-    border-color: #3498db;
-    color: #fff;
-    box-shadow: 0 0 40px 40px #3498db inset, 0 0 0 0 #3498db;
-    transition: all 150ms ease-in-out;
+.buttonAddBotella {
+  border-color: #3498db;
+  color: #fff;
+  box-shadow: 0 0 40px 40px #3498db inset, 0 0 0 0 #3498db;
+  transition: all 150ms ease-in-out;
+  border-radius: 10px;
+  width: 200px;
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+
+.editarBotellaButton {
+  background-color: grey;
+  border-radius: 10px;
+  margin: 5px;
+  padding: 5px;
+  border: 0;
+  color: white;
+}
+
+.eliminarBotellaButton {
+    background-color: red;
     border-radius: 10px;
-    width: 200px;
-    margin-bottom: 20px;
-    font-size: 20px;
+    margin: 5px;
+    padding: 5px;
+    border: 0;
+    color: white;
+  }
+
+
+.buttonAddBotella:hover {
+  box-shadow: 0 0 10px 0 #3498db inset, 0 0 10px 4px #3498db;
+  color: black;
 }
 
-.buttonAddBotella:hover{
-    box-shadow: 0 0 10px 0 #3498db inset, 0 0 10px 4px #3498db;
-    color: black;
-}
-
-.formCont select{
-    display:flexbox;
-    margin-top: 8px;
-    border-radius: 10px;
-    background-color: white;
-    width: 50px;
-    height: 30px;
+.formCont select {
+  display: flexbox;
+  margin-top: 8px;
+  border-radius: 10px;
+  background-color: white;
+  width: 50px;
+  height: 30px;
 }

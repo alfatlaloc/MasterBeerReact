@@ -18,9 +18,9 @@ function BotellaTable({ BotellaArray ,toggle,changeObject}){
         <td>{elements.Precio}</td>
         <td>{elements._id}</td>
         <td>
-          <button onClick={function(event){ toggle(); changeObject(elements)}}>Editar</button>
+          <button className="editarBotellaButton"onClick={function(event){ toggle(); changeObject(elements)}}>Editar</button>
           <button className="eliminarBotellaButton"
-          onClick={function(event){ dispatch(eliminarBotella(elements._id));}}>ELIMINAR</button>
+          onClick={function(event){ dispatch(eliminarBotella(elements));}}>ELIMINAR</button>
         </td>
         <td>
 
@@ -53,6 +53,7 @@ function ManageBotella() {
       <button className="buttonAddBotella" onClick={function(event){ toggle(); changeObject(newBotella)}}>
         Crear Botella
       </button>
+      <div class="container ">
       <Table dark className="col">
         <thead>
           <tr>
@@ -67,7 +68,7 @@ function ManageBotella() {
           <BotellaTable BotellaArray={Botellas}  toggle={toggle} changeObject={changeObject} dispatch={dispatch}/>
         </tbody>
       </Table>
-
+    </div>
       <Modal
         isShowing={isShowing}
         hide={toggle}

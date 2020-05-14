@@ -87,6 +87,7 @@ function BotellaForm(Botella) {
               type="text"
               value={botellaInput.Marca}
               onChange={handleChange}
+              required
             />
           </FormGroup>
         </Col>
@@ -101,6 +102,7 @@ function BotellaForm(Botella) {
               value={botellaInput.Precio}
               type="text"
               onChange={handleChange}
+              required
             />
           </FormGroup>
         </Col>
@@ -115,6 +117,7 @@ function BotellaForm(Botella) {
               value={botellaInput.Stock}
               type="text"
               onChange={handleChange}
+              required
             />
           </FormGroup>
         </Col>
@@ -130,6 +133,7 @@ function BotellaForm(Botella) {
               value={botellaInput.Desc}
               type="text"
               onChange={handleChange}
+              required
             />
           </FormGroup>
         </Col>
@@ -144,6 +148,7 @@ function BotellaForm(Botella) {
               value={botellaInput.Tipo}
               type="text"
               onChange={handleChange}
+              required
             />
           </FormGroup>
         </Col>
@@ -158,6 +163,7 @@ function BotellaForm(Botella) {
               value={botellaInput.Contenido_N.Cantidad}
               type="text"
               onChange={handleChangeA}
+              required
             />
             <br></br>
             <select
@@ -182,8 +188,9 @@ function BotellaForm(Botella) {
               value={botellaInput.Volumen_A}
               type="text"
               onChange={handleChange}
+              required
             />
-            <br></br>
+            
           </FormGroup>
         </Col>
 
@@ -197,6 +204,7 @@ function BotellaForm(Botella) {
               value={botellaInput.volBP}
               type="text"
               onChange={handleChange}
+              required
             />
           </FormGroup>
         </Col>
