@@ -7,18 +7,21 @@ function Footer() {
   return (
     <footer className="footerMB page-footer font-small blue pt-4">
     <div class="container-fluid text-center text-md-left">
-      <h5 className="text-uppercase">CONTACTO</h5>
-      <p>¿Tienes alguna duda, queja o sugerencia? Contáctanos.</p>
+      <div className="contacto text-center">
+        <h5 className="text-uppercase ">CONTACTO</h5>
+        <p>¿Tienes alguna duda, queja o sugerencia? Contáctanos.</p>
+      </div>
+      
       <div className="row">
         {/* A JSX sahsahjashjsaj comment */}
-        <div className="footerDatos col-6 ">
+        <div className="footerDatos col-6 text-center ">
           <p>México, Ciudad de México</p>
           <p>Teléfono: (55) 15151515</p>
           <p>Email: clientes@masterbeer.com</p>
         </div>
         <div className="footerInformation col-6">
           
-          <div className="col-9  footerForm">
+          <div className="col-9  footerForm ">
             <form onSubmit={handleChange}>
                 <input
                   className="w3-input w3-border"

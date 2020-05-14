@@ -1,7 +1,7 @@
 import React from "react";
 import { Jumbotron } from "reactstrap";
 import "../../css/Home.css";
-import promo1 from "../../img/Masterbeer promo.png";
+import promo1 from "../../img/Masterbeerpromo.png";
 import bebida from "../../img/icons/botella.png";
 import carro from "../../img/icons/carrito.png";
 import menu from "../../img/icons/menu.png";
