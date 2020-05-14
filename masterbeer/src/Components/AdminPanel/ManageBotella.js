@@ -7,7 +7,8 @@ import useModal from "../Common/ModalMB/useModalObject";
 import Modal from "../Common/ModalMB/Modal";
 import BotellaForm from "../Common/Forms/BotellaForm";
 
-function BotellaTable({ BotellaArray ,toggle,changeObject,dispatch}){
+function BotellaTable({ BotellaArray ,toggle,changeObject}){
+  const dispatch = useDispatch();
 
   return BotellaArray.map((elements) => {
     return (
@@ -19,7 +20,7 @@ function BotellaTable({ BotellaArray ,toggle,changeObject,dispatch}){
         <td>
           <button onClick={function(event){ toggle(); changeObject(elements)}}>Editar</button>
           <button className="eliminarBotellaButton"
-          onClick={()=>dispatch(eliminarBotella(elements._id))}>ELIMINAR</button>
+          onClick={function(event){ dispatch(eliminarBotella(elements._id));}}>ELIMINAR</button>
         </td>
         <td>
 
@@ -41,7 +42,7 @@ function ManageBotella() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (Botellas.length === 0) dispatch(loadBotellas());
+    if(Botellas.length===0) dispatch(loadBotellas());
   });
 
 

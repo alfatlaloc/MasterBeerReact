@@ -9,7 +9,7 @@ const newBotella = {
     Volumen_A: 0,
     Contenido_N:{
         Cantidad:0,
-        Unidad:""
+        Unidad:"ml"
     },
     volBP: 0
   };

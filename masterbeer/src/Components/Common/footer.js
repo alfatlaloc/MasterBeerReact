@@ -5,7 +5,8 @@ function Footer() {
     event.precentDefault();
   }
   return (
-    <footer className="footerMB font-small row justify-content-center">
+    <footer className="footerMB page-footer font-small blue pt-4">
+    <div class="container-fluid text-center text-md-left">
       <h5 className="text-uppercase">CONTACTO</h5>
       <p>¿Tienes alguna duda, queja o sugerencia? Contáctanos.</p>
       <div className="row">
@@ -52,7 +53,7 @@ function Footer() {
         © 2020 Copyright:
         <a href="https://masterber.com/"> MasterBeer.com</a>
       </div>
-      
+    </div>
     </footer>
   );
 }

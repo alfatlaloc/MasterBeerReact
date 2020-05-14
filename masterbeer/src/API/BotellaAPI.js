@@ -21,11 +21,7 @@ export function crearBotella(formData){
 }
 
 export function eliminarBotella(_id) {
-  let headers = {
-    method: 'DELETE',
-    body:_id
-  };
-  return fetch(baseUrl,headers)
+  return fetch(`${baseUrl}?${new URLSearchParams({_id}).toString()}`,{method:"DELETE"})
     .then(handleResponse)
     .catch(handleError);
 }

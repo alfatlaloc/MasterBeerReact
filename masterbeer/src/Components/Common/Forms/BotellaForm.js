@@ -72,6 +72,7 @@ function BotellaForm(Botella) {
               value={botellaInput.Nombre}
               type="text"
               onChange={handleChange}
+              required
             />
           </FormGroup>
         </Col>

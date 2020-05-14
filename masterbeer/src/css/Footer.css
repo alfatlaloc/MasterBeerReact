@@ -3,6 +3,8 @@
     width: auto;
     background-color: #259b39;
     height: 250px;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
 }
 
 .footerInformation input

@@ -2,48 +2,51 @@
 {
     background-image: url("../img/Home.jpg");
     /*display: block;*/
-    height: 700px;
+    height: 100vh;
     /*width: fit-content;*/
     color: white;
 }
 .display-3{
-    margin-top: 100px;
+    margin-top: 20px;
 }
 .lead{
-    margin-top: 100px;
+    margin-top: 20px;
 }
 .QuienesSomos{
-    background-image: url("../img/quienesSomos.jpg");
+    background:#575555ad;
     /*display: block;*/
-    height: 700px;
+    height: auto;
     color: white;
 }
 .info{
-    margin-top: 150px;
+    margin-top: 20px;
 }
 .promo{
-    margin-top: 90px;
+    margin-top: 20px;
 }
-.homeText{
-    margin-right: 30px;  
-}
+
 .delimitacion{
-    background-image: url("../img/Delimitacion.jpeg");
-    height:700px;
-    width: fit-content;
+    background-image: url("../img/delimitacion.jpg");
+    height:500px;
     color:white;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .delimit{
-    justify-content: center;
-    /*align-content: center;*/
-    margin-top: 200px;
+    margin-top: 20px;
 }
 .funciones{
-    /*background-image: url("../img/funciones.jpg");*/
     background-color: #249b9f;
-    height: fit-content;
     color: white;
-    
+    height: auto;
+}
+
+.titleButton{
+    border: 3px;
+    border-color: white;
+    margin: 10px;
+    border-radius: 10px;
 }
 
 .icon{
@@ -59,22 +62,21 @@
 
 .flip-container {
 	display: flex;
-	width: 100%;
-	height: 100vh;
+	height: auto;
 	justify-content: center;
 	align-items: center;
     perspective: 1000px;
+    margin-bottom: 20px;
 }
 
 .card {
 	position: relative;
-	width: 400px;
-	height: 350px;
+	height: 400px;
 	margin: 0.5rem;
 	text-align: center;
 	line-height: 8rem;
 	/*color: #ecf0f1;*/
-	border-radius: 0.8rem;
+	border-radius: 10px;
  transform-style: preserve-3d;
 }
 
@@ -85,7 +87,7 @@
 	left: 0;
 	width: 100%;
 	height: 100%;
-	border-radius: 0.8rem;
+	border-radius: 10px;
 	background-size: cover;
 	background-position: center center;
 	backface-visibility: hidden;
@@ -114,29 +116,27 @@
 	transform: rotateY(0deg);
 }
 
-
+.HOME{
+    background: white;
+    width: 90vh;
+}
 
 .objetivos{
     background-image: url("../img/objetivos.jpg");
-    height: 700px;
+    height: 500px;
     color: white;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .tituloObjetivos{
-    margin-top: 90px;
-    margin-bottom: 90px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 .especificos{
-    margin-top: 90px;
+    margin-top: 40px;
 }
 .Promocionales
 {
     margin-bottom: 20px; 
 }
-
-
-/*.text{
-    margin-left: 0px;
-}
-/*.bebidaicon{
-    display: inline;
-}*/
