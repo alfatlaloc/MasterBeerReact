@@ -49,6 +49,7 @@
 .icon{
     width: 50%;
     height: 50%;
+    border-radius: 0.9rem;
 }
 
 .row-icon{
