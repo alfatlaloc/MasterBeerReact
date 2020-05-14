@@ -38,4 +38,28 @@ router.get('/', async (req, res) => {
       }
     })
 
+    router.delete('/:id', getBotella, async (req, res) => {
+      try {
+        await res.Botella.remove()
+        res.json({ message: 'Deleted This Botella' })
+      } catch(err) {
+        res.status(500).json({ message: err.message })
+      }
+    })
+
+
+    async function getBotella(req, res, next) {
+      try {
+        const Botella = await BotellaM.findById(req.params.id)
+        if (Botella == null) {
+          return res.status(404).json({ message: 'Cant find subscriber'})
+        }
+      } catch(err){
+        return res.status(500).json({ message: err.message })
+      }
+    
+      res.Botella = Botella;
+      next()
+    }
+
   module.exports=router;

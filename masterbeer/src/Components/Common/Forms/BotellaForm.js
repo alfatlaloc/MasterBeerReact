@@ -24,12 +24,12 @@ function BotellaForm(Botella) {
       Stock: Botella.Stock,
       Desc: Botella.Desc,
       Tipo: Botella.Tipo,
-      Contenido_N:{ 
-        Cantidad:Botella.Contenido_N.Cantidad,
-        Unidad:Botella.Contenido_N.Unidad},
+      Contenido_N: {
+        Cantidad: Botella.Contenido_N.Cantidad,
+        Unidad: Botella.Contenido_N.Unidad,
+      },
       Volumen_A: Botella.Volumen_A,
       volBP: Botella.volBP,
-      
     }
   );
 
@@ -40,13 +40,18 @@ function BotellaForm(Botella) {
   };
 
   const handleChangeA = (evt) => {
-    
-    const Name =evt.target.name.toString();
-    const N={
-      Cantidad:Name==="Contenido_NC" ? evt.target.value : botellaInput.Contenido_N.Cantidad,
-      Unidad:Name==="Contenido_NU" ? evt.target.value : botellaInput.Contenido_N.Unidad
+    const Name = evt.target.name.toString();
+    const N = {
+      Cantidad:
+        Name === "Contenido_NC"
+          ? evt.target.value
+          : botellaInput.Contenido_N.Cantidad,
+      Unidad:
+        Name === "Contenido_NU"
+          ? evt.target.value
+          : botellaInput.Contenido_N.Unidad,
     };
-    setBotellaInput({"Contenido_N": N });
+    setBotellaInput({ Contenido_N: N });
   };
 
   const handleSubmit = (e) => {
@@ -119,7 +124,8 @@ function BotellaForm(Botella) {
             <textarea
               name="Desc"
               className="textAreaFormMB"
-              rows="4" cols="50"
+              rows="4"
+              cols="50"
               value={botellaInput.Desc}
               type="text"
               onChange={handleChange}
@@ -153,7 +159,8 @@ function BotellaForm(Botella) {
               onChange={handleChangeA}
             />
             <br></br>
-            <select name="Contenido_NU"
+            <select
+              name="Contenido_NU"
               value={botellaInput.Contenido_N.Unidad}
               onChange={handleChangeA}
             >

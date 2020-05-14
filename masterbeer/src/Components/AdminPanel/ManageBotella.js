@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Table } from "reactstrap";
-import { loadBotellas } from "../../Redux/Actions/BotellaActions";
+import { loadBotellas,eliminarBotella } from "../../Redux/Actions/BotellaActions";
 import { newBotella } from "../../API/DefaultObjects/BotellaObject";
 import useModal from "../Common/ModalMB/useModalObject";
 import Modal from "../Common/ModalMB/Modal";
 import BotellaForm from "../Common/Forms/BotellaForm";
 
-function BotellaTable({ BotellaArray ,toggle,changeObject}){
+function BotellaTable({ BotellaArray ,toggle,changeObject,dispatch}){
 
   return BotellaArray.map((elements) => {
     return (
@@ -18,6 +18,8 @@ function BotellaTable({ BotellaArray ,toggle,changeObject}){
         <td>{elements._id}</td>
         <td>
           <button onClick={function(event){ toggle(); changeObject(elements)}}>Editar</button>
+          <button className="eliminarBotellaButton"
+          onClick={()=>dispatch(eliminarBotella(elements._id))}>ELIMINAR</button>
         </td>
         <td>
 
@@ -61,7 +63,7 @@ function ManageBotella() {
           </tr>
         </thead>
         <tbody>
-          <BotellaTable BotellaArray={Botellas}  toggle={toggle} changeObject={changeObject}/>
+          <BotellaTable BotellaArray={Botellas}  toggle={toggle} changeObject={changeObject} dispatch={dispatch}/>
         </tbody>
       </Table>
 
