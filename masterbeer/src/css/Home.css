@@ -39,59 +39,82 @@
     margin-top: 200px;
 }
 .funciones{
-    background-image: url("../img/funciones.jpg");
+    /*background-image: url("../img/funciones.jpg");*/
+    background-color: #249b9f;
     height: fit-content;
     color: white;
     
 }
-.flip-container{
-    -webkit-perspective: 1000px;
-    perspective: 1000px;
-    padding: 50px;
-    position: relative;
-    margin: 10px auto;
-    width: 500px;
-}
-.card{
 
-    position: relative;
-    width: 300px;
-    height: 500px;
-    transition: 0.6s;
-    transform-style: preserve-3d;
-    transform-origin: 100% 25px;
-    margin: 5px;
+.icon{
+    width: 50%;
+    height: 50%;
 }
-.card:hover, .card.flip{
-    transform:rotateY(180deg);
+
+.row-icon{
+    align-content: center;
+    padding: 10%;
 }
-.front, .back{
-    position: absolute;
-    width:100%;
-    height:100%;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    text-align: center;
+
+.flip-container {
+	display: flex;
+	width: 100%;
+	height: 100vh;
+	justify-content: center;
+	align-items: center;
+    perspective: 1000px;
 }
-.front{
-    transform: rotateY(0deg);
-    z-index: 2;
-    background-color: #e93e29;
-    color:#FFF;
-    font:1em/1.8em Arial;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+
+.card {
+	position: relative;
+	width: 400px;
+	height: 350px;
+	margin: 0.5rem;
+	text-align: center;
+	line-height: 8rem;
+	/*color: #ecf0f1;*/
+	border-radius: 0.8rem;
+ transform-style: preserve-3d;
 }
-.back{
+
+.face {
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border-radius: 0.8rem;
+	background-size: cover;
+	background-position: center center;
+	backface-visibility: hidden;
+	transition: transform 0.5s ease-in-out;
+}
+
+
+.face--front {
+	background: #2c3e50;
+	font-size: 3rem;
+}
+
+.face--back {
+	background: #2c3e50;
+	font-size: 1.5rem;
     transform: rotateY(180deg);
-    background: #D3D4DE; 
-    color:black;
-    font:1em/1.8em Arial;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    align-content: center;
+    padding: 10%;
 }
+
+.card:hover .face--front {
+	transform: rotateY(-180deg);
+}
+
+.card:hover .face--back {
+	transform: rotateY(0deg);
+}
+
+
+
 .objetivos{
     background-image: url("../img/objetivos.jpg");
     height: 700px;

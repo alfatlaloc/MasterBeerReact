@@ -44,71 +44,76 @@ const HomePage = () => (
       
       
       <div className="funciones">
-        <div >
-          <h3>Funciones</h3>
-        </div>
-      <div className="row s12 m6 l3">
-       <div className="flip-container">
-          <div className="card">
-            <div className="front">
-              <div>
-                <img src={bebida} style={{maxWidth: "2550px"}} alt=""></img>
-              </div>
-              <h3>Creador de tragos personalizados</h3>
-            </div>
-            <div className="back">
-              <h3>Permitirá al cliente crear sus propios tragos con los sabores que más le 
-              encantan además de que podrá experimentar para crear nuevos sabores.</h3>
-            </div>
-          </div>
-        </div>
+        <div >  <h1>Funciones</h1>   </div>
+        <div className="row s12 m6 l3">
 
-        <div className="flip-container">
-          <div className="card">
-            <div className="front">
-              <div>
-                <img src={carro} style={{maxWidth: "50px"}} alt=""></img>
+          <div className="flip-container col-sm-3">
+            <div className="card">
+              <div className="face face--front">
+                <div className="row-icon">
+                  <img src={bebida} className="icon" alt=""></img>
+                </div>
+                
+                <div className="card-text"><h3>Creador de tragos personalizados</h3></div>
               </div>
-              <h5>Visualización y compra de productos disponibles</h5>
-            </div>
-            <div className="back">
-              <h3>El cliente podrá ver lo que el bar tiene disponible para él en el menú.</h3>
+              <div className="face face--back">
+                <h3>Permitirá al cliente crear sus propios tragos con los sabores que más le 
+                encantan además de que podrá experimentar para crear nuevos sabores.</h3>
+              </div>
             </div>
           </div>
-        </div>
+
+          <div className="flip-container col-sm-3">
+            <div className="card">
+              <div className="face face--front">
+                <div className="row-icon">
+                <img src={carro} className="icon" alt=""></img>
+                </div>
+                
+                <div className="card-text"><h3>Visualización y compra de productos disponibles</h3></div>
+              </div>
+              <div className="face face--back">
+                <h3>El cliente podrá ver lo que el bar tiene disponible para él en el menú.</h3>
+              </div>
+            </div>
+          </div>
+
+          <div className="flip-container col-sm-3">
+            <div className="card">
+              <div className="face face--front">
+                <div className="row-icon">
+                <img src={menu} className="icon" alt=""></img>
+                </div>
+                
+                <div className="card-text"><h3>Visualización y compra del catálogo de tragos predefinido del bar</h3></div>
+              </div>
+              <div className="face face--back">
+                <h3>El cliente podrá ver lo que el bar tiene disponible para él en el menú de 
+                bebidas que tiene predefinido.</h3>
+              </div>
+            </div>
+          </div>
+
+          <div className="flip-container col-sm-3">
+            <div className="card">
+              <div className="face face--front">
+                <div className="row-icon">
+                <img src={mundo} className="icon" alt=""></img>
+                </div>
+                
+                <div className="card-text"><h3>Geolocalización para servicio a domicilio</h3></div>
+              </div>
+              <div className="face face--back">
+                <h3>¿Sin ganas de salir a un bar? No te preocupes, nosotros te lo llevamos 
+                hasta la puerta de tu casa, solo registrate y forma parte de la comunidad.</h3>
+              </div>
+            </div>
+          </div>
+
+
+
+
       </div>
-
-      <div className="row s12 m6 l3">
-        <div className="flip-container ">
-          <div className="card">
-            <div className="front">
-              <div>
-                <img src={menu} style={{maxWidth: "50px"}} alt=""></img>
-              </div>
-              <h5>Visualización y compra del catálogo de tragos predefinido del bar</h5>
-            </div>
-            <div className="back">
-              <h3>El cliente podrá ver lo que el bar tiene disponible para él en el menú de 
-              bebidas que tiene predefinido.</h3>
-            </div>
-          </div>
-        </div>
-    
-        <div className="flip-container">
-          <div className="card">
-            <div className="front">
-              <div>
-                <img src={mundo} style={{maxWidth: "50px"}} alt=""></img>
-              </div>
-              <h5>Geolocalización para servicio a domicilio</h5>
-            </div>
-            <div className="back">
-              <h3>¿Sin ganas de salir a un bar? No te preocupes, nosotros te lo llevamos 
-              hasta la puerta de tu casa, solo registrate y forma parte de la comunidad.</h3>
-            </div>
-          </div>
-        </div>
-    </div>
     </div>
     
     <Jumbotron className="objetivos">
