@@ -20,3 +20,12 @@ export function crearBotella(formData){
   .catch(handleError);
 }
 
+export function eliminarBotella(_id) {
+  let headers = {
+    method: 'DELETE',
+    body:_id
+  };
+  return fetch(baseUrl,headers)
+    .then(handleResponse)
+    .catch(handleError);
+}

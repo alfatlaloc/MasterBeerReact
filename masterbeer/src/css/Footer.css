@@ -1,15 +1,17 @@
 .footerMB{
     color:white;
+<<<<<<< HEAD
     background-color: rosybrown;
+=======
+    width: auto;
+    background-color: #259b39;
+>>>>>>> 71dd7c6348d19b103dbf11fa6488e8ec443199a1
     height: 250px;
 }
 
 .footerInformation input
 {
-    width:150px;
     margin-bottom: 5px;
-    margin-left: 10px;
-    margin-right: 0px;
 
 }
 

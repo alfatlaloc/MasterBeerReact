@@ -1,11 +1,15 @@
 import React from "react";
 import { Jumbotron, Button } from 'reactstrap';
 import '../../css/Home.css';
+<<<<<<< HEAD
 import promo1 from '../../img/Masterbeerpromo.png';
 import bebida from '../../img/icons/botella.png';
 import carro from '../../img/icons/carrito.png';
 import menu from '../../img/icons/menu.png';
 import mundo from '../../img/icons/mundo.PNG';
+=======
+import promo1 from '../../img/Masterbeer promo.png';
+>>>>>>> 71dd7c6348d19b103dbf11fa6488e8ec443199a1
 
 const HomePage = () => (
   <div>

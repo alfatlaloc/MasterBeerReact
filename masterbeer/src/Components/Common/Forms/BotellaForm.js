@@ -1,4 +1,4 @@
-import React, { useReducer,useEffect} from "react";
+import React, { useReducer } from "react";
 import { useDispatch } from "react-redux";
 import { crearBotella } from "../../../Redux/Actions/BotellaActions";
 
@@ -8,7 +8,7 @@ import {
   Form,
   FormGroup,
   Label,
-  Input,
+  input,
   Button,
 } from "reactstrap";
 
@@ -18,30 +18,40 @@ function BotellaForm(Botella) {
   const [botellaInput, setBotellaInput] = useReducer(
     (state, newState) => ({ ...state, ...newState }),
     {
-      Nombre: "",
-      Marca: "",
-      Precio: 0,
-      Stock: 0,
-      Desc: "",
-      Tipo: "",
-      Contenido_N: 0,
-      Volumen_A: 0,
-      volBP: 0,
+      Nombre: Botella.Nombre,
+      Marca: Botella.Marca,
+      Precio: Botella.Precio,
+      Stock: Botella.Stock,
+      Desc: Botella.Desc,
+      Tipo: Botella.Tipo,
+      Contenido_N: {
+        Cantidad: Botella.Contenido_N.Cantidad,
+        Unidad: Botella.Contenido_N.Unidad,
+      },
+      Volumen_A: Botella.Volumen_A,
+      volBP: Botella.volBP,
     }
   );
-  useEffect(() => {
-    if (Botella!==undefined){
-      alert("Mandaste una botella");
-      alert(Botella.Nombre);
-    }
-      else
-      alert("Sin botella");
-  });
 
   const handleChange = (evt) => {
     const name = evt.target.name;
     const newValue = evt.target.value;
     setBotellaInput({ [name]: newValue });
+  };
+
+  const handleChangeA = (evt) => {
+    const Name = evt.target.name.toString();
+    const N = {
+      Cantidad:
+        Name === "Contenido_NC"
+          ? evt.target.value
+          : botellaInput.Contenido_N.Cantidad,
+      Unidad:
+        Name === "Contenido_NU"
+          ? evt.target.value
+          : botellaInput.Contenido_N.Unidad,
+    };
+    setBotellaInput({ Contenido_N: N });
   };
 
   const handleSubmit = (e) => {
@@ -56,7 +66,7 @@ function BotellaForm(Botella) {
           <FormGroup className="formCont">
             <Label htmlFor="Nombre">Nombre </Label>
             <br></br>
-            <Input
+            <input
               className="inputFormMB"
               name="Nombre"
               value={botellaInput.Nombre}
@@ -70,7 +80,7 @@ function BotellaForm(Botella) {
           <FormGroup className="formCont">
             <Label htmlFor="Marca">Marca </Label>
             <br></br>
-            <Input
+            <input
               className="inputFormMB"
               name="Marca"
               type="text"
@@ -84,7 +94,7 @@ function BotellaForm(Botella) {
           <FormGroup className="formCont">
             <Label htmlFor="Precio">Precio </Label>
             <br></br>
-            <Input
+            <input
               name="Precio"
               className="inputFormMB"
               value={botellaInput.Precio}
@@ -98,7 +108,7 @@ function BotellaForm(Botella) {
           <FormGroup className="formCont">
             <Label htmlFor="Stock">Stock </Label>
             <br></br>
-            <Input
+            <input
               name="Stock"
               className="inputFormMB"
               value={botellaInput.Stock}
@@ -111,9 +121,11 @@ function BotellaForm(Botella) {
           <FormGroup className="formCont">
             <Label htmlFor="Desc">Descripción </Label>
             <br></br>
-            <Input
+            <textarea
               name="Desc"
-              className="inputFormMB"
+              className="textAreaFormMB"
+              rows="4"
+              cols="50"
               value={botellaInput.Desc}
               type="text"
               onChange={handleChange}
@@ -125,7 +137,7 @@ function BotellaForm(Botella) {
           <FormGroup className="formCont">
             <Label htmlFor="Tipo">Tipo</Label>
             <br></br>
-            <Input
+            <input
               name="Tipo"
               className="inputFormMB"
               value={botellaInput.Tipo}
@@ -139,13 +151,23 @@ function BotellaForm(Botella) {
           <FormGroup className="formCont">
             <Label htmlFor="Contenido_N">Contenido Neto</Label>
             <br></br>
-            <Input
-              name="Contenido_N"
+            <input
+              name="Contenido_NC"
               className="inputFormMB"
-              value={botellaInput.Contenido_N}
+              value={botellaInput.Contenido_N.Cantidad}
               type="text"
-              onChange={handleChange}
+              onChange={handleChangeA}
             />
+            <br></br>
+            <select
+              name="Contenido_NU"
+              value={botellaInput.Contenido_N.Unidad}
+              onChange={handleChangeA}
+            >
+              <option value="ml">ml</option>
+              <option value="lt">lt</option>
+              <option value="gal">gal</option>
+            </select>
           </FormGroup>
         </Col>
 
@@ -153,13 +175,14 @@ function BotellaForm(Botella) {
           <FormGroup className="formCont">
             <Label htmlFor="Volumen_A">Volumen de Alcohol </Label>
             <br></br>
-            <Input
+            <input
               name="Volumen_A"
               className="inputFormMB"
               value={botellaInput.Volumen_A}
               type="text"
               onChange={handleChange}
             />
+            <br></br>
           </FormGroup>
         </Col>
 
@@ -167,7 +190,7 @@ function BotellaForm(Botella) {
           <FormGroup className="formCont">
             <Label htmlFor="volBP">Volumen BP</Label>
             <br></br>
-            <Input
+            <input
               name="volBP"
               className="inputFormMB"
               value={botellaInput.volBP}

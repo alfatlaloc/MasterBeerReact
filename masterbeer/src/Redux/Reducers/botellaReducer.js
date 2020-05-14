@@ -1,6 +1,6 @@
 import * as types from '../Actions/actionTypes';
-
-export default function botellaReducer(state =[],action)
+import initialState from './initialState';
+export default function botellaReducer(state =initialState.Botellas,action)
 {
     switch(action.type)
     {
@@ -8,6 +8,8 @@ export default function botellaReducer(state =[],action)
             return [...state,{...action.Botella}];
         case types.LOAD_BOTELLAS_SUCCESS:
             return action.Botellas;
+        case types.ELIMINAR_BOTELLA:
+            return state.filter(Botella => Botella._id !== action.Botella._id);
         default:
             return state;
     }

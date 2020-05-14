@@ -28,7 +28,7 @@ const BotellaSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  Contenido_N: {
+  Volumen_A: {
     type: Number,
     required: true,
   },
@@ -36,7 +36,7 @@ const BotellaSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  Volumen_A: {
+  Contenido_N: {
     Cantidad: {
       required: true,
       type: Number

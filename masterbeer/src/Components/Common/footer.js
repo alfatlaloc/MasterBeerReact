@@ -5,7 +5,7 @@ function Footer() {
     event.precentDefault();
   }
   return (
-    <footer className="footerMB font-small justify-content-center">
+    <footer className="footerMB font-small row justify-content-center">
       <h5 className="text-uppercase">CONTACTO</h5>
       <p>¿Tienes alguna duda, queja o sugerencia? Contáctanos.</p>
       <div className="row">
