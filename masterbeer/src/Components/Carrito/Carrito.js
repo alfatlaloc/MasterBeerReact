@@ -1,6 +1,8 @@
 import React,{useEffect,useReducer,useState} from 'react';
+import {useSelector} from 'react-redux';
 
 function Carrito(){
+    const Carrito = useSelector((state) => state.Carrito);
 return( 
     <div className="Carrito">
         <div className="row">

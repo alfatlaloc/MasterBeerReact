@@ -1,8 +1,6 @@
-import React from 'react';
-import {connect} from 'react-redux';
-import * as UserActions from '../../Redux/Actions/UserActions'
-import PropTypes from 'prop-types';
-import {bindActionCreators} from 'redux';
+import React,{useReducer} from 'react';
+import {useDispatch} from 'react-redux';
+import {getUserByCorreo} from '../../Redux/Actions/UserActions'
 import {Link} from "react-router-dom";
 
 import {
@@ -12,32 +10,34 @@ import {
   } from 'reactstrap';
 
   
-class Login extends React.Component{
-  //Es para recibier los parametros insertados en el form
-    state ={
-        Correo: '',
-        Contrasena:''
-    };
+function Login (){
+  const [loginInput, setLoginInput] = useReducer(
+    (state, newState) => ({ ...state, ...newState }),
+    {
+      Correo:"",
+      Contrasena:""
+    });
 
-  handleChange = event => {
-    const { name, value } = event.target;
-    this.setState({ [name]: value });
-  }
+  const dispatch = useDispatch();
+
+  const handleChange = (evt) => {
+    const name = evt.target.name;
+    const newValue = evt.target.value;
+    setLoginInput({ [name]: newValue });
+  };
   
-  logear = event =>
+  function logear(event)
   {
     event.preventDefault();
-    console.log(this.state.Contrasena);
-    this.props.actions.getUserByCorreo(this.state.Correo,this.state.Contrasena).catch(error => {
+    dispatch(getUserByCorreo(loginInput.Correo,loginInput.Contrasena)).catch(error => {
       alert("Usuario no Registrado" + error);
     });
   }
 
-  render (){
     return(
       <Container className="Login">
       <h2>Sign In</h2>
-      <Form className="form" onSubmit={this.logear}>
+      <Form className="form" onSubmit={logear}>
         <Col>
           <FormGroup>
             <Label>Email</Label>
@@ -45,8 +45,8 @@ class Login extends React.Component{
               type="text"
               name="Correo"
               placeholder="myemail@email.com"
-              onChange={this.handleChange}
-              value={this.state.Correo}
+              onChange={handleChange}
+              value={loginInput.Correo}
             />
           </FormGroup>
         </Col>
@@ -56,8 +56,8 @@ class Login extends React.Component{
             <Input
               type="password"
               name="Contrasena"
-              onChange={this.handleChange}
-              value={this.state.Contrasena}
+              onChange={handleChange}
+              value={loginInput.Contrasena}
               placeholder="********"
             />
           </FormGroup>
@@ -72,25 +72,6 @@ class Login extends React.Component{
       </h4>
     </Container>
     );
-    }
-}
+  }
 
-  Login.propTypes={
-    actions: PropTypes.object.isRequired
-  };
-
-function mapStateToProps(state) {
-  return{
-    Usuario: state.Usuario
-  };
-}
-
-function mapDispatchToProps(dispatch) {
-  return{
-    actions: {
-      getUserByCorreo: bindActionCreators(UserActions.getUserByCorreo, dispatch)
-    }
-    }
-}
-
-export default connect(mapStateToProps,mapDispatchToProps)(Login);
+export default Login;
