@@ -10,6 +10,8 @@ export default function carritoReducer(state=initialState.Carrito,action)
             return [...state, {...action.Element}];
         case types.ELIMINAR_DEL_CARRITO:
             return state.filter(Element => Element.Nombre !== action.Element.Nombre);
+        case types.VACIAR_CARRITO:
+            return [];
         default:
             return state;
     }

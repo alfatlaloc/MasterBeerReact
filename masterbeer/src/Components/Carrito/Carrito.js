@@ -1,7 +1,7 @@
 import React,{useEffect,useReducer,useState} from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import { Table } from "reactstrap";
-import { agregarAlCarrito } from "../../Redux/Actions/CarritoActions";
+import { agregarAlCarrito ,vaciarCarrito} from "../../Redux/Actions/CarritoActions";
 import useModal from "../Common/ModalMB/useModalObject";
 
 
@@ -57,6 +57,7 @@ function Carrito(){
                             <CarritoArray CarritoArray={Carrito}/>
                             </tbody>
                     </Table>
+                    <button onClick={() =>dispatch(vaciarCarrito())}>Vaciar Carrito</button>
                 </div>
                 <div className="col-4 carritoCuenta">
                     <h5>Subtotal</h5>

@@ -5,3 +5,9 @@ export function agregarAlCarrito(Element) {
             dispatch({ type: types.AGREGAR_AL_CARRITO,Element});
   }
 }
+
+export function vaciarCarrito() {
+  return function (dispatch) {
+          dispatch({ type: types.VACIAR_CARRITO});
+}
+}

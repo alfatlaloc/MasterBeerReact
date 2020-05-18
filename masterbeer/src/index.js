@@ -15,14 +15,13 @@ import App from './Components/App';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter as Router } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import configureStore from './Redux/configureStore';
+import StoreR from './Redux/configureStore';
 import {Provider as ReduxProvider} from 'react-redux';
 
-const Store = configureStore()
 
 ReactDOM.render(
   <React.StrictMode>
-    <ReduxProvider store={Store}>
+    <ReduxProvider store={StoreR}>
       <Router>
         <App />
       </Router>
