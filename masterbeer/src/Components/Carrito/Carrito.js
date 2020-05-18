@@ -1,12 +1,12 @@
 import React,{useEffect,useReducer,useState} from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import { Table } from "reactstrap";
-import { loadBotellas } from "../../Redux/Actions/BotellaActions";
+import { agregarAlCarrito } from "../../Redux/Actions/CarritoActions";
 import useModal from "../Common/ModalMB/useModalObject";
 
 
 
-function CarritoArray({ CarritoArray ,toggle,changeObject}){
+function CarritoArray({ CarritoArray}){
     const dispatch = useDispatch();
     return CarritoArray.map((elements) => {
       return (
@@ -28,17 +28,20 @@ function CarritoArray({ CarritoArray ,toggle,changeObject}){
   };
 
 function Carrito(){
-    const Botellas = useSelector((state) => state.Botellas);
-    const { isShowing, toggle ,Obj,changeObject} = useModal();
+    const Test = useSelector(state => {console.log(state)});
+    const Carrito = useSelector(state =>(state.Carrito));
     const dispatch = useDispatch();
-    
     useEffect(() => {
-        if(Botellas.length===0) dispatch(loadBotellas());
+      //Carrito.push(2);
+        if(Carrito.length===0) {
+          console.log(Carrito);
+        }
+          
     });
     
     return( 
         <div className="Carrito" id="Carrito">
-            <div className="row">
+            <div className="row no-gutters">
                 <div className="col-8 carritoContent justify-content-center">
                     
                     <Table dark className="col">
@@ -51,7 +54,7 @@ function Carrito(){
                             </tr>
                         </thead>
                         <tbody>
-                            <CarritoArray CarritoArray={Botellas}  toggle={toggle} changeObject={changeObject} dispatch={dispatch}/>
+                            <CarritoArray CarritoArray={Carrito}/>
                             </tbody>
                     </Table>
                 </div>

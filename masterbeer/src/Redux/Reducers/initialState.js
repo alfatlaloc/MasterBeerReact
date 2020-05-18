@@ -1,4 +1,5 @@
 export default {
-    Botellas: [],
+    Botellas:[],
+    Carrito:[],
     apiCallsInProgress: 0
   };

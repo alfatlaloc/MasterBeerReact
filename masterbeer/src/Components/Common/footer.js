@@ -6,7 +6,7 @@ function Footer() {
   }
   return (
     <footer className="footerMB page-footer font-small blue pt-4">
-    <div class="container-fluid text-center text-md-left">
+    <div className="container-fluid text-center text-md-left">
       <div className="contacto text-center">
         <h5 className="text-uppercase ">CONTACTO</h5>
         <p>¿Tienes alguna duda, queja o sugerencia? Contáctanos.</p>
