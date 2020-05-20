@@ -1,16 +1,81 @@
-import React,{useEffect, useReducer} from 'react';
+import React, { useEffect, useReducer, useState } from "react";
+import Recipiente from "../../img/Creador/Recipiente.png";
+import { Form, FormGroup, Label, Button, Input } from "reactstrap";
 
-function Creador (){
+function TipoVaso() {
+  return (
+    <div className="area TipoVaso">
+      <h2>Tipo vaso area</h2>
+      <img src={Recipiente} alt="" />
+      <p>
+        Selecciona un tipo de vaso, recuerda que las medidas de alcohol que
+        puedes colocar en cada uno varia.
+      </p>
+    </div>
+  );
+}
 
-    useEffect(() => {
-        
-    });
+function FormBP() {
+  const [Nombre, setNombre] = useState("");
+  const [Desc, setDesc] = useState("");
+  return (
+    <div className="AcceptCreador">
+      <Form>
+        <FormGroup row>
+          <Label for="exampleEmail">Ponle nombre a tu trago</Label>
+          <br></br>
+          <Input
+            type="text"
+            name="NombreBP"
+            placeholder="MasterBeerBP"
+            required
+          />
+        </FormGroup>
+        <FormGroup row>
+          <Label for="exampleEmail">Agrega una descripción</Label>
+          <br></br>
+          <Input
+            type="text"
+            name="DescBP"
+            placeholder="Trago personalizado"
+            required
+          />
+        </FormGroup>
+        <FormGroup check row>
+          <Button>Pedir Bebida</Button>
+        </FormGroup>
+      </Form>
+    </div>
+  );
+}
+function Creador() {
+  useEffect(() => {});
+  const [tipoVaso, setTipoVaso] = useState(null);
+  const [porcentaje, setPorcentaje] = useState(0);
 
-    return(
-            <div>
-                Creador hello world
-            </div>
-        );
+  return (
+    <div className="Creador">
+      <TipoVaso />
+      <div className="area">
+        <h2>Bebidas area</h2>
+      </div>
+      <div className="area">
+        <h2>Bebidas area</h2>
+      </div>
+      <div className="area">
+        <h2>Bebidas S/A area</h2>
+      </div>
+      <div className="area">
+        <h2>Ingredientes area2</h2>
+      </div>
+      <div className="area">
+        <h2>Extras area</h2>
+      </div>
+      <FormBP 
+        porcentaje={porcentaje}
+      />
+    </div>
+  );
 }
 
 export default Creador;

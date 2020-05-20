@@ -27,6 +27,7 @@ function App() {
         <Route path="/AdminPanel" component={AdminPanel}/>
         <Route path="/ManageBotella" component={ManageBotella}/>
         <Route path="/Carrito" component ={Carrito}/>
+        <Route path="/ItemView:slug" component ={ItemView}/>
         <Route component={PageNotFound}/>
       </Switch>  
       <Footer/>

@@ -10,6 +10,7 @@ import './css/Modal.css';
 import './css/AdminPanelForms/BotellaManagerForm.css';
 import './css/ScrollBar.css';
 import './css/Carrito.css';
+import './css/Creador.css';
 
 import App from './Components/App';
 import * as serviceWorker from './serviceWorker';

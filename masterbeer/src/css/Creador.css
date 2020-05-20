@@ -1,0 +1,21 @@
+.Creador{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+}
+
+.Creador .area{
+    border:1px #ccc solid;
+    padding:10px;
+    flex:1;
+    flex-basis: 50%;  
+    border-radius: 20px;
+}
+
+.TipoVaso{
+    background-color: rgb(134, 151, 201);
+}
+
+.AcceptCreador{
+    justify-content: center;
+}
