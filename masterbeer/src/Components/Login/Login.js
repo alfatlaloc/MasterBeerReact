@@ -1,5 +1,5 @@
 import React,{useReducer} from 'react';
-import {useDispatch} from 'react-redux';
+import {useDispatch,useSelector} from 'react-redux';
 import {getUserByCorreo} from '../../Redux/Actions/UserActions'
 import {Link} from "react-router-dom";
 

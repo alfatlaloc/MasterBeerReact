@@ -49,7 +49,6 @@ function BotellaList({ Botellas }) {
 
 function Catalogo() {
   const Botellas = useSelector((state) => state.Botellas);
-  const Test = useSelector(state => {console.log(state)});
   const dispatch = useDispatch();
 
   useEffect(() => {

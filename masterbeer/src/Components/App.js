@@ -10,10 +10,10 @@ import ManageBotella from './AdminPanel/ManageBotella';
 import Carrito from './Carrito/Carrito';
 import Login from './Login/Login';
 import Register from './Register/Registro';
-import'bootstrap/dist/js/bootstrap.bundle.min';
+import 'bootstrap/dist/js/bootstrap.bundle.min';
 import {Route, Switch} from 'react-router-dom';
 import PageNotFound from './PageNotFound';
-
+import ItemView from './ItemView/ItemView';
 function App() {
   return (
     <div className="App">

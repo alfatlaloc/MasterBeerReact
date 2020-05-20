@@ -20,13 +20,12 @@ import {Provider as ReduxProvider} from 'react-redux';
 
 
 ReactDOM.render(
-  <React.StrictMode>
     <ReduxProvider store={StoreR}>
       <Router>
         <App />
       </Router>
     </ReduxProvider>
-  </React.StrictMode>,
+,
   document.getElementById('root')
 );
 

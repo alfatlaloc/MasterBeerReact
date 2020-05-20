@@ -152,7 +152,7 @@ const HomePage = () => (
       <div className="row objetivos no-gutters">
         <div className="col-sm">
         <h2 className="tituloObjetivos">OBJETIVOS</h2>
-        <h5>
+        <div>
           Desarrollar una aplicación web que apoye la administración y
           organización de pedidos de bebidas alcohólicas en bares de la CDMX.
           <h2 className="especificos">Objetivos específicos</h2>
@@ -162,7 +162,7 @@ const HomePage = () => (
             a sus gustos.
           </h5>
           <h5>Permitir la entrega a domicilio.</h5>
-        </h5>
+        </div>
         </div>
       </div>
 
