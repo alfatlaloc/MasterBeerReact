@@ -1,165 +1,82 @@
-import React from 'react';
-import { useDispatch,useReducer } from "react-redux";
-import {crearIngrediente} from "../../Redux/Actions/IngredienteActions";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { Table } from "reactstrap";
+//import { loadIngrediente,eliminarIngrediente } from "../../Redux/Actions/IngredienteActions";
+//import { newIngrediente } from "../../API/DefaultObjects/IngredienteObject";
+import useModal from "../Common/ModalMB/useModalObject";
+import Modal from "../Common/ModalMB/Modal";
+import IngredienteForm from "../Common/Forms/IngredienteForm";
 
-import {
-    Container,
-    Col,
-    Form,
-    FormGroup,
-    Label,
-    Input,
-    Button,
-  } from "reactstrap";
+function IngredientesTable({ IngredienteArray ,toggle,changeObject}){
+  const dispatch = useDispatch();
 
-function ManageIngredientes({Nombre}){
-    const dispatch = useDispatch();
+  return IngredienteArray.map((elements) => {
+    return (
+      <tr key={elements._id}>
+        <td>{elements.Nombre}</td>
+        <td>{elements.Marca}</td>
+        <td>{elements.Precio}</td>
+        <td>{elements._id}</td>
+        <td>
+          <button className="editarIngredienteButton"onClick={function(event){ toggle(); changeObject(elements)}}>Editar</button>
+          <button className="eliminarIngredienteButton"
+          /*onClick={function(event){ dispatch(eliminarIngrediente(elements));}}*/>ELIMINAR</button>
+        </td>
+        <td>
 
-    const [ingredienteInput, setIngredienteInput] = useReducer(
-      (state, newState) => ({ ...state, ...newState }),
-      {
-        Nombre: "",
-        Marca: "",
-        Precio: 0,
-        Stock: 0,
-        Desc: "",
-        Tipo: "",
-        Contenido_N: 0,
-        Volumen_A: 0,
-        volBP: 0,
-      }
+        </td>
+      </tr>
+
     );
-    const handleChange = (evt) => {
-        const name = evt.target.name;
-        const newValue = evt.target.value;
-        setIngredienteInput({ [name]: newValue });
-      };
-    
-      const handleSubmit = (e) => {
-        e.preventDefault();
-        dispatch(crearIngrediente(JSON.stringify(ingredienteInput)));
-      };
-    return(
-        <Container className="ingredienteForm">
-        <Form id="ingredienteForm" onSubmit={handleSubmit}>
-          <Col>
-            <FormGroup className="formCont">
-              <Label htmlFor="Nombre">Nombre </Label>
-              <br></br>
-              <Input
-                className="inputFormMB"
-                name="Nombre"
-                value={ingredienteInput.Nombre}
-                type="text"
-                onChange={handleChange}
-              />
-            </FormGroup>
-          </Col>
-  
-          <Col>
-            <FormGroup className="formCont">
-              <Label htmlFor="Marca">Marca </Label>
-              <br></br>
-              <Input
-                className="inputFormMB"
-                name="Marca"
-                type="text"
-                value={ingredienteInput.Marca}
-                onChange={handleChange}
-              />
-            </FormGroup>
-          </Col>
-  
-          <Col>
-            <FormGroup className="formCont">
-              <Label htmlFor="Precio">Precio </Label>
-              <br></br>
-              <Input
-                name="Precio"
-                className="inputFormMB"
-                value={ingredienteInput.Precio}
-                type="text"
-                onChange={handleChange}
-              />
-            </FormGroup>
-          </Col>
-  
-          <Col>
-            <FormGroup className="formCont">
-              <Label htmlFor="Stock">Stock </Label>
-              <br></br>
-              <Input
-                name="Stock"
-                className="inputFormMB"
-                value={ingredienteInput.Stock}
-                type="text"
-                onChange={handleChange}
-              />
-            </FormGroup>
-          </Col>
-          <Col>
-            <FormGroup className="formCont">
-              <Label htmlFor="Desc">Descripción </Label>
-              <br></br>
-              <Input
-                name="Desc"
-                className="inputFormMB"
-                value={ingredienteInput.Desc}
-                type="text"
-                onChange={handleChange}
-              />
-            </FormGroup>
-          </Col>
-  
-          <Col>
-            <FormGroup className="formCont">
-              <Label htmlFor="Tipo">Tipo</Label>
-              <br></br>
-              <Input
-                name="Tipo"
-                className="inputFormMB"
-                value={ingredienteInput.Tipo}
-                type="text"
-                onChange={handleChange}
-              />
-            </FormGroup>
-          </Col>
-  
-          <Col>
-            <FormGroup className="formCont">
-              <Label htmlFor="Contenido_N">Contenido Neto</Label>
-              <br></br>
-              <Input
-                name="Contenido_N"
-                className="inputFormMB"
-                value={ingredienteInput.Contenido_N}
-                type="text"
-                onChange={handleChange}
-              />
-            </FormGroup>
-          </Col>
-  
-          
-          <Col>
-            <FormGroup className="formCont">
-              <Label htmlFor="volBP">Volumen BP</Label>
-              <br></br>
-              <Input
-                name="volBP"
-                className="inputFormMB"
-                value={ingredienteInput.volBP}
-                type="text"
-                onChange={handleChange}
-              />
-            </FormGroup>
-          </Col>
-  
-          <Button type="submit" className="submitInsertButton">
-            Agregar al almacén!
-          </Button>
-        </Form>
-      </Container>
-    );
+  });
+};
+
+const Buscador = () => {
+  return <div></div>;
+};
+
+function ManageIngredientes() {
+  const Ingredientes = useSelector((state) => state.Botellas);
+  const { isShowing, toggle ,Obj,changeObject} = useModal();
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    //if(Ingredientes.length===0) dispatch(loadIngredientes());
+  });
+
+
+  return (
+    <div className="ManageIngredientes" id="ManageIngredientes">
+      <h2>Manage Ingredientes</h2>
+      <Buscador /> 
+      <button className="buttonAddBotella" onClick={function(event){ toggle(); /*changeObject(newBotella)*/}}>
+        Crear Ingrediente
+      </button>
+      <div class="container ">
+      <Table dark className="col">
+        <thead>
+          <tr>
+            <th>Nombre</th>          
+            <th>Precio</th>
+            <th>ID</th>
+            <th>MB</th>
+          </tr>
+        </thead>
+        <tbody>
+          <IngredientesTable IngredienteArray={Ingredientes}  toggle={toggle} changeObject={changeObject} dispatch={dispatch}/>
+        </tbody>
+      </Table>
+    </div>
+      <Modal
+        isShowing={isShowing}
+        hide={toggle}
+        obj={Obj}
+        form={IngredienteForm}
+        textH={"Editar Ingrediente"}
+      />
+    </div>
+  );
 }
 
 export default ManageIngredientes;
