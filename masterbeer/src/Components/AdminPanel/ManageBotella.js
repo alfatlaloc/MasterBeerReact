@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Table } from "reactstrap";
 import { loadBotellas,eliminarBotella } from "../../Redux/Actions/BotellaActions";
-import { newBotella } from "../../API/DefaultObjects/BotellaObject";
+import { newBotella } from "../../API/DefaultObjects/DefObjects";
 import useModal from "../Common/ModalMB/useModalObject";
 import Modal from "../Common/ModalMB/Modal";
 import BotellaForm from "../Common/Forms/BotellaForm";
@@ -11,6 +11,11 @@ function BotellaTable({ BotellaArray ,toggle,changeObject}){
   const dispatch = useDispatch();
 
   return BotellaArray.map((elements) => {
+    function deleteB(elements){
+      
+      dispatch(eliminarBotella(elements));
+    }
+
     return (
       <tr key={elements._id}>
         <td>{elements.Nombre}</td>
@@ -18,9 +23,9 @@ function BotellaTable({ BotellaArray ,toggle,changeObject}){
         <td>{elements.Precio}</td>
         <td>{elements._id}</td>
         <td>
-          <button className="editarBotellaButton"onClick={function(event){ toggle(); changeObject(elements)}}>Editar</button>
-          <button className="eliminarBotellaButton"
-          onClick={function(event){ dispatch(eliminarBotella(elements));}}>ELIMINAR</button>
+          <button className="editarButtonMB"onClick={function(event){ toggle(); changeObject(elements)}}>Editar</button>
+          <button className="eliminarButtonMB"
+          onClick={function(event){ deleteB(elements)}}>ELIMINAR</button>
         </td>
         <td>
 
@@ -53,7 +58,7 @@ function ManageBotella() {
       <button className="buttonAddBotella" onClick={function(event){ toggle(); changeObject(newBotella)}}>
         Crear Botella
       </button>
-      <div class="container ">
+      <div className="container ">
       <Table dark className="col">
         <thead>
           <tr>

@@ -1,9 +1,13 @@
 export default {
     Botellas:[],
+    Ingredientes:[],
     Carrito:[],
     Creador:{
       Recipiente:"",
-      Porcentaje:""
+      Progreso:0,
+      BotA:[],
+      IngA:[],
+      Nombre:""
     },
     apiCallsInProgress: 0
   };

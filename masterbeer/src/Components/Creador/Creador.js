@@ -1,6 +1,7 @@
 import React, { useEffect, useReducer, useState } from "react";
 import Recipiente from "../../img/Creador/Recipiente.png";
 import { Form, FormGroup, Label, Button, Input } from "reactstrap";
+import {useSelector} from 'react-redux';
 
 function TipoVaso() {
   return (
@@ -11,7 +12,7 @@ function TipoVaso() {
         Selecciona un tipo de vaso, recuerda que las medidas de alcohol que
         puedes colocar en cada uno varia.
       </p>
-      <FormGroup>
+      <FormGroup className="area">
         <Label for="exampleSelectMulti">Recipientes Disponibles</Label>
         <Input type="select" name="selectMulti" id="exampleSelectMulti" multiple>
           <option>1</option>
@@ -25,11 +26,24 @@ function TipoVaso() {
   );
 }
 
+function ProgressBar(){
+  const Progress = useSelector(state=>state.Creador.Progreso);
+  return(
+    <div className="area2 progressBar">
+    <h4>Mira tu avance: </h4>
+      <div className="progressBarMargin">
+        <div className="innerProgress" style={{width: `${Progress}%`}}>Progress{Progress}</div>
+      </div>
+    </div>
+  );
+}
+
 function FormBP() {
   const [Nombre, setNombre] = useState("");
   const [Desc, setDesc] = useState("");
+
   return (
-    <div className="AcceptCreador">
+    <div className="area2 AcceptCreador">
       <Form>
         <FormGroup row>
           <Label for="exampleEmail">Ponle nombre a tu trago</Label>
@@ -39,6 +53,8 @@ function FormBP() {
             name="NombreBP"
             placeholder="MasterBeerBP"
             required
+            value={Nombre}
+            onChange={e =>{setNombre(e.target.value)}}
           />
         </FormGroup>
         <FormGroup row>
@@ -60,9 +76,6 @@ function FormBP() {
 }
 function Creador() {
   useEffect(() => {});
-  const [tipoVaso, setTipoVaso] = useState(null);
-  const [porcentaje, setPorcentaje] = useState(0);
-
   return (
     <div className="Creador">
       <TipoVaso />
@@ -81,9 +94,8 @@ function Creador() {
       <div className="area">
         <h2>Extras area</h2>
       </div>
-      <FormBP 
-        porcentaje={porcentaje}
-      />
+      <ProgressBar/>
+      <FormBP/>
     </div>
   );
 }

@@ -14,6 +14,18 @@ const newBotella = {
     volBP: 0
   };
 
+
+const newIngrediente = {
+    Nombre: "",
+    Precio: 0,
+    Tipo: "",
+    Volumen:{
+        Cantidad:0,
+        Unidad:"ml"
+    }
+  };
+
   module.exports = {
-      newBotella
+      newBotella,
+      newIngrediente
   };

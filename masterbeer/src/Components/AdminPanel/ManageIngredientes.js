@@ -1,15 +1,18 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Table } from "reactstrap";
-//import { loadIngrediente,eliminarIngrediente } from "../../Redux/Actions/IngredienteActions";
-//import { newIngrediente } from "../../API/DefaultObjects/IngredienteObject";
+import { loadIngredientes,eliminarIngrediente} from "../../Redux/Actions/IngredienteActions";
+import { newIngrediente } from "../../API/DefaultObjects/DefObjects";
 import useModal from "../Common/ModalMB/useModalObject";
 import Modal from "../Common/ModalMB/Modal";
 import IngredienteForm from "../Common/Forms/IngredienteForm";
 
-function IngredientesTable({ IngredienteArray ,toggle,changeObject}){
-  const dispatch = useDispatch();
-
+function IngredientesTable({IngredienteArray,toggle,changeObject}){
+  const dispatch=useDispatch();
+  function deleteI(elements){
+      
+    dispatch(eliminarIngrediente(elements));
+  }
   return IngredienteArray.map((elements) => {
     return (
       <tr key={elements._id}>
@@ -18,15 +21,13 @@ function IngredientesTable({ IngredienteArray ,toggle,changeObject}){
         <td>{elements.Precio}</td>
         <td>{elements._id}</td>
         <td>
-          <button className="editarIngredienteButton"onClick={function(event){ toggle(); changeObject(elements)}}>Editar</button>
-          <button className="eliminarIngredienteButton"
-          /*onClick={function(event){ dispatch(eliminarIngrediente(elements));}}*/>ELIMINAR</button>
+          <button className="editarButtonMB"onClick={function(event){ toggle(); changeObject(elements)}}>Editar</button>
+          <button className="eliminarButtonMB"
+          onClick={function(event){ deleteI(elements)}}>ELIMINAR</button>
         </td>
         <td>
-
         </td>
       </tr>
-
     );
   });
 };
@@ -36,13 +37,13 @@ const Buscador = () => {
 };
 
 function ManageIngredientes() {
-  const Ingredientes = useSelector((state) => state.Botellas);
+  const Ingredientes = useSelector((state) => state.Ingrediente);
   const { isShowing, toggle ,Obj,changeObject} = useModal();
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    //if(Ingredientes.length===0) dispatch(loadIngredientes());
+    if(Ingredientes.length===0) dispatch(loadIngredientes());
   });
 
 
@@ -50,10 +51,10 @@ function ManageIngredientes() {
     <div className="ManageIngredientes" id="ManageIngredientes">
       <h2>Manage Ingredientes</h2>
       <Buscador /> 
-      <button className="buttonAddBotella" onClick={function(event){ toggle(); /*changeObject(newBotella)*/}}>
+      <button className="buttonAddBotella" onClick={function(event){ toggle(); changeObject(newIngrediente)}}>
         Crear Ingrediente
       </button>
-      <div class="container ">
+      <div className="container ">
       <Table dark className="col">
         <thead>
           <tr>
@@ -64,7 +65,7 @@ function ManageIngredientes() {
           </tr>
         </thead>
         <tbody>
-          <IngredientesTable IngredienteArray={Ingredientes}  toggle={toggle} changeObject={changeObject} dispatch={dispatch}/>
+          <IngredientesTable IngredienteArray={Ingredientes}  toggle={toggle} changeObject={changeObject}/>
         </tbody>
       </Table>
     </div>

@@ -39,14 +39,3 @@ export function eliminarBotella(Botella) {
     return BotellaApi.eliminarBotella(Botella._id);
   }
 }
-/*export function eliminarBotella(_id) {
-  return function (dispatch) {
-    return BotellaApi.eliminarBotella(_id)
-      .then((Botella) => {
-        dispatch({ type: types.ELIMINAR_BOTELLA, Botella });
-      })
-      .catch((error) => {
-        throw error;
-      });
-  };
-}*/

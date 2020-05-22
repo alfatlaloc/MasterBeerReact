@@ -22,7 +22,7 @@
   font-size: 20px;
 }
 
-.editarBotellaButton {
+.editarButtonMB {
   background-color: grey;
   border-radius: 10px;
   margin: 5px;
@@ -31,7 +31,7 @@
   color: white;
 }
 
-.eliminarBotellaButton {
+.eliminarButtonMB {
     background-color: red;
     border-radius: 10px;
     margin: 5px;
