@@ -28,6 +28,7 @@ const TopBar = () => {
                 <NavLink className="navItemMB" to="/Login"><p>Login</p></NavLink>
                 <NavLink className="navItemMB" to="/Carrito"><p>Carrito</p></NavLink>
                 <NavLink className="navItemMB" to="/Creador"><p>Creador</p></NavLink>
+                <NavLink className="navItemMB" to="/AdminPanel"><p>Admin Panel</p></NavLink>
             </Nav>
             <NavbarText style={{ color: 'white' }}>Buenos tragos buenos momentos</NavbarText>
             

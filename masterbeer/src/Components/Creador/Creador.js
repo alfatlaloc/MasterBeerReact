@@ -1,8 +1,8 @@
 import React, { useEffect, useReducer, useState } from "react";
 import Recipiente from "../../img/Creador/Recipiente.png";
 import { Form, FormGroup, Label, Button, Input } from "reactstrap";
-import {useSelector} from 'react-redux';
-
+import {useSelector, useDispatch} from 'react-redux';
+import {loadBotellas} from '../../Redux/Actions/BotellaActions'
 function TipoVaso() {
   return (
     <div className="area TipoVaso">
@@ -23,6 +23,49 @@ function TipoVaso() {
         </Input>
       </FormGroup>
     </div>
+  );
+}
+
+function BebidasA(){
+  const BotellasArray = useSelector((state) => state.Botellas);
+  const dispatch = useDispatch();
+  const [tipoBotella,setTipoBotella] = useState("Cerveza");
+
+  useEffect(()=>{
+    if (BotellasArray.length === 0 )
+        dispatch(loadBotellas());
+  });
+
+
+  return (
+    <div className="area bebidaSelector">
+        <h2>Bebidas area</h2>
+        <FormGroup className="area">
+        <Label for="exampleSelectMulti">Tipo de bebida</Label>
+        <Input type="select" name="Contenido_NU"
+              value={tipoBotella}
+              onChange={evt => {setTipoBotella(evt.target.value)}}
+              id="exampleSelectMulti">
+          <option value="Botella">Botella</option>
+          <option value="Cerveza">Cerveza</option>
+        </Input>
+      </FormGroup>
+
+        <FormGroup className="area">
+        <Label for="exampleSelectMulti">Bebidas Disponibles</Label>
+        <Input type="select" name="selectMulti" id="exampleSelectMulti" multiple>
+          {
+
+            BotellasArray.map((elements) => {
+            return (
+              <option>{elements.Nombre}</option>
+            );
+          })
+          }
+        </Input>
+      </FormGroup>
+
+      </div>
   );
 }
 
@@ -79,9 +122,7 @@ function Creador() {
   return (
     <div className="Creador">
       <TipoVaso />
-      <div className="area">
-        <h2>Bebidas area</h2>
-      </div>
+      <BebidasA />
       <div className="area">
         <h2>Bebidas area</h2>
       </div>

@@ -9,9 +9,8 @@ const RecipienteSchema = new mongoose.Schema({
   },
   Volumen: {
     Cantidad: {type: Number,required:true},
-    Unidad: {type:String,required:true},
-    required:true
-  },
+    Unidad: {type:String,required:true}
+    },
   Material: {
     type: String,
     required: true

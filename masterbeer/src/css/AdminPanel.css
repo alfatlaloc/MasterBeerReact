@@ -1,4 +1,21 @@
 .AdminPanel h2{
     background-color: #708160;
     color: white;
+    flex:1;
+}
+
+.cardsAdminPanel{
+    max-width: 1500px;
+    justify-content:center;
+    flex-wrap:wrap;
+    display: flex;
+    margin: 0  1% 0 1%;
+}
+
+.cardAP{
+    background-color: teal;
+    flex:1;
+    flex-basis:48%;  
+    border-radius: 20px;
+    margin: 10px 1% 10px 1%;
 }
