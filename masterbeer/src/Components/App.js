@@ -8,6 +8,7 @@ import AdminPanel from './AdminPanel/AdminPanel';
 import Creador from './Creador/Creador';
 import ManageBotella from './AdminPanel/ManageBotella';
 import ManageIngrediente from './AdminPanel/ManageIngredientes';
+import ManageRecipiente from './AdminPanel/ManageRecipientes';
 import Carrito from './Carrito/Carrito';
 import Login from './Login/Login';
 import Register from './Register/Registro';
@@ -28,6 +29,7 @@ function App() {
         <Route path="/AdminPanel" component={AdminPanel}/>
         <Route path="/ManageBotella" component={ManageBotella}/>
         <Route path="/ManageIngrediente" component={ManageIngrediente}/>
+        <Route path="/ManageRecipiente" component={ManageRecipiente}/>
         <Route path="/Carrito" component ={Carrito}/>
         <Route path="/ItemView:slug" component ={ItemView}/>
         <Route component={PageNotFound}/>

@@ -2,8 +2,9 @@ export default {
     Botellas:[],
     Ingredientes:[],
     Carrito:[],
+    Recipientes :[],
     Creador:{
-      Recipiente:"",
+      Recip:"",
       Progreso:0,
       BotA:[],
       IngA:[],

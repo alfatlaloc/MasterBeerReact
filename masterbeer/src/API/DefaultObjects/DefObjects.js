@@ -25,7 +25,18 @@ const newIngrediente = {
     }
   };
 
+  const newRecipiente = {
+    Tipo: "",
+    Volumen:{
+        Cantidad:0,
+        Unidad:"ml"
+    },
+    Material:"",
+    Stock:0
+  };
+
   module.exports = {
       newBotella,
-      newIngrediente
+      newIngrediente,
+      newRecipiente
   };

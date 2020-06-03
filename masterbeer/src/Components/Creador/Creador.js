@@ -1,9 +1,20 @@
 import React, { useEffect, useReducer, useState } from "react";
 import Recipiente from "../../img/Creador/Recipiente.png";
 import { Form, FormGroup, Label, Button, Input } from "reactstrap";
-import {useSelector, useDispatch} from 'react-redux';
-import {loadBotellas} from '../../Redux/Actions/BotellaActions'
+import { useSelector, useDispatch } from "react-redux";
+import { loadBotellas } from "../../Redux/Actions/BotellaActions";
+import { loadRecipientes } from "../../Redux/Actions/RecipienteActions";
+
 function TipoVaso() {
+  const RecipientesArray = useSelector((state) => state.Recipientes);
+  useSelector((state) => console.log(state));
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (RecipientesArray.length === 0) dispatch(loadRecipientes());
+
+  });
+
   return (
     <div className="area TipoVaso">
       <h2>Tipo vaso area</h2>
@@ -14,68 +25,74 @@ function TipoVaso() {
       </p>
       <FormGroup className="area">
         <Label for="exampleSelectMulti">Recipientes Disponibles</Label>
-        <Input type="select" name="selectMulti" id="exampleSelectMulti" multiple>
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
+        <Input
+          type="select"
+          name="selectMulti"
+          id="exampleSelectMulti"
+        >
+          {RecipientesArray.map((elements) => {
+            return <option>{elements.Tipo}</option>;
+          })}
         </Input>
       </FormGroup>
     </div>
   );
 }
 
-function BebidasA(){
+function BebidasA() {
   const BotellasArray = useSelector((state) => state.Botellas);
   const dispatch = useDispatch();
-  const [tipoBotella,setTipoBotella] = useState("Cerveza");
+  const [tipoBotella, setTipoBotella] = useState("Cerveza");
 
-  useEffect(()=>{
-    if (BotellasArray.length === 0 )
-        dispatch(loadBotellas());
+  useEffect(() => {
+    if (BotellasArray.length === 0) dispatch(loadBotellas());
   });
-
 
   return (
     <div className="area bebidaSelector">
-        <h2>Bebidas area</h2>
-        <FormGroup className="area">
+      <h2>Bebidas area</h2>
+      <FormGroup className="area">
         <Label for="exampleSelectMulti">Tipo de bebida</Label>
-        <Input type="select" name="Contenido_NU"
-              value={tipoBotella}
-              onChange={evt => {setTipoBotella(evt.target.value)}}
-              id="exampleSelectMulti">
+        <Input
+          type="select"
+          name="Contenido_NU"
+          value={tipoBotella}
+          onChange={(evt) => {
+            setTipoBotella(evt.target.value);
+          }}
+          id="exampleSelectMulti"
+        >
           <option value="Botella">Botella</option>
           <option value="Cerveza">Cerveza</option>
         </Input>
       </FormGroup>
 
-        <FormGroup className="area">
+      <FormGroup className="area">
         <Label for="exampleSelectMulti">Bebidas Disponibles</Label>
-        <Input type="select" name="selectMulti" id="exampleSelectMulti" multiple>
-          {
-
-            BotellasArray.map((elements) => {
-            return (
-              <option>{elements.Nombre}</option>
-            );
-          })
-          }
+        <Input
+          type="select"
+          name="selectMulti"
+          id="exampleSelectMulti"
+          multiple
+        >
+          {BotellasArray.map((elements) => {
+            return <option key={elements._id}>{elements.Nombre}</option>;
+          })}
         </Input>
       </FormGroup>
-
-      </div>
+    </div>
   );
 }
 
-function ProgressBar(){
-  const Progress = useSelector(state=>state.Creador.Progreso);
-  return(
+function ProgressBar() {
+  const Progress = useSelector((state) => state.Creador.Progreso);
+  return (
     <div className="area2 progressBar">
-    <h4>Mira tu avance: </h4>
+      <h4>Mira tu avance: </h4>
       <div className="progressBarMargin">
-        <div className="innerProgress" style={{width: `${Progress}%`}}>Progress{Progress}</div>
+        <div className="innerProgress" style={{ width: `${Progress}%` }}>
+          Progress{Progress}
+        </div>
       </div>
     </div>
   );
@@ -97,7 +114,9 @@ function FormBP() {
             placeholder="MasterBeerBP"
             required
             value={Nombre}
-            onChange={e =>{setNombre(e.target.value)}}
+            onChange={(e) => {
+              setNombre(e.target.value);
+            }}
           />
         </FormGroup>
         <FormGroup row>
@@ -135,8 +154,8 @@ function Creador() {
       <div className="area">
         <h2>Extras area</h2>
       </div>
-      <ProgressBar/>
-      <FormBP/>
+      <ProgressBar />
+      <FormBP />
     </div>
   );
 }
