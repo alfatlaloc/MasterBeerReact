@@ -9,5 +9,9 @@ export default {
       IngA:[],
       Nombre:""
     },
-    apiCallsInProgress: 0
+    Session:{
+      UserName:"",
+      Type:"",
+      logged:false
+    }
   };

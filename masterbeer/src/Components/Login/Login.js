@@ -1,7 +1,8 @@
-import React,{useReducer} from 'react';
-import {useDispatch} from 'react-redux';
+import React,{useReducer,useEffect} from 'react';
+import {useDispatch,useSelector} from 'react-redux';
 import {getUserByCorreo} from '../../Redux/Actions/UserActions'
 import {Link} from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 import {
     Container, Col, Form,
@@ -18,6 +19,9 @@ function Login (){
       Contrasena:""
     });
 
+  const Session = useSelector(state => state.Session);
+  let history = useHistory();
+
   const dispatch = useDispatch();
 
   const handleChange = (evt) => {
@@ -26,10 +30,15 @@ function Login (){
     setLoginInput({ [name]: newValue });
   };
   
+  useEffect(()=>{
+    if(Session.logged)
+      history.push("/");
+  });
   function logear(event)
   {
     event.preventDefault();
-    dispatch(getUserByCorreo(loginInput.Correo,loginInput.Contrasena)).catch(error => {
+    dispatch(getUserByCorreo(loginInput.Correo,loginInput.Contrasena))
+    .catch(error => {
       alert("Usuario no Registrado" + error);
     });
   }
@@ -63,7 +72,7 @@ function Login (){
           </FormGroup>
         </Col>
         <Button>Submit</Button>
-     <link></link>    
+     
       </Form>
       <h4>
         <Link to='/Register'>

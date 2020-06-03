@@ -23,3 +23,9 @@ export const VACIAR_CARRITO = "VACIAR_CARRITO";
 
 //Creador
 export const AGREGAR_RECIPIENTE = "AGREGAR_RECIPIENTE";
+
+
+//Session
+export const LOG_IN = "LOG_IN";
+export const LOG_OUT = "LOG_OUT";
+export const ACTUAL_USER = "ACTUAL_USER";

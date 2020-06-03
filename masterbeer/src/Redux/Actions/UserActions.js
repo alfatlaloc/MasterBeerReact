@@ -6,6 +6,7 @@ export function getUserByCorreo(Correo, Contraseña) {
     return UsuarioApi.getUserByCorreo(Correo, Contraseña)
       .then((Usuario) => {
         dispatch(getUserByCorreoSucess(Usuario));
+        dispatch({type : types.LOG_IN,Usuario});
       })
       .catch((error) => {
         throw error;
@@ -23,6 +24,13 @@ export function crearUsuario(data) {
         throw error;
       });
   };
+}
+
+export function logOut()
+{
+  return function (dispatch){
+    dispatch({type:types.LOG_OUT});
+  }
 }
 
 export function getUserByCorreoSucess(Usuario) {

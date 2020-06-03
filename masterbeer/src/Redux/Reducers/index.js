@@ -1,18 +1,17 @@
 import {combineReducers} from 'redux';
-import { sessionReducer } from 'redux-react-session';
 import Usuarios from './usuarioReducer';
 import Botellas from './botellaReducer';
 import Carrito from './carritoReducer';
 import Creador from './creadorReducer';
 import Ingrediente from './ingredienteReducer';
-
+import Session from './SessionReducer';
 const rootReducer = combineReducers({
     Usuarios,
     Carrito,
     Botellas,
     Creador,
     Ingrediente,
-    Session: sessionReducer
+    Session
 });
 
 export default rootReducer;
