@@ -96,11 +96,15 @@ async function loginUser(req, res) {
       return res.status(404).json({ message: "Usuario no registrado" });
     console.log(usuario.Contrasena);
     if (req.query.Contrasena === usuario.Contrasena) 
+    {
       console.log("Logueado");
-    else
+      return res.json(usuario);
+    }
+    else{
       console.log("Error pass");
-    
-      res.json(usuario);
+      return res.status(500).json({ message: "bad pass" });
+    }
+
   } catch (err) {
     return res.status(500).json({ message: err.message });
   }

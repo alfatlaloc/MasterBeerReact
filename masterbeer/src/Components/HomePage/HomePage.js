@@ -10,19 +10,19 @@ import mundo from "../../img/icons/mundo.png";
 const HomePage = () => (
   <React.Fragment>
     <Jumbotron className="HomeBackground" id="jumboHome">
-      <h1 className="display-3">Hola, bienvenido!</h1>
-      <h5 className="lead ">
+      <h1 className="HolaB">Hola, bienvenido!</h1>
+      <h5 className="lead">
         {" "}
         MasterBeer es una aplicación que revolucionara la forma en como bebes en
-        un bar. Esta diseñada para facilitar los pedidos y acelerar los tiempos
+        un bar. Esta diseñada para facilitar los pedidos y acelerar los tiempos de
         atención y preparación. Aqui puedes crear cualquier bebida que puedas
         imaginar.
       </h5>
       <hr className="my-2" />
-      <p>
-        Este proyecto hace uso de React,Redux,Express,MongoDB y una API REST
+      <h5 h5 className="lead">
+        Este proyecto hace uso de React, Redux, Express, MongoDB y una API REST
         propia.
-      </p>
+      </h5>
     </Jumbotron>
 
     
@@ -31,8 +31,8 @@ const HomePage = () => (
           <Promocionales />
         </div>
         <div className="info col-sm">
-          <h2>¿Quiénes somos?</h2>
-          <h5 className="homeText">
+          <h2 className="HomeTitle">¿Quiénes somos?</h2>
+          <h5 className="HomeText">
             Aplicación web para administración y apoyo a bares, la cual permite
             a los clientes ordenar antes de su llegada o durante su estancia en
             el bar. También permite generar tragos personalizados, en los cuales
@@ -45,25 +45,25 @@ const HomePage = () => (
       </div>
     
 
-    <div className="row delimitacion no-gutters justify-content-center">
+    <div className="row delimitacion no-gutters">
     <div className="col-sm">
-        <h2 className="delimit">Delimitación del proyecto</h2>
-        <h5>
+        <h2 className="delimit HomeTitle">Delimitación del proyecto</h2>
+
+        <h5 className="HomeText">
           Software especializado en bares con capacidad de entre 100 a 300
           personas, con un almacén pequeño o mediano, con alrededor de 1-5
           barman trabajando a la vez.
-        </h5>
-        <h5>
+          <br></br>
           La aplicación podrá cubrir la actividad del bar durante todo el día.
         </h5>
       </div>
     </div>
     
 
-    <div className=" funciones no-gutters justify-content-center">
-    <h2 >Funciones</h2>
+    <div className="funciones no-gutters justify-content-center">
+    <h2 className="HomeTitle">Funciones</h2>
     <br></br>
-    <div className="row no-gutters">
+    <div className="row no-gutters funcionArea">
         <div className="col-sm-3">
           <div className="card">
             <div className="face face--front">
@@ -151,18 +151,19 @@ const HomePage = () => (
 
       <div className="row objetivos no-gutters">
         <div className="col-sm">
-        <h2 className="tituloObjetivos">OBJETIVOS</h2>
-        <div>
+        <h2 className="tituloObjetivos HomeTitle">Objetivos</h2>
+        <h5>
           Desarrollar una aplicación web que apoye la administración y
           organización de pedidos de bebidas alcohólicas en bares de la CDMX.
-          <h2 className="especificos">Objetivos específicos</h2>
-          <h5>Optimizar el proceso de solicitar una bebida.</h5>
-          <h5>
+        </h5>
+          <h2 className="especificos HomeTitle">Objetivos específicos</h2>
+          <h5>Optimizar el proceso de solicitar una bebida.
+          
             Mejorar la experiencia del cliente al diseñar una bebida de acuerdo
             a sus gustos.
           </h5>
           <h5>Permitir la entrega a domicilio.</h5>
-        </div>
+        
         </div>
       </div>
 
@@ -171,7 +172,7 @@ const HomePage = () => (
 
 const Promocionales = () => (
   <div className="Promocionales">
-    <img src={promo1} style={{ maxWidth: "90%" }} alt=""></img>
+    <img src={promo1} className="promoI" alt=""></img>
   </div>
 );
 

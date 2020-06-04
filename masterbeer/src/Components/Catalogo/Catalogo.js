@@ -57,7 +57,10 @@ function Catalogo() {
 
   return (
     <div className="Catalogo">
-      <h2>Catálogo MasterBeer</h2>
+    <div className="subPageTitle">
+    <h1 className="subPageTitleH">Catálogo</h1>
+    </div>
+      
       <div>
         <BotellaList Botellas={Botellas} />
       </div>

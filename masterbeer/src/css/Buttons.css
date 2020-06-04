@@ -1,0 +1,17 @@
+.MBButton{
+    border-radius: 15px;
+    border: 0px;
+    margin: 7px;
+    padding: 8px;
+    background-color:#191458;
+    color: white;
+    font-weight: bold;
+}
+
+.MBButton :checked{
+    border: 0px;
+}
+
+.MBlink{
+    font-size: 18px;
+}

@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Recipiente from "../../img/Creador/Recipiente.png";
 import { Form, FormGroup, Label, Button, Input } from "reactstrap";
 import { useSelector, useDispatch } from "react-redux";
@@ -101,7 +101,7 @@ function ProgressBar() {
 function FormBP() {
   const [Nombre, setNombre] = useState("");
   const [Desc, setDesc] = useState("");
-
+  
   return (
     <div className="area2 AcceptCreador">
       <Form>
@@ -124,6 +124,8 @@ function FormBP() {
           <br></br>
           <Input
             type="text"
+            value={Desc}
+            onClick={e => setDesc(e.target.Name)}
             name="DescBP"
             placeholder="Trago personalizado"
             required

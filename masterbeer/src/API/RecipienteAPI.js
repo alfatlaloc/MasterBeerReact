@@ -1,6 +1,6 @@
 import { handleResponse, handleError } from "./apiUtils";
 
-const baseUrl = "http://localhost:8080/Recipiente";
+const baseUrl = "http://192.168.1.123:3000/Recipiente";
 
 export function getRecipientes() {
   return fetch(baseUrl).then(handleResponse).catch(handleError);

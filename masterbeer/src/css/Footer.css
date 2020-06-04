@@ -1,39 +1,34 @@
 .footerMB{
     color:white;
     width: auto;
-    background-color: #259b39;
-    height: 250px;
-    margin-bottom: 10px;
-    padding-bottom: 10px;
+    background-color: #000000;
+    height: auto;
+    margin-bottom: 25px;
+    padding-bottom: 25px;
+    display:flex-box;
 }
 
 .footerInformation input
 {
-    margin-bottom: 5px;
-
+    margin-bottom: 0px;
 }
-
-/*.footerInformation input:hover{
-    background-color: rgb(red, green, blue);
-}*/
-
-/*.footerInputs{
-   /* display: -moz-inline-grid*/
-   /* display: inline-table;
-}
-
-
-.footerInputs input{
-    display: inline-table;
-}*/
 
 .footerForm{
-    margin:0 -16px 8px -16px;
-    display: block;
+
+    flex:1;
 }
 
+.contactFooter{
+    padding-top: 10px;
+    font-weight: bold;
+}
+
+.pFooter{
+    padding: 0;
+    margin:0;
+}
 .footerButton{
-    width: 200px;
+    width: auto;
     border-radius: 20px;
     background-color: royalblue;
     margin-top: 10px;

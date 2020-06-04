@@ -1,12 +1,10 @@
 .Catalogo
 {
-    background-color: #e8eefc;
-    border-radius: 10px;
+    background-color:#000000;
     text-align: center;
 }
 
-.Catalogo h2{
-    background-color: #9a774f;
+.Catalogo h1{
     color: white;
     border-radius: 10px;
     padding:5px;
@@ -16,7 +14,7 @@
 .BotellaList
 {
     border-radius: 5px;
-    background-color:#faf6f1;
+    background-color:#ffffff;
     align-items: center;
     text-align: center;
     display: inline-flex;
@@ -25,7 +23,7 @@
 
 .cardMB
 {
-    background-color: #3b6fb3;
+    background-color: #151944;
     border-radius: 20px;
     margin: 15px;
     /*padding: -10px;*/
@@ -37,7 +35,7 @@
     text-align: center;
     align-content: center;
     list-style-type: none;
-    background-color: #faf6f1;
+    background-color: #d6d6d6;
 }
 .cardMB p
 {

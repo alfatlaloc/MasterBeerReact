@@ -12,6 +12,15 @@
     margin-top: 5px;
 }
 
+.principalLogo{
+    height: 55px;
+    width: 125px;
+}
+
+#NavBarText{
+    color: white;
+    font-weight: bold;
+}
 .navItemMB p:hover
 {
     color:blue;
@@ -23,10 +32,9 @@
 .footerMB
 {
     margin: 0px;
-    
 }
 
 .navbarMB
 {
-    background: #9a774f;
+    background: #57110C;
 }

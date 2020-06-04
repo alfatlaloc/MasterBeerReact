@@ -11,6 +11,8 @@ import './css/AdminPanelForms/BotellaManagerForm.css';
 import './css/ScrollBar.css';
 import './css/Carrito.css';
 import './css/Creador.css';
+import './css/Buttons.css';
+import './css/subPages/titles.css';
 
 import App from './Components/App';
 import * as serviceWorker from './serviceWorker';

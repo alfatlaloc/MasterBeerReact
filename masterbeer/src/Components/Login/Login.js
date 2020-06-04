@@ -44,7 +44,8 @@ function Login (){
   }
 
     return(
-      <Container className="Login">
+     <div className="Login"> 
+      <Container >
       <h2>Sign In</h2>
       <Form className="form" onSubmit={logear}>
         <Col>
@@ -56,6 +57,7 @@ function Login (){
               placeholder="myemail@email.com"
               onChange={handleChange}
               value={loginInput.Correo}
+              required
             />
           </FormGroup>
         </Col>
@@ -68,18 +70,20 @@ function Login (){
               onChange={handleChange}
               value={loginInput.Contrasena}
               placeholder="********"
+              required
             />
           </FormGroup>
         </Col>
-        <Button>Submit</Button>
+        <button className="MBButton">Submit</button>
      
       </Form>
       <h4>
-        <Link to='/Register'>
+        <Link className="MBlink" to='/Register'>
           Aún no tienes cuenta? Registrate
         </Link>
       </h4>
     </Container>
+    </div>
     );
   }
 

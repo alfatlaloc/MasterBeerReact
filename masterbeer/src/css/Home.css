@@ -1,23 +1,56 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap');
+
 .HomeBackground
 {
     background-image: url("../img/Home.jpg");
-    /*display: block;*/
     height: 100vh;
-    /*width: fit-content;*/
     color: white;
 }
 
+*{
+    font-family: 'Montserrat', sans-serif;
+}
+
+.HomeTitle{
+    font-weight:bold;
+    padding-top: 50px;
+    padding-bottom: 30px;
+}
+
+.HomeText{
+    justify-content: center;
+    margin-left: 7%;
+    margin-right: 7%;
+}
+
+.HomeContainer{
+    justify-content: center;
+    display:flex;
+}
+
+.funcionArea{
+    padding-left: 2%;
+    padding-right: 2%;
+    padding-bottom: 2%;
+}
 #jumboHome{
+    
     margin-bottom: 0;
 }
-.display-3{
-    margin-top: 20px;
+
+.HolaB{
+    margin-top: 100px;
+    font-weight: bold;
+    font-size: 380%;
 }
+
 .lead{
     margin-top: 20px;
+    font-weight: bold;
+
 }
 .QuienesSomos{
-    background:#249b9f;
+    background:#151944;
     /*display: block;*/
     height: auto;
     color: white;
@@ -37,11 +70,12 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
+
 .delimit{
     margin-top: 20px;
 }
 .funciones{
-    background-color: #249b9f;
+    background-color: #151944;
     color: white;
     height: auto;
 }
@@ -76,12 +110,12 @@
 .card {
 	position: relative;
 	height: 400px;
-	margin: 0.5rem;
+    margin: 0.7rem;
 	text-align: center;
 	line-height: 8rem;
 	/*color: #ecf0f1;*/
 	border-radius: 10px;
- transform-style: preserve-3d;
+    transform-style: preserve-3d;
 }
 
 .face {
@@ -100,12 +134,12 @@
 
 
 .face--front {
-	background: #2c3e50;
+	background: #4b0b06;
 	font-size: 3rem;
 }
 
 .face--back {
-	background: #2c3e50;
+	background: #4b0b06;
 	font-size: 1.5rem;
     transform: rotateY(180deg);
     align-content: center;
@@ -123,6 +157,11 @@
 .HOME{
     background: white;
     width: 90vh;
+}
+
+.promoI{
+    width: 90%;
+    max-height: 400px;
 }
 
 .objetivos{

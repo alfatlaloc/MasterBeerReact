@@ -7,10 +7,6 @@
   text-align: center;
 }
 
-.ManageBotella {
-  background-color: #e8eefc;
-}
-
 .buttonAddBotella {
   border-color: #3498db;
   color: #fff;
@@ -43,7 +39,7 @@
 
 .buttonAddBotella:hover {
   box-shadow: 0 0 10px 0 #3498db inset, 0 0 10px 4px #3498db;
-  color: black;
+  color: white;
 }
 
 .formCont select {

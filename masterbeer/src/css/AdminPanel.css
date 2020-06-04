@@ -1,9 +1,16 @@
+.AdminPanel{
+
+    background-color: #151944;
+}
 .AdminPanel h2{
-    background-color: #708160;
     color: white;
-    flex:1;
+    padding-top: 20px;
 }
 
+.ManageAdmin{
+    padding-bottom: 20px;
+    background-color: #151944;
+}
 .cardsAdminPanel{
     max-width: 1500px;
     justify-content:center;
@@ -13,9 +20,20 @@
 }
 
 .cardAP{
-    background-color: teal;
+    background-color: white;
     flex:1;
     flex-basis:48%;  
     border-radius: 20px;
     margin: 10px 1% 10px 1%;
+}
+
+.manageContainer{
+    max-width: 90%;
+    overflow:scroll;
+    overflow-y: hidden; /* Hide horizontal scrollbar */
+}
+#ManageBotellaTable{
+    background-color: black;
+    color: white;
+    margin: 0px;
 }

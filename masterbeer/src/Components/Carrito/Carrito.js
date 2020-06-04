@@ -43,7 +43,8 @@ function Carrito(){
         <div className="Carrito" id="Carrito">
             <div className="row no-gutters">
                 <div className="col-8 carritoContent justify-content-center">
-                    
+                    {(Carrito.length!==0) ?
+                    <React.Fragment>
                     <Table dark className="col">
                         <thead>
                             <tr>
@@ -58,14 +59,20 @@ function Carrito(){
                             </tbody>
                     </Table>
                     <button onClick={() =>dispatch(vaciarCarrito())}>Vaciar Carrito</button>
-                </div>
+                    </React.Fragment>
+                    : <React.Fragment>
+                      <h3>Carrito Vacio</h3>
+                    </React.Fragment>
+                }
+                </div> 
+
                 <div className="col-4 carritoCuenta">
                     <h5>Subtotal</h5>
                     
                     <hr></hr>
                     
                     <h4>Total MXN</h4>
-                    <button>Proceder al pago</button>
+                    <button className="MBButton">Proceder al pago</button>
                 </div>
             </div>
         </div>

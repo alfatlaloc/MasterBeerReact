@@ -21,6 +21,7 @@ function BotellaTable({ BotellaArray ,toggle,changeObject}){
         <td>{elements.Nombre}</td>
         <td>{elements.Marca}</td>
         <td>{elements.Precio}</td>
+        <td>{elements.Stock}</td>
         <td>{elements._id}</td>
         <td>
           <button className="editarButtonMB"onClick={function(event){ toggle(); changeObject(elements)}}>Editar</button>
@@ -52,14 +53,14 @@ function ManageBotella() {
 
 
   return (
-    <div className="ManageBotella" id="ManageBotella">
+    <div className="ManageAdmin" id="ManageBotella">
       <h2>Manage Botellas</h2>
       <Buscador />
       <button className="buttonAddBotella" onClick={function(event){ toggle(); changeObject(newBotella)}}>
         Crear Botella
       </button>
-      <div className="container ">
-      <Table dark className="col">
+      <div className="manageContainer container">
+      <Table id="ManageBotellaTable" dark className="manageTable">
         <thead>
           <tr>
             <th>Nombre</th>

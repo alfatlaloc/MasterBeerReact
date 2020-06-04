@@ -23,3 +23,14 @@
     padding: 10px;
     
 }
+
+.Login{
+    background-color: white;
+    padding-bottom: 20px;
+}
+
+.Login h2{
+    padding-top: 20px;
+    font-weight: bold;
+    color:black;
+}

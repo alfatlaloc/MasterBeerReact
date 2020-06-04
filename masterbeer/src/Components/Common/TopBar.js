@@ -24,8 +24,7 @@ function TopBar(){
     return(
         <div>
         <Navbar className="navbarMB" light expand="md">
-          <img src={logoi} alt=" " style={{ paddingRight: "10px"}}/>
-          <NavbarBrand className="navBrandMB"><p>MasterBeer</p></NavbarBrand>
+          <img src={logoi} className="principalLogo" alt=" " style={{ paddingRight: "10px"}}/>
           <NavbarToggler onClick={toggle} />
           <Collapse className="" isOpen={isOpen} navbar>
             <Nav className="mr-auto" navbar>
@@ -38,6 +37,7 @@ function TopBar(){
                 <NavLink className="navItemMB" to="/Carrito"><p>Carrito</p></NavLink>
                 <NavLink className="navItemMB" to="/Creador"><p>Creador</p></NavLink>
                 <NavLink className="navItemMB" to="/AdminPanel"><p>Admin Panel</p></NavLink>
+                <NavLink className="navItemMB" to="/Pedidos"><p>Pedidos</p></NavLink>
                 </React.Fragment>
                 : null
               }
@@ -49,7 +49,7 @@ function TopBar(){
                 >
                 <p>Log out</p></NavLink>
                 }
-            <NavbarText style={{ color: 'white' }}>Buenos tragos buenos momentos</NavbarText>
+            <NavbarText id="NavBarText">Buenos tragos buenos momentos</NavbarText>
             
           </Collapse>
         </Navbar>

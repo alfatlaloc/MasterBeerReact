@@ -2,7 +2,7 @@ import { handleResponse, handleError } from "./apiUtils";
 
 require('dotenv').config();
 
-const baseUrl = "http://localhost:8080/Usuario";
+const baseUrl = "http://192.168.1.123:8080/Usuario";
 
 export function getUsuarios() {
   return fetch(baseUrl)
