@@ -23,10 +23,6 @@ router.get("/:id", getUsuario, (req, res) => {
   res.json(res.Usuario);
 });
 
-router.get("/:Correo", loginUser, (req, res) => {
-  res.json(res.Usuario);
-});
-
 // Creating one
 router.post("/", async (req, res) => {
   const usuario = new Usuario({
@@ -75,15 +71,14 @@ router.delete("/:id", getUsuario, async (req, res) => {
 
 async function getUsuario(req, res, next) {
   try {
-    user = await Usuario.findById(req.params.id);
+    const user = await Usuario.findById(req.params.id);
     if (user == null) {
       return res.status(404).json({ message: "Cannot find user" });
     }
+    res.Usuario = user;
   } catch (err) {
     return res.status(500).json({ message: err.message });
   }
-
-  res.Usuario = user;
   next();
 }
 

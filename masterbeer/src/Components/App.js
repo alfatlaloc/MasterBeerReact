@@ -33,7 +33,7 @@ function App() {
         <Route path="/ManageRecipiente" component={ManageRecipiente}/>
         <Route path="/Pedidos" component={Pedidos}/>
         <Route path="/Carrito" component ={Carrito}/>
-        <Route path="/ItemView:slug" component ={ItemView}/>
+        <Route path="/ItemView:_id" component ={ItemView}/>
         <Route component={PageNotFound}/>
       </Switch>  
       <Footer/>

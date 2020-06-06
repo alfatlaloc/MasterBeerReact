@@ -209,9 +209,9 @@ function BotellaForm(Botella) {
           </FormGroup>
         </Col>
 
-        <Button type="submit" className="submitInsertButton">
+        <button type="submit" className="submitInsertButton">
           Agregar al almacén!
-        </Button>
+        </button>
       </Form>
     </Container>
   );

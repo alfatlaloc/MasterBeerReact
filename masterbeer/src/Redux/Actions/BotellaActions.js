@@ -13,6 +13,13 @@ export function crearBotella(data) {
   };
 }
 
+export async function getOne(_id){
+    let Botella = await BotellaApi.getOne(_id).catch((error) => {
+      throw error;
+    });;
+    return Botella;
+}
+
 export function loadBotellaSuccess(Botellas) {
   return { type: types.LOAD_BOTELLAS_SUCCESS, Botellas };
 }

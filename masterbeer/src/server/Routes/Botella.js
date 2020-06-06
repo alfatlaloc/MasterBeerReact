@@ -2,7 +2,6 @@ const express = require('express')
 const router = express.Router();
 const BotellaM = require('../Models/BotellaModel');
 
-const bp = require('body-parser').urlencoded({ extended: false});
 // Getting all
 //Obtiene todas las botellas de la BD
 router.get('/', async (req, res) => {
@@ -16,7 +15,7 @@ router.get('/', async (req, res) => {
   })
 
     // Creating one
-    router.post('/',bp ,async (req, res) => {
+    router.post('/',async (req, res) => {
       console.log("req"+req.body.Nombre);
       const botella = new BotellaM({
         Nombre: req.body.Nombre,
@@ -48,18 +47,23 @@ router.get('/', async (req, res) => {
       }
     })
 
+    // Getting One
+  router.get("/:id", getBotella, (req, res) => {
+    res.json(res.Botella);
+  });
 
     async function getBotella(req, res, next) {
       try {
-        const Botella = await BotellaM.findById(req.query._id)
+        const Botella = await BotellaM.findById(req.params.id)
         if (Botella == null) {
-          return res.status(404).json({ message: 'Cant find subscriber'})
+          return res.status(404).json({ message: 'Cant find Botellakkk'})
         }
         res.Botella = Botella;
       } catch(err){
         return res.status(500).json({ message: err.message })
       }
-    
+      
+
       next();
     }
 

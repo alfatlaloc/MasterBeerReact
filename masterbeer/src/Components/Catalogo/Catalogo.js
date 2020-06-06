@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { loadBotellas } from "../../Redux/Actions/BotellaActions";
 import { agregarAlCarrito } from "../../Redux/Actions/CarritoActions";
-
+import {Link} from 'react-router-dom';
 //Ya es un hook
 //En este caso reprentara el arreglo de botellas en Catalogo
 function BotellaList({ Botellas }) {
@@ -18,22 +18,22 @@ function BotellaList({ Botellas }) {
               </div>
               <ul className="list-group list-group-flush">
                 <li className="list-group-item">
+                <Link to={`/ItemView${elements._id}`}>
                   <img
                     alt=""
                     src={require(`../../img/Botellas/${elements.Nombre}.png`)}
                   />
+                  </Link>
                 </li>
-                <li className="list-group-item">{elements.Precio}</li>
+                <li className="list-group-item">{`$ ${elements.Precio} mxn`}</li>
                 <li className="list-group-item">{elements.Marca}</li>
-                <li className="list-group-item">{elements.Stock}</li>
+                <li className="list-group-item">{`Va. ${elements.Volumen_A}%`}</li>
                 <div>
-                  <button
-                    onClick={() => {
-                      dispatch(agregarAlCarrito(elements));
-                    }}
-                  >
-                    Agregar al carrito
+                <Link to={`/ItemView${elements._id}`}>
+                  <button>
+                    Ver producto
                   </button>
+                </Link>
                 </div>
               </ul>
             </div>

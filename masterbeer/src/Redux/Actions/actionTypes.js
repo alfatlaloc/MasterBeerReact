@@ -8,6 +8,7 @@ export const LOAD_BOTELLAS_SUCCESS = "LOAD_BOTELLAS_SUCCESS";
 export const CREATE_BOTELLA = "CREATE_BOTELLA";
 export const AGREGAR_BOTELLA = "AGREGAR_BOTELLA";
 export const ELIMINAR_BOTELLA = "ELIMINAR_BOTELLA";
+export const CARGAR_BOTELLA = "CARGAR_BOTELLA";
 //Bebidas
 
 //Ingredientes

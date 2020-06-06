@@ -1,9 +1,10 @@
 .subPageTitle{
-    padding-top: 1%;
-    margin-bottom: 1%;
+    
 }
 
 .subPageTitleH{
     font-weight: bold;
-
+    color: white;
+    padding-top: 1%;
+    margin-bottom: 1%;
 }

@@ -14,7 +14,7 @@ function CarritoArray({ CarritoArray}){
         <tr key={elements._id}>
           <td>{elements.Nombre}</td>
           <td>{elements.Precio}</td>
-          <td>Cantidad</td>
+          <td>{elements.Cantidad}</td>
           <td>
             <button>ELIMINAR</button>
           </td>
@@ -28,14 +28,11 @@ function CarritoArray({ CarritoArray}){
   };
 
 function Carrito(){
-    const Test = useSelector(state => {console.log(state)});
     const Carrito = useSelector(state =>(state.Carrito));
     const dispatch = useDispatch();
     useEffect(() => {
       //Carrito.push(2);
-        if(Carrito.length===0) {
-          console.log(Carrito);
-        }
+
           
     });
     

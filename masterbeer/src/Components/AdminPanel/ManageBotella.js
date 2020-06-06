@@ -54,7 +54,7 @@ function ManageBotella() {
 
   return (
     <div className="ManageAdmin" id="ManageBotella">
-      <h2>Manage Botellas</h2>
+      <h2 className="subPageTitleH">Manage Botellas</h2>
       <Buscador />
       <button className="buttonAddBotella" onClick={function(event){ toggle(); changeObject(newBotella)}}>
         Crear Botella

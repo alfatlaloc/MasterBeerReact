@@ -10,6 +10,12 @@ export function getBotellas() {
     .catch(handleError);
 }
 
+export function getOne(_id){
+  return fetch(`${baseUrl}/${_id}`,{method:"GET"})
+    .then(handleResponse)
+    .catch(handleError);
+}
+
 export function crearBotella(formData){
   let headers = {
     method: 'POST',

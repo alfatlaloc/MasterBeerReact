@@ -49,14 +49,14 @@ function ManageRecipiente() {
 
 
   return (
-    <div className="ManageIngredientes" id="ManageIngredientes">
-      <h2>Manage Recipientes</h2>
+    <div className="ManageAdmin" id="ManageIngredientes">
+      <h2 className="subPageTitleH">Manage Recipientes</h2>
       <Buscador /> 
       <button className="buttonAddBotella" onClick={function(event){ toggle(); changeObject(newRecipiente)}}>
         Agregar Recipiente
       </button>
       <div className="container ">
-      <Table dark className="col">
+      <Table dark id="ManageBotellaTable" className="col manageTable">
         <thead>
           <tr>
             <th>Tipo</th>          

@@ -143,9 +143,9 @@ function IngredienteForm(Ingrediente){
           
           
   
-          <Button type="submit" className="submitInsertButton">
+          <button type="submit" className="submitInsertButton">
             Agregar al almacén!
-          </Button>
+          </button>
         </Form>
       </Container>
     );

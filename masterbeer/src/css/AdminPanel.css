@@ -29,7 +29,7 @@
 
 .manageContainer{
     max-width: 90%;
-    overflow:scroll;
+    overflow:auto;
     overflow-y: hidden; /* Hide horizontal scrollbar */
 }
 #ManageBotellaTable{

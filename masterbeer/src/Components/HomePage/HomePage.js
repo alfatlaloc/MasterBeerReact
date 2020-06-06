@@ -12,14 +12,13 @@ const HomePage = () => (
     <Jumbotron className="HomeBackground" id="jumboHome">
       <h1 className="HolaB">Hola, bienvenido!</h1>
       <h5 className="lead">
-        {" "}
         MasterBeer es una aplicación que revolucionara la forma en como bebes en
         un bar. Esta diseñada para facilitar los pedidos y acelerar los tiempos de
         atención y preparación. Aqui puedes crear cualquier bebida que puedas
         imaginar.
       </h5>
       <hr className="my-2" />
-      <h5 h5 className="lead">
+      <h5 className="lead">
         Este proyecto hace uso de React, Redux, Express, MongoDB y una API REST
         propia.
       </h5>

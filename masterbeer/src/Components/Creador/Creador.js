@@ -60,7 +60,6 @@ function BebidasA() {
           onChange={(evt) => {
             setTipoBotella(evt.target.value);
           }}
-          id="exampleSelectMulti"
         >
           <option value="Botella">Botella</option>
           <option value="Cerveza">Cerveza</option>
@@ -72,7 +71,6 @@ function BebidasA() {
         <Input
           type="select"
           name="selectMulti"
-          id="exampleSelectMulti"
           multiple
         >
           {BotellasArray.map((elements) => {
