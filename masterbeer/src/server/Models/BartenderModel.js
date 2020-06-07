@@ -41,4 +41,4 @@ const BartenderSchema = new mongoose.Schema({
 
 })
 
-module.exports.Bartender = mongoose.model('Bartender', BartenderSchema,'Bartender')
+module.exports.Bartender = mongoose.model('Bartender', BartenderSchema,'Usuario');

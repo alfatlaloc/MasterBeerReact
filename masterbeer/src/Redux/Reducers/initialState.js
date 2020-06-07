@@ -14,5 +14,6 @@ export default {
       UserName:"",
       Type:"",
       logged:false
-    }
+    },
+    Pedidos:[]
   };

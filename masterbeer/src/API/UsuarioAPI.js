@@ -10,6 +10,17 @@ export function getUsuarios() {
     .catch(handleError);
 }
 
+export function crearBartender(Data){
+    let headers = {
+      method: 'POST',
+      body:Data
+    };
+    return fetch(process.env.REACT_APP_SERVER_URL+'/Bartender',headers)
+    .then(handleResponse)
+    .catch(handleError);
+  }
+
+
 export function crearUsuario(Data){
   let headers = {
     method: 'POST',

@@ -39,7 +39,7 @@ class AdminP extends React.Component{
                 </div>
                 <div className="cardAP">
                     <h3>Registrar Bartender</h3>
-                    <Link to="/ManageExtras">
+                    <Link to="/BartenderRegister">
                      <img src={bartender} alt=""/>
                     </Link>
                 </div>

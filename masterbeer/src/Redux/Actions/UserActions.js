@@ -26,6 +26,13 @@ export function crearUsuario(data) {
   };
 }
 
+export function crearBartender(data) {
+    return UsuarioApi.crearBartender(data)
+      .catch((error) => {
+        throw error;
+      });
+}
+
 export function logOut()
 {
   return function (dispatch){

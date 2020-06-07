@@ -35,3 +35,6 @@ app.use('/Ingrediente',IngredienteRoutes);
 
 const RecipienteRoutes = require('./Routes/Recipiente');
 app.use('/Recipiente',RecipienteRoutes);
+
+const BartenderRoutes = require('./Routes/Bartender');
+app.use('Bartender',BartenderRoutes);

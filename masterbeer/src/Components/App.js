@@ -18,6 +18,8 @@ import 'bootstrap/dist/js/bootstrap.bundle.min';
 import {Route, Switch} from 'react-router-dom';
 import PageNotFound from './PageNotFound';
 import ItemView from './ItemView/ItemView';
+import BartenderRegister from './AdminPanel/Bartender';
+
 function App() {
   return (
     <div className="App">
@@ -35,6 +37,7 @@ function App() {
         <Route path="/ManageExtras" component={ManageExtras}/>
         <Route path="/Pedidos" component={Pedidos}/>
         <Route path="/Carrito" component ={Carrito}/>
+        <Route path="/BartenderRegister" component ={BartenderRegister}/>
         <Route path="/ItemView:_id" component ={ItemView}/>
         <Route component={PageNotFound}/>
       </Switch>  
