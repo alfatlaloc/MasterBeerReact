@@ -1,39 +1,46 @@
-.AdminPanel{
-
-    background-color: #151944;
+.AdminPanel {
+  background-color: #151944;
 }
-.AdminPanel h2{
-    color: white;
-    padding-top: 20px;
-}
-
-.ManageAdmin{
-    padding-bottom: 20px;
-    background-color: #151944;
-}
-.cardsAdminPanel{
-    max-width: 1500px;
-    justify-content:center;
-    flex-wrap:wrap;
-    display: flex;
-    margin: 0  1% 0 1%;
+.AdminPanel h2 {
+  color: white;
+  padding-top: 20px;
 }
 
-.cardAP{
-    background-color: white;
-    flex:1;
-    flex-basis:48%;  
-    border-radius: 20px;
-    margin: 10px 1% 10px 1%;
+.ManageAdmin {
+  padding-bottom: 20px;
+  background-color: #151944;
+}
+.cardsAdminPanel {
+  max-width: 1500px;
+  justify-content: center;
+  flex-wrap: wrap;
+  display: flex;
+  margin: 0 1% 0 1%;
 }
 
-.manageContainer{
-    max-width: 90%;
-    overflow:auto;
-    overflow-y: hidden; /* Hide horizontal scrollbar */
+.cardAP {
+  background-color: white;
+  flex: 1;
+  flex-basis: 48%;
+  border-radius: 20px;
+  margin: 10px 1% 10px 1%;
 }
-#ManageBotellaTable{
-    background-color: black;
-    color: white;
-    margin: 0px;
+
+.manageContainer {
+  max-width: 90%;
+  overflow: auto;
+  overflow-y: hidden; /* Hide horizontal scrollbar */
+}
+#ManageBotellaTable {
+  background-color: black;
+  color: white;
+  margin: 0px;
+}
+
+#BartenderRegister {
+  background-color: black;
+  color: white;
+  font-weight: bold;
+  padding-bottom: 20px;
+  border-bottom: 1px solid white;
 }

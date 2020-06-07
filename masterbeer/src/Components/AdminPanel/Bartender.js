@@ -1,54 +1,62 @@
 import React, { useReducer, useState } from "react";
 import { useDispatch } from "react-redux";
 import { crearBartender } from "../../Redux/Actions/UserActions";
+import { useHistory } from "react-router-dom";
 
-import {
-    Col,
-    Form,
-    FormGroup,
-    Label,
-  } from "reactstrap";
-  
-function Bartender(){
-    const dispatch = useDispatch();
+import { Col, Form, FormGroup, Label } from "reactstrap";
 
-    const [usuarioInput, setUsuarioInput] = useReducer(
-      (state, newState) => ({ ...state, ...newState }),
-      {
-        Nombre: "",
-        Correo: "",
-        Fecha: "",
-        Contrasena: "",
-        RFC: "",
-        Tipo:"BARTENDER",
-        Sueldo:0,
-        Horario:""
-      }
-    );
-  
-    const [ TyC, setTyC ] = useState(false);
-    const [contrasenaC,setContrasenaC] = useState("");
-  
-    const handleChange = (evt) => {
-      const name = evt.target.name;
-      const newValue = evt.target.value;
-      setUsuarioInput({ [name]: newValue });
-    };
-  
-    const handleSubmit = (e) => {
-      e.preventDefault();
-      if(usuarioInput.Contrasena === contrasenaC)
-        crearBartender(JSON.stringify(usuarioInput));
-      else
-        alert("Password not match");
-      };
-    return(
-        <div id="BartenderRegister">
-                <Form onSubmit={handleSubmit} className="maxdivCont" id="Register">
-      <h2>Registro Bartender</h2>
+function Bartender() {
+  const dispatch = useDispatch();
+  const history = useHistory();
+  const [usuarioInput, setUsuarioInput] = useReducer(
+    (state, newState) => ({ ...state, ...newState }),
+    {
+      Nombre: "",
+      Apellido: "",
+      Correo: "",
+      Fecha: "",
+      Contrasena: "",
+      RFC: "",
+      Tipo: "BARTENDER",
+      Sueldo: 0,
+      Horario: "",
+    }
+  );
+
+  const [TyC, setTyC] = useState(false);
+  const [contrasenaC, setContrasenaC] = useState("");
+
+  function validateDate() {
+    let nData = usuarioInput.Fecha.substring(0, 4);
+    let today = new Date().getFullYear();
+    if (parseFloat(today) - parseFloat(nData) > 17) return true;
+
+    alert("Debes de ser mayor de edad para poder Registrarte");
+    return false;
+  }
+
+  const handleChange = (evt) => {
+    const name = evt.target.name;
+    const newValue = evt.target.value;
+    setUsuarioInput({ [name]: newValue });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (validateDate()) {
+      if (usuarioInput.Contrasena === contrasenaC) {
+        dispatch(crearBartender(JSON.stringify(usuarioInput)));
+        history.push("/");
+      } else alert("Password not match");
+    }
+  };
+  return (
+    <div id="BartenderRegister">
+      <Form onSubmit={handleSubmit} className="maxdivCont" id="Register">
+        <h2>Registro Bartender</h2>
         <Col>
           <FormGroup className="formCont">
-            <Label htmlFor="Nombre">Nombre o Alias</Label>
+            <Label htmlFor="Nombre">Nombre (s)</Label>
             <br></br>
             <input
               className="inputFormMB"
@@ -61,6 +69,20 @@ function Bartender(){
           </FormGroup>
         </Col>
 
+        <Col>
+          <FormGroup className="formCont">
+            <Label htmlFor="Apellido">Apellido (s)</Label>
+            <br></br>
+            <input
+              className="inputFormMB"
+              name="Apellido"
+              value={usuarioInput.Apellido}
+              type="text"
+              onChange={handleChange}
+              required
+            />
+          </FormGroup>
+        </Col>
         <Col>
           <FormGroup className="formCont">
             <Label htmlFor="Correo">Email </Label>
@@ -114,7 +136,7 @@ function Bartender(){
               className="inputFormMB"
               value={contrasenaC}
               type="password"
-              onChange={e => setContrasenaC(e.target.value)}
+              onChange={(e) => setContrasenaC(e.target.value)}
               required
             />
           </FormGroup>
@@ -174,15 +196,13 @@ function Bartender(){
             Aceptas terminos y condiciones
           </FormGroup>
         </Col>
-        
 
         <button type="submit" className="submitInsertButton">
-          Registrame!
+          Registrar
         </button>
       </Form>
-            
-        </div>
-    );
+    </div>
+  );
 }
 
 export default Bartender;

@@ -11,7 +11,7 @@ const BartenderSchema = new mongoose.Schema({
         type: String,
         required: true
       },
-      Contraseña: {
+      Contrasena: {
         type: String,
         minlength: 6,
         required: true,
@@ -41,4 +41,4 @@ const BartenderSchema = new mongoose.Schema({
 
 })
 
-module.exports.Bartender = mongoose.model('Bartender', BartenderSchema,'Usuario');
+module.exports = mongoose.model('Bartender', BartenderSchema,'Usuario');

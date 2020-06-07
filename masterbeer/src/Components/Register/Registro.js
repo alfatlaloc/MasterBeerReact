@@ -1,17 +1,12 @@
 import React, { useReducer, useState } from "react";
 import { useDispatch } from "react-redux";
 import { crearUsuario } from "../../Redux/Actions/UserActions";
-
-import {
-  Col,
-  Form,
-  FormGroup,
-  Label,
-} from "reactstrap";
+import { useHistory } from "react-router";
+import { Col, Form, FormGroup, Label } from "reactstrap";
 
 function Registro() {
   const dispatch = useDispatch();
-
+  const history = useHistory();
   const [usuarioInput, setUsuarioInput] = useReducer(
     (state, newState) => ({ ...state, ...newState }),
     {
@@ -20,13 +15,21 @@ function Registro() {
       Fecha: "",
       Contrasena: "",
       RFC: "",
-      Tipo:"USER"
+      Tipo: "USER",
     }
   );
 
-  const [ TyC, setTyC ] = useState(false);
-  const [contrasenaC,setContrasenaC] = useState("");
+  const [TyC, setTyC] = useState(false);
+  const [contrasenaC, setContrasenaC] = useState("");
 
+  function validateDate() {
+    let nData = usuarioInput.Fecha.substring(0, 4);
+    let today = new Date().getFullYear();
+    if (parseFloat(today) - parseFloat(nData) > 17) return true;
+
+    alert("Debes de ser mayor de edad para poder Registrarte");
+    return false;
+  }
   const handleChange = (evt) => {
     const name = evt.target.name;
     const newValue = evt.target.value;
@@ -35,17 +38,18 @@ function Registro() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if(usuarioInput.Contrasena === contrasenaC)
-      dispatch(crearUsuario(JSON.stringify(usuarioInput)));
-    else
-      alert("Password not match");
-    };
+    if (validateDate()) {
+      if (usuarioInput.Contrasena === contrasenaC) {
+        dispatch(crearUsuario(JSON.stringify(usuarioInput)));
+        history.push("/");
+      } else alert("Password not match");
+    }
+  };
 
   return (
-    <div className="Register" >
-      
+    <div className="Register">
       <Form onSubmit={handleSubmit} className="maxdivCont" id="Register">
-      <h2>Formulario de Registro</h2>
+        <h2>Formulario de Registro</h2>
         <Col>
           <FormGroup className="formCont">
             <Label htmlFor="Nombre">Nombre o Alias</Label>
@@ -114,7 +118,7 @@ function Registro() {
               className="inputFormMB"
               value={contrasenaC}
               type="password"
-              onChange={e => setContrasenaC(e.target.value)}
+              onChange={(e) => setContrasenaC(e.target.value)}
               required
             />
           </FormGroup>

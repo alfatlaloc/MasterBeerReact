@@ -37,4 +37,4 @@ const RecipienteRoutes = require('./Routes/Recipiente');
 app.use('/Recipiente',RecipienteRoutes);
 
 const BartenderRoutes = require('./Routes/Bartender');
-app.use('Bartender',BartenderRoutes);
+app.use('/Bartender',BartenderRoutes);
