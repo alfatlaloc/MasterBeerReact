@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Recipiente from "../../img/Creador/Recipiente.png";
+import Porcentaje from "../../img/Creador/Porcentaje.png";
 import { Form, FormGroup, Label, Button, Input } from "reactstrap";
 import { useSelector, useDispatch } from "react-redux";
 import { loadBotellas } from "../../Redux/Actions/BotellaActions";
@@ -17,7 +18,7 @@ function TipoVaso() {
 
   return (
     <div className="area TipoVaso">
-      <h2>Tipo vaso area</h2>
+      <h2>Tipo de vaso</h2>
       <img src={Recipiente} alt="" />
       <p>
         Selecciona un tipo de vaso, recuerda que las medidas de alcohol que
@@ -136,15 +137,24 @@ function FormBP() {
     </div>
   );
 }
+
+function Porcentajes(){
+  return(
+    <div className="area Porcentajes">
+      <h2>Porcentajes</h2>
+        <img src={Porcentaje} alt=""/>
+        <p>Aqui puedes modificar los porcentajes de cada bebida en tu trago personalizado,
+         recuerda que cada recipiente tiene un limite en mililitros de lo que le puedes agregar.</p>
+    </div>
+  );
+}
 function Creador() {
   useEffect(() => {});
   return (
     <div className="Creador">
       <TipoVaso />
       <BebidasA />
-      <div className="area">
-        <h2>Bebidas area</h2>
-      </div>
+      <Porcentajes />
       <div className="area">
         <h2>Bebidas S/A area</h2>
       </div>

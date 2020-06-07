@@ -43,6 +43,7 @@ class AdminP extends React.Component{
                      <img src={bartender} alt=""/>
                     </Link>
                 </div>
+                
                 </div>
             </div>
 

@@ -10,7 +10,6 @@ import {
     Collapse,
     Navbar,
     NavbarToggler,
-    NavbarBrand,
     Nav,
     NavbarText
   } from 'reactstrap';

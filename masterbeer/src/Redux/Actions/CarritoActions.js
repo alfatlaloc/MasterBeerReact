@@ -11,3 +11,9 @@ export function vaciarCarrito() {
           dispatch({ type: types.VACIAR_CARRITO});
 }
 }
+
+export function eliminarDeCarrito(_id){
+  return function (dispatch){
+    dispatch({type:types.ELIMINAR_DEL_CARRITO,_id});
+  }
+}

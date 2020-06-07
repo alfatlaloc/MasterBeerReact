@@ -2,7 +2,7 @@ import { handleResponse, handleError } from "./apiUtils";
 
 require("dotenv").config();
 
-const baseUrl = "http://192.168.1.123:8080/Ingrediente";
+const baseUrl = process.env.REACT_APP_SERVER_URL+'/Ingrediente';
 
 export function getIngredientes() {
   return fetch(baseUrl).then(handleResponse).catch(handleError);

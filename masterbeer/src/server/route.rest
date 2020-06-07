@@ -1,4 +1,4 @@
-GET http://localhost:8080/Usuario/
+GET http://localhost:8080/Usuario/5eb4d529895e7a3982b5bf8b
 
 ###
 
@@ -13,8 +13,9 @@ Content-Type: application/json
 
 
 ###
-GET http://localhost:8080/Usuario/5e9f5ed238d348db9572d0d4
-
+http://localhost:8080/Botella/5ea393d4ea68035c0c9e6a45
+###
+GET http://192.168.1.123:8080/Botella/5ea393d4ea68035c0c9e6a45
 ###
 
 GET http://localhost:8080/Usuario?Correo=mr.alfatlaloc@gmail.com
@@ -48,7 +49,7 @@ Content-Type: application/json
         "Volumen": "500",
         "Stock" : "3000",
         "Precio" : "96",
-        "Tipo": "LIQUIDO",
+        "Tipo": "LIQUIDO"
 }
 
 ###

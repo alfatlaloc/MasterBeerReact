@@ -56,7 +56,12 @@ function BotellaForm(Botella) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(crearBotella(JSON.stringify(botellaInput)));
+    if(botellaInput.Nombre.length < 50 )
+      dispatch(crearBotella(JSON.stringify(botellaInput)));
+    else
+    {
+      alert("El nombre es demasiado largo, intenta con uno que tenga 25 caracteres o menos ");
+    }
   };
 
   return (

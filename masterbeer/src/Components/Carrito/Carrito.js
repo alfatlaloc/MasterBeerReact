@@ -1,9 +1,7 @@
-import React,{useEffect,useReducer,useState} from 'react';
+import React,{useEffect,useState} from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import { Table } from "reactstrap";
-import { agregarAlCarrito ,vaciarCarrito} from "../../Redux/Actions/CarritoActions";
-import useModal from "../Common/ModalMB/useModalObject";
-
+import { eliminarDeCarrito ,vaciarCarrito} from "../../Redux/Actions/CarritoActions";
 
 
 function CarritoArray({ CarritoArray}){
@@ -15,8 +13,10 @@ function CarritoArray({ CarritoArray}){
           <td>{elements.Nombre}</td>
           <td>{elements.Precio}</td>
           <td>{elements.Cantidad}</td>
+          <td>{elements.Precio*elements.Cantidad}</td>
           <td>
-            <button>ELIMINAR</button>
+            <button className="eliminarButtonMB"
+            onClick={()=>{dispatch(eliminarDeCarrito(elements._id))}}>Eliminar</button>
           </td>
           <td>
   
@@ -30,11 +30,19 @@ function CarritoArray({ CarritoArray}){
 function Carrito(){
     const Carrito = useSelector(state =>(state.Carrito));
     const dispatch = useDispatch();
+    const [Total,setTotal] = useState(0);
     useEffect(() => {
       //Carrito.push(2);
-
+      if(Carrito.length>0)
+        setTotal(
+          Carrito.reduce((acc, currProduct) => {
+            const { Precio, Cantidad } = currProduct;
+            const totalPrice = parseFloat(Precio) * Cantidad;
+            return acc + totalPrice;
+          }, 0)
+        );
           
-    });
+    },[Carrito]);
     
     return( 
         <div className="Carrito" id="Carrito">
@@ -42,20 +50,23 @@ function Carrito(){
                 <div className="col-8 carritoContent justify-content-center">
                     {(Carrito.length!==0) ?
                     <React.Fragment>
-                    <Table dark className="col">
+                    <Table dark id="carritoTable" className="col">
                         <thead>
                             <tr>
-                            <th>Descripción</th>
+                            <th>Producto</th>
                             <th>Precio</th>
                             <th>Cantidad</th>
-                            
+                            <th> $$$ </th>
                             </tr>
                         </thead>
                         <tbody>
                             <CarritoArray CarritoArray={Carrito}/>
                             </tbody>
                     </Table>
-                    <button onClick={() =>dispatch(vaciarCarrito())}>Vaciar Carrito</button>
+                    <button className="eliminarButtonMB"
+                    onClick={() => {setTotal(0); 
+                    dispatch(vaciarCarrito())}}>
+                    Vaciar Carrito</button>
                     </React.Fragment>
                     : <React.Fragment>
                       <h3>Carrito Vacio</h3>
@@ -68,7 +79,7 @@ function Carrito(){
                     
                     <hr></hr>
                     
-                    <h4>Total MXN</h4>
+                    <h4>MXN $ {Total}</h4>
                     <button className="MBButton">Proceder al pago</button>
                 </div>
             </div>

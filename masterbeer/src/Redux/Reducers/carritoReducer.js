@@ -7,9 +7,18 @@ export default function carritoReducer(state=initialState.Carrito,action)
     {
         case types.AGREGAR_AL_CARRITO:
             console.log(action);
-            return [...state, {...action.Element}];
+            if(state.some(e => e._id === action.Element._id )){
+            return state.map(product => {
+                if (product._id === action.Element._id) {
+                  return {...product, Cantidad: parseFloat(product.Cantidad) + parseFloat(action.Element.Cantidad)}
+                };
+                return product;
+              });
+            }
+            else
+                return [...state, {...action.Element}];  
         case types.ELIMINAR_DEL_CARRITO:
-            return state.filter(Element => Element.Nombre !== action.Element.Nombre);
+            return state.filter(Element => Element._id !== action._id);
         case types.VACIAR_CARRITO:
             return [];
         default:

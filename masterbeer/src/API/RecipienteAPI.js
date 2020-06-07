@@ -1,6 +1,8 @@
 import { handleResponse, handleError } from "./apiUtils";
 
-const baseUrl = "http://192.168.1.123:3000/Recipiente";
+require('dotenv').config();
+
+const baseUrl = process.env.REACT_APP_SERVER_URL+'/Recipiente';
 
 export function getRecipientes() {
   return fetch(baseUrl).then(handleResponse).catch(handleError);

@@ -1,55 +1,55 @@
-.Catalogo
-{
-    background-color:#000000;
-    text-align: center;
+.Catalogo {
+  background-color: #000000;
+  text-align: center;
 }
 
-.Catalogo h1{
-    color: white;
-    border-radius: 10px;
-    padding:5px;
-    margin:5px;
-    display: inline;
-}
-.BotellaList
-{
-    border-radius: 5px;
-    background-color:#ffffff;
-    align-items: center;
-    text-align: center;
-    display: inline-flex;
-    width: auto;
+.Catalogo h1 {
+  color: white;
+  border-radius: 10px;
+  padding: 5px;
+  margin: 5px;
+  display: inline;
 }
 
-.cardMB
-{
-    background-color: #151944;
-    border-radius: 20px;
-    margin: 15px;
-    /*padding: -10px;*/
-    width: 260px;
+.BotellaList {
+  border-radius: 5px;
+  background-color: #ffffff;
+  align-items: center;
+  text-align: center;
+  display: inline-flex;
+  width: auto;
 }
 
-.cardMB ul li
-{
-    text-align: center;
-    align-content: center;
-    list-style-type: none;
-    background-color: #d6d6d6;
-}
-.cardMB p
-{
-    color:white;
-    font-size: large;
+.cardMB {
+  background-color: #151944;
+  border-radius: 20px;
+  margin: 15px;
+  /*padding: -10px;*/
+  width: 260px;
 }
 
-.cardMB button
-{
-    color:black;
-    background-color: white;
-    border-radius: 5px;
-    border-width: 0px;
-    width:55%;
-    margin-top: 7px;
-    margin-bottom: 7px;
+.cardHeaderMB {
+  height: 70px;
+  max-height: 70px;
+}
+
+.cardMB ul li {
+  text-align: center;
+  list-style-type: none;
+  background-color: #d6d6d6;
+  vertical-align: middle;
+}
+.cardMB p {
+  color: white;
+  font-size: large;
+}
+
+.cardMB button {
+  color: black;
+  background-color: white;
+  border-radius: 5px;
+  border-width: 0px;
+  width: 55%;
+  margin-top: 7px;
+  margin-bottom: 7px;
 }

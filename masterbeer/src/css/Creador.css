@@ -2,14 +2,18 @@
     display:flex;
     justify-content:center;
     flex-wrap:wrap;
+    padding: 10px;
+    padding-top: 2%;
+    background-color: #070c08;
 }
 
 .Creador .area{
-    border:1px #ccc solid;
-    padding:10px;
+    border:0px;
+    margin:10px;
     flex:1;
-    flex-basis: 50%;  
-    border-radius: 20px;
+    flex-basis: 46%;  
+    border-radius: 15px;
+    color: white;
 }
 
 .Creador .area2{
@@ -46,7 +50,7 @@
 }
 
 .TipoVaso{
-    background-color: rgb(134, 151, 201);
+    background-color: #151944;
 }
 
 .AcceptCreador{
@@ -55,6 +59,9 @@
 }
 
 .bebidaSelector{
-    background-color: teal;
+    background-color: #8f2213;
+}
 
+.Porcentajes{
+    background-color: #8f2213;
 }

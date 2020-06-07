@@ -7,20 +7,20 @@ import {FormGroup} from 'reactstrap';
 function ItemView() {
   const params = useParams();
   const [Item, setItem] = useState();
-  const [Cantidad, setCantidad] = useState(0);
+  const [Cantidad, setCantidad] = useState(1);
   const dispatch = useDispatch();
 
   useEffect(() => {
     getOne(params._id).then((data) => setItem(data));
-  }, []);
+  });
 
   function addItem(e){
       e.preventDefault();
     var a = Object.assign({}, Item);
     a["Cantidad"]=Cantidad;
-    alert(Cantidad);
+    alert('Se agregaron: ' + Cantidad +' al carrito');
     if(Cantidad > 0)
-    dispatch(agregarAlCarrito(a));
+      dispatch(agregarAlCarrito(a));
   }
   if (!Item) return null;
 
@@ -62,6 +62,7 @@ function ItemView() {
             setCantidad(evt.target.value);
           }}
         >
+          <option value="3">1</option>
           <option value="3">3</option>
           <option value="6">6</option>
           <option value="12">12</option>

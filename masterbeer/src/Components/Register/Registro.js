@@ -7,8 +7,6 @@ import {
   Form,
   FormGroup,
   Label,
-  input,
-  Button,
 } from "reactstrap";
 
 function Registro() {
@@ -44,7 +42,7 @@ function Registro() {
     };
 
   return (
-    <div className="row no-gutters justify-content-center" >
+    <div className="Register" >
       
       <Form onSubmit={handleSubmit} className="maxdivCont" id="Register">
       <h2>Formulario de Registro</h2>
@@ -149,9 +147,9 @@ function Registro() {
           </FormGroup>
         </Col>
 
-        <Button type="submit" className="submitInsertButton">
+        <button type="submit" className="submitInsertButton">
           Registrame!
-        </Button>
+        </button>
       </Form>
     </div>
   );
