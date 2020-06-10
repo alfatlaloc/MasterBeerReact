@@ -20,6 +20,7 @@ function RecipientesTable({Array,toggle,changeObject}){
         <td>{`${elements.Volumen.Cantidad} ${elements.Volumen.Unidad}`}</td>
         <td>{elements.Material}</td>
         <td>{elements.Stock}</td>
+        <td>{elements.AlcoholP + ' ml'}</td>
         <td>{elements._id}</td>
         <td>
           <button className="editarButtonMB"onClick={function(event){ toggle(); changeObject(elements)}}>Editar</button>
@@ -63,6 +64,7 @@ function ManageRecipiente() {
             <th>Volumen</th>
             <th>Material</th>
             <th>Stock</th>
+            <th>Alcohol P</th>
             <th>ID</th>
             <th>MB</th>
           </tr>

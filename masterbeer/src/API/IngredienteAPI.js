@@ -23,3 +23,14 @@ export function eliminarIngrediente(_id) {
     .then(handleResponse)
     .catch(handleError);
 }
+
+export function updateIngrediente(formData){
+  let headers = {
+    method: 'PATCH',
+    body:formData,
+    'Content-type' : 'application/json; charset=UTF-8'
+  };
+  return fetch(baseUrl,headers)
+  .then(handleResponse)
+  .catch(handleError);
+}

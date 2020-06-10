@@ -17,7 +17,7 @@ function IngredientesTable({IngredienteArray,toggle,changeObject}){
     return (
       <tr key={elements._id}>
         <td>{elements.Nombre}</td>
-        <td>{elements.Marca}</td>
+        <td>{elements.Stock}</td>
         <td>{elements.Precio}</td>
         <td>{elements._id}</td>
         <td>
@@ -48,17 +48,18 @@ function ManageIngredientes() {
 
 
   return (
-    <div className="ManageIngredientes" id="ManageIngredientes">
-      <h2>Manage Ingredientes</h2>
+    <div className="ManageAdmin" id="ManageBotella">
+      <h2 className="subPageTitleH">Manage Ingredientes</h2>
       <Buscador /> 
       <button className="buttonAddBotella" onClick={function(event){ toggle(); changeObject(newIngrediente)}}>
         Crear Ingrediente
       </button>
       <div className="container ">
-      <Table dark className="col">
+      <Table id="ManageBotellaTable" dark className="manageTable">
         <thead>
           <tr>
-            <th>Nombre</th>          
+            <th>Nombre</th>   
+            <th>Stock</th>        
             <th>Precio</th>
             <th>ID</th>
             <th>MB</th>

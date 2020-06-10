@@ -9,7 +9,6 @@ import {
     FormGroup,
     Label,
     Input,
-    Button,
   } from "reactstrap";
 
 function IngredienteForm(Obj){
@@ -26,6 +25,7 @@ function IngredienteForm(Obj){
         },
         Material: Obj.Material,
         Stock: Obj.Stock,
+        AlcoholP:Obj.AlcoholP
       }
     );
 
@@ -96,6 +96,20 @@ function IngredienteForm(Obj){
                 name="Tipo"
                 className="inputFormMB"
                 value={formInput.Tipo}
+                type="text"
+                onChange={handleChange}
+              />
+            </FormGroup>
+          </Col>
+
+          <Col>
+            <FormGroup className="formCont">
+              <Label htmlFor="AlcoholP">Alcohol P (mililitros)</Label>
+              <br></br>
+              <Input
+                name="AlcoholP"
+                className="inputFormMB"
+                value={formInput.AlcoholP}
                 type="text"
                 onChange={handleChange}
               />

@@ -1,16 +1,11 @@
 import React, { useReducer } from "react";
 import { useDispatch } from "react-redux";
-import { crearBotella } from "../../../Redux/Actions/BotellaActions";
-
 import {
-  Container,
-  Col,
-  Form,
-  FormGroup,
-  Label,
-  input,
-  Button,
-} from "reactstrap";
+  crearBotella,
+  updateBotella,
+} from "../../../Redux/Actions/BotellaActions";
+
+import { Container, Col, Form, FormGroup, Label } from "reactstrap";
 
 function BotellaForm(Botella) {
   const dispatch = useDispatch();
@@ -18,6 +13,7 @@ function BotellaForm(Botella) {
   const [botellaInput, setBotellaInput] = useReducer(
     (state, newState) => ({ ...state, ...newState }),
     {
+      _id:Botella._id,
       Nombre: Botella.Nombre,
       Marca: Botella.Marca,
       Precio: Botella.Precio,
@@ -56,11 +52,13 @@ function BotellaForm(Botella) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if(botellaInput.Nombre.length < 50 )
-      dispatch(crearBotella(JSON.stringify(botellaInput)));
-    else
-    {
-      alert("El nombre es demasiado largo, intenta con uno que tenga 25 caracteres o menos ");
+    if (botellaInput.Nombre.length < 50)
+      if (Botella._id) dispatch(updateBotella(JSON.stringify(botellaInput)));
+      else dispatch(crearBotella(JSON.stringify(botellaInput)));
+    else {
+      alert(
+        "El nombre es demasiado largo, intenta con uno que tenga 25 caracteres o menos "
+      );
     }
   };
 
@@ -195,7 +193,6 @@ function BotellaForm(Botella) {
               onChange={handleChange}
               required
             />
-            
           </FormGroup>
         </Col>
 

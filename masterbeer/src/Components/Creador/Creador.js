@@ -1,96 +1,18 @@
 import React, { useEffect, useState } from "react";
-import Recipiente from "../../img/Creador/Recipiente.png";
-import Porcentaje from "../../img/Creador/Porcentaje.png";
 import { Form, FormGroup, Label, Button, Input } from "reactstrap";
 import { useSelector, useDispatch } from "react-redux";
-import { loadBotellas } from "../../Redux/Actions/BotellaActions";
-import { loadRecipientes } from "../../Redux/Actions/RecipienteActions";
+import {newRecipiente} from '../../API/DefaultObjects/DefObjects';
+import TipoVaso from './TipoVaso';
+import BebidasA from './BebidasA';
+import Porcentajes from './Porcentajes';
 
-function TipoVaso() {
-  const RecipientesArray = useSelector((state) => state.Recipientes);
-  useSelector((state) => console.log(state));
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    if (RecipientesArray.length === 0) dispatch(loadRecipientes());
-
-  });
-
-  return (
-    <div className="area TipoVaso">
-      <h2>Tipo de vaso</h2>
-      <img src={Recipiente} alt="" />
-      <p>
-        Selecciona un tipo de vaso, recuerda que las medidas de alcohol que
-        puedes colocar en cada uno varia.
-      </p>
-      <FormGroup className="area">
-        <Label for="exampleSelectMulti">Recipientes Disponibles</Label>
-        <Input
-          type="select"
-          name="selectMulti"
-          id="exampleSelectMulti"
-        >
-          {RecipientesArray.map((elements) => {
-            return <option>{elements.Tipo}</option>;
-          })}
-        </Input>
-      </FormGroup>
-    </div>
-  );
-}
-
-function BebidasA() {
-  const BotellasArray = useSelector((state) => state.Botellas);
-  const dispatch = useDispatch();
-  const [tipoBotella, setTipoBotella] = useState("Cerveza");
-
-  useEffect(() => {
-    if (BotellasArray.length === 0) dispatch(loadBotellas());
-  });
-
-  return (
-    <div className="area bebidaSelector">
-      <h2>Bebidas area</h2>
-      <FormGroup className="area">
-        <Label for="exampleSelectMulti">Tipo de bebida</Label>
-        <Input
-          type="select"
-          name="Contenido_NU"
-          value={tipoBotella}
-          onChange={(evt) => {
-            setTipoBotella(evt.target.value);
-          }}
-        >
-          <option value="Botella">Botella</option>
-          <option value="Cerveza">Cerveza</option>
-        </Input>
-      </FormGroup>
-
-      <FormGroup className="area">
-        <Label for="exampleSelectMulti">Bebidas Disponibles</Label>
-        <Input
-          type="select"
-          name="selectMulti"
-          multiple
-        >
-          {BotellasArray.map((elements) => {
-            return <option key={elements._id}>{elements.Nombre}</option>;
-          })}
-        </Input>
-      </FormGroup>
-    </div>
-  );
-}
-
-function ProgressBar() {
-  const Progress = useSelector((state) => state.Creador.Progreso);
+function ProgressBar({Progress}) {
   return (
     <div className="area2 progressBar">
       <h4>Mira tu avance: </h4>
       <div className="progressBarMargin">
         <div className="innerProgress" style={{ width: `${Progress}%` }}>
-          Progress{Progress}
+          {Progress}
         </div>
       </div>
     </div>
@@ -100,7 +22,7 @@ function ProgressBar() {
 function FormBP() {
   const [Nombre, setNombre] = useState("");
   const [Desc, setDesc] = useState("");
-  
+
   return (
     <div className="area2 AcceptCreador">
       <Form>
@@ -124,7 +46,7 @@ function FormBP() {
           <Input
             type="text"
             value={Desc}
-            onClick={e => setDesc(e.target.Name)}
+            onChange={(e) => setDesc(e.target.Name)}
             name="DescBP"
             placeholder="Trago personalizado"
             required
@@ -138,23 +60,28 @@ function FormBP() {
   );
 }
 
-function Porcentajes(){
-  return(
-    <div className="area Porcentajes">
-      <h2>Porcentajes</h2>
-        <img src={Porcentaje} alt=""/>
-        <p>Aqui puedes modificar los porcentajes de cada bebida en tu trago personalizado,
-         recuerda que cada recipiente tiene un limite en mililitros de lo que le puedes agregar.</p>
-    </div>
-  );
-}
+
 function Creador() {
+  const [botellaArray, setBotellaArray] = useState([]);
+  const [Recipiente,setRecipiente] = useState(newRecipiente);
+  const [Progress,setProgress] = useState(0);
+  
   useEffect(() => {});
   return (
     <div className="Creador">
-      <TipoVaso />
-      <BebidasA />
-      <Porcentajes />
+      <TipoVaso 
+        Recipiente={Recipiente}
+        setRecipiente={setRecipiente}
+      />
+      <BebidasA botellaArray={botellaArray}
+      setBotellaArray={setBotellaArray}/>
+      <Porcentajes 
+      botellaArray={botellaArray}
+      setBotellaArray={setBotellaArray}
+      Recipiente={Recipiente}
+      Progress={Progress}
+      setProgress={setProgress}
+      />
       <div className="area">
         <h2>Bebidas S/A area</h2>
       </div>
@@ -164,7 +91,9 @@ function Creador() {
       <div className="area">
         <h2>Extras area</h2>
       </div>
-      <ProgressBar />
+      <ProgressBar 
+        Progress={Progress}
+      />
       <FormBP />
     </div>
   );

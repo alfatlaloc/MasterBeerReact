@@ -19,7 +19,13 @@ const RecipienteSchema = new mongoose.Schema({
     type: Number,
     min:0,
     required: true,
+  },
+  AlcoholP:{
+    type: Number,
+    min:0,
+    required:true
   }
+
 })
 
 module.exports = mongoose.model('Recipiente', RecipienteSchema,'Recipiente')

@@ -29,6 +29,21 @@ router.post("/", async (req, res) => {
   }
 });
 
+router.patch("/", getIngrediente, async (req, res) => {
+  console.log("patch");
+  if (req.body.Nombre !== null) res.Ingrediente.Nombre = req.body.Nombre;
+  if (req.body.Volumen !== null) res.Ingrediente.Volumen = req.body.Volumen;
+  if (req.body.Stock !== null) res.Ingrediente.Stock = req.body.Stock;
+  if (req.body.Precio !== null) res.Ingrediente.Precio = req.body.Precio;
+  if (req.body.Tipo !== null) res.Ingrediente.Tipo = req.body.Tipo;
+  try {
+    const updatedIngrediente = await res.Ingrediente.save();
+    res.json(updatedIngrediente);
+  } catch (err) {
+    res.status(400).json({ message: err.message });
+  }
+});
+
 router.delete("/", getIngrediente, async (req, res) => {
   console.log(req.query._id);
   try {
@@ -41,7 +56,9 @@ router.delete("/", getIngrediente, async (req, res) => {
 
 async function getIngrediente(req, res, next) {
   try {
-    const Ingrediente = await IngredienteM.findById(req.query._id);
+    let Ingrediente;
+    if (req.params.id) Ingrediente = await IngredienteM.findById(req.params.id);
+    if (req.body._id) Ingrediente = await IngredienteM.findById(req.body._id);
     if (Ingrediente == null) {
       return res.status(404).json({ message: "Cant find subscriber" });
     }

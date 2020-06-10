@@ -20,6 +20,7 @@ router.post("/", async (req, res) => {
     Material: req.body.Material,
     Volumen: req.body.Volumen,
     Stock: req.body.Stock,
+    AlcoholP:req.body.AlcoholP
   });
   try {
     const newRecipiente = await recipiente.save();

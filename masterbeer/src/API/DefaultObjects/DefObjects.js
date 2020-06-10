@@ -32,7 +32,8 @@ const newIngrediente = {
         Unidad:"ml"
     },
     Material:"",
-    Stock:0
+    Stock:0,
+    AlcoholP:0
   };
 
   module.exports = {

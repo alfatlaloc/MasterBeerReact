@@ -9,20 +9,24 @@
 
 .Creador .area{
     border:0px;
-    margin:10px;
+    margin:15px;
     flex:1;
     flex-basis: 46%;  
     border-radius: 15px;
     color: white;
+    padding: 2% 2% 2% 2%;
+    font-weight: bolder;
 }
 
 .Creador .area2{
-    border:1px #ccc solid;
-    padding:10px;
+    border:0px #ccc ;
+    padding: 3% 5% 3% 5%;
+
     margin: 10px;
     flex:1;
     flex-basis: 100%;  
     border-radius: 20px;
+    color: white;
 }
 
 .progressBar{
@@ -64,4 +68,38 @@
 
 .Porcentajes{
     background-color: #8f2213;
+}
+
+.PorcentajeWork{
+    background-color: white;
+    color: black;
+    border-radius: 10px;
+    margin: 5px;
+    width: auto;
+    padding-top: 10px;
+}
+
+.RecipienteC{
+    max-width: 350px;
+    background-color: white;
+    margin: auto;
+    border-radius: 10px;
+}
+
+.RecipienteCP{
+    background-color: #2940c7;
+    border-radius: 10px;
+    font-weight: bold;
+    margin:auto;
+    max-width: 350px;
+    color: white;
+}
+
+.MBButtonC{
+    background-color: black;
+    font-weight: bold;
+    border-radius: 20px;
+    padding: 5px;
+    color: white;
+    margin-bottom: 10px;
 }

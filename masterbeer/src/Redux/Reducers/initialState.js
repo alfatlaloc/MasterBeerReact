@@ -2,18 +2,12 @@ export default {
     Botellas:[],
     Ingredientes:[],
     Carrito:[],
+    Extras:[],
     Recipientes :[],
-    Creador:{
-      Recip:"",
-      Progreso:0,
-      BotA:[],
-      IngA:[],
-      Nombre:""
-    },
+    Pedidos:[],
     Session:{
       UserName:"",
       Type:"",
       logged:false
-    },
-    Pedidos:[]
+    }
   };

@@ -37,10 +37,6 @@ function BotellaTable({ BotellaArray ,toggle,changeObject}){
   });
 };
 
-const Buscador = () => {
-  return <div></div>;
-};
-
 function ManageExtras() {
   const Botellas = useSelector((state) => state.Botellas);
   const { isShowing, toggle ,Obj,changeObject} = useModal();
@@ -55,7 +51,6 @@ function ManageExtras() {
   return (
     <div className="ManageAdmin" id="ManageBotella">
       <h2 className="subPageTitleH"> Administrar Extras</h2>
-      <Buscador />
       <button className="buttonAddBotella" onClick={function(event){ toggle(); changeObject(newBotella)}}>
         Crear Botella
       </button>

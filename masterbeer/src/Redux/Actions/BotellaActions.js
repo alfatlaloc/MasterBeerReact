@@ -13,11 +13,24 @@ export function crearBotella(data) {
   };
 }
 
-export async function getOne(_id){
-    let Botella = await BotellaApi.getOne(_id).catch((error) => {
+export function updateBotella(data)
+{
+  return function (dispatch){
+    return BotellaApi.updateBotella(data)
+    .then((Botella) => {
+      dispatch({type: types.UPDATE_BOTELLA,Botella})
+    })
+    .catch((error) => {
       throw error;
-    });;
-    return Botella;
+    });
+  };
+}
+
+export async function getOne(_id){
+  let Botella = await BotellaApi.getOne(_id).catch((error) => {
+    throw error;
+  });;
+  return Botella;
 }
 
 export function loadBotellaSuccess(Botellas) {

@@ -31,3 +31,14 @@ export function eliminarBotella(_id) {
     .then(handleResponse)
     .catch(handleError);
 }
+
+export function updateBotella(formData){
+  let headers = {
+    method: 'PATCH',
+    body:formData,
+    'Content-type' : 'application/json; charset=UTF-8'
+  };
+  return fetch(baseUrl,headers)
+  .then(handleResponse)
+  .catch(handleError);
+}
