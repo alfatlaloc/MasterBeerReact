@@ -7,25 +7,25 @@ import {
 
 import { Container, Col, Form, FormGroup, Label } from "reactstrap";
 
-function BotellaForm(Botella) {
+function BotellaForm({ Obj, hide }) {
   const dispatch = useDispatch();
 
   const [botellaInput, setBotellaInput] = useReducer(
     (state, newState) => ({ ...state, ...newState }),
     {
-      _id:Botella._id,
-      Nombre: Botella.Nombre,
-      Marca: Botella.Marca,
-      Precio: Botella.Precio,
-      Stock: Botella.Stock,
-      Desc: Botella.Desc,
-      Tipo: Botella.Tipo,
+      _id: Obj._id,
+      Nombre: Obj.Nombre,
+      Marca: Obj.Marca,
+      Precio: Obj.Precio,
+      Stock: Obj.Stock,
+      Desc: Obj.Desc,
+      Tipo: Obj.Tipo,
       Contenido_N: {
-        Cantidad: Botella.Contenido_N.Cantidad,
-        Unidad: Botella.Contenido_N.Unidad,
+        Cantidad: Obj.Contenido_N.Cantidad,
+        Unidad: Obj.Contenido_N.Unidad,
       },
-      Volumen_A: Botella.Volumen_A,
-      volBP: Botella.volBP,
+      Volumen_A: Obj.Volumen_A,
+      volBP: Obj.volBP,
     }
   );
 
@@ -52,10 +52,11 @@ function BotellaForm(Botella) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (botellaInput.Nombre.length < 50)
-      if (Botella._id) dispatch(updateBotella(JSON.stringify(botellaInput)));
+    if (botellaInput.Nombre.length < 50) {
+      if (Obj._id) dispatch(updateBotella(JSON.stringify(botellaInput)));
       else dispatch(crearBotella(JSON.stringify(botellaInput)));
-    else {
+      hide();
+    } else {
       alert(
         "El nombre es demasiado largo, intenta con uno que tenga 25 caracteres o menos "
       );
@@ -212,7 +213,7 @@ function BotellaForm(Botella) {
         </Col>
 
         <button type="submit" className="submitInsertButton">
-          Agregar al almacén!
+          {Obj._id ? "Actualizar" : "Agregar al almacén!"}
         </button>
       </Form>
     </Container>

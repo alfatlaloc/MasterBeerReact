@@ -15,6 +15,10 @@ function Porcentajes({botellaArray,setBotellaArray,Recipiente,Progress,setProgre
           }, 0)
     }
 
+    function handleP(){
+      
+    }
+
   return (
     <div className="area2 Porcentajes">
       <h2>Porcentajes</h2>
@@ -34,6 +38,7 @@ function Porcentajes({botellaArray,setBotellaArray,Recipiente,Progress,setProgre
             <div key={elements._id}>
               {elements.Nombre}
               <p>{`Militros:${elements.Porcentaje} ml`}</p>
+              <input value={elements.Porcentaje} onChange={handleP}></input>
               <button className="MBButtonC"
               onClick={e => { e.preventDefault(); deleteB(elements._id)}}
               > Eliminar </button>

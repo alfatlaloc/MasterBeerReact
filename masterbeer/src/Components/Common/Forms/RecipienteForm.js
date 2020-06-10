@@ -1,122 +1,114 @@
-import React,{useReducer} from 'react';
-import { useDispatch} from "react-redux";
-import {crearRecipiente} from "../../../Redux/Actions/RecipienteActions";
-
+import React, { useReducer } from "react";
+import { useDispatch } from "react-redux";
 import {
-    Container,
-    Col,
-    Form,
-    FormGroup,
-    Label,
-    Input,
-  } from "reactstrap";
+  crearRecipiente,
+  updateRecipiente,
+} from "../../../Redux/Actions/RecipienteActions";
 
-function IngredienteForm(Obj){
-    const dispatch = useDispatch();
+import { Container, Col, Form, FormGroup, Label, Input } from "reactstrap";
 
-    const [formInput, setFormInput] = useReducer(
-      (state, newState) => ({ ...state, ...newState }),
-      {
+function RecipienteForm({Obj,hide}) {
+  const dispatch = useDispatch();
 
-        Tipo: Obj.Tipo,
-        Volumen: {
-          Cantidad: Obj.Volumen.Cantidad,
-          Unidad: Obj.Volumen.Unidad,
-        },
-        Material: Obj.Material,
-        Stock: Obj.Stock,
-        AlcoholP:Obj.AlcoholP
-      }
-    );
+  const [formInput, setFormInput] = useReducer(
+    (state, newState) => ({ ...state, ...newState }),
+    {
+      _id: Obj._id,
+      Tipo: Obj.Tipo,
+      Volumen: {
+        Cantidad: Obj.Volumen.Cantidad,
+        Unidad: Obj.Volumen.Unidad,
+      },
+      Material: Obj.Material,
+      Stock: Obj.Stock,
+      AlcoholP: Obj.AlcoholP,
+    }
+  );
 
-    const handleChange = (evt) => {
-        const name = evt.target.name;
-        const newValue = evt.target.value;
-        setFormInput({ [name]: newValue });
-      };
+  const handleChange = (evt) => {
+    const name = evt.target.name;
+    const newValue = evt.target.value;
+    setFormInput({ [name]: newValue });
+  };
 
-      const handleChangeA = (evt) => {
-        const Name = evt.target.name.toString();
-        const N = {
-          Cantidad:
-            Name === "Volumen_NC"
-              ? evt.target.value
-              : formInput.Volumen.Cantidad,
-          Unidad:
-            Name === "Volumen_NU"
-              ? evt.target.value
-              : formInput.Volumen.Unidad,
-        };
-        setFormInput({ Volumen: N });
-      };
-    
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        dispatch(crearRecipiente(JSON.stringify(formInput)));
-      };
+  const handleChangeA = (evt) => {
+    const Name = evt.target.name.toString();
+    const N = {
+      Cantidad:
+        Name === "Volumen_NC" ? evt.target.value : formInput.Volumen.Cantidad,
+      Unidad:
+        Name === "Volumen_NU" ? evt.target.value : formInput.Volumen.Unidad,
+    };
+    setFormInput({ Volumen: N });
+  };
 
-    return(
-        <Container className="botellaForm">
-        <Form id="botellaForm" onSubmit={handleSubmit}>
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (Obj._id) dispatch(updateRecipiente(JSON.stringify(formInput)));
+    else dispatch(crearRecipiente(JSON.stringify(formInput)));
+    hide();
+  };
 
-          <Col>
-            <FormGroup className="formCont">
-              <Label htmlFor="Material">Material</Label>
-              <br></br>
-              <Input
-                className="inputFormMB"
-                name="Material"
-                value={formInput.Material}
-                type="text"
-                onChange={handleChange}
-              />
-            </FormGroup>
-          </Col>
+  return (
+    <Container className="botellaForm">
+      <Form id="botellaForm" onSubmit={handleSubmit}>
+        <Col>
+          <FormGroup className="formCont">
+            <Label htmlFor="Material">Material</Label>
+            <br></br>
+            <Input
+              className="inputFormMB"
+              name="Material"
+              value={formInput.Material}
+              type="text"
+              onChange={handleChange}
+            />
+          </FormGroup>
+        </Col>
 
-          <Col>
-            <FormGroup className="formCont">
-              <Label htmlFor="Stock">Stock </Label>
-              <br></br>
-              <Input
-                name="Stock"
-                className="inputFormMB"
-                value={formInput.Stock}
-                type="text"
-                onChange={handleChange}
-              />
-            </FormGroup>
-          </Col>
-          
-  
-          <Col>
-            <FormGroup className="formCont">
-              <Label htmlFor="Tipo">Tipo</Label>
-              <br></br>
-              <Input
-                name="Tipo"
-                className="inputFormMB"
-                value={formInput.Tipo}
-                type="text"
-                onChange={handleChange}
-              />
-            </FormGroup>
-          </Col>
+        <Col>
+          <FormGroup className="formCont">
+            <Label htmlFor="Stock">Stock </Label>
+            <br></br>
+            <Input
+              name="Stock"
+              className="inputFormMB"
+              value={formInput.Stock}
+              type="text"
+              onChange={handleChange}
+            />
+          </FormGroup>
+        </Col>
 
-          <Col>
-            <FormGroup className="formCont">
-              <Label htmlFor="AlcoholP">Alcohol P (mililitros)</Label>
-              <br></br>
-              <Input
-                name="AlcoholP"
-                className="inputFormMB"
-                value={formInput.AlcoholP}
-                type="text"
-                onChange={handleChange}
-              />
-            </FormGroup>
-          </Col>
-  
-          <Col>
+        <Col>
+          <FormGroup className="formCont">
+            <Label htmlFor="Tipo">Tipo</Label>
+            <br></br>
+            <Input
+              name="Tipo"
+              className="inputFormMB"
+              value={formInput.Tipo}
+              type="text"
+              onChange={handleChange}
+            />
+          </FormGroup>
+        </Col>
+
+        <Col>
+          <FormGroup className="formCont">
+            <Label htmlFor="AlcoholP">Alcohol P (mililitros)</Label>
+            <br></br>
+            <Input
+              name="AlcoholP"
+              className="inputFormMB"
+              value={formInput.AlcoholP}
+              type="text"
+              onChange={handleChange}
+            />
+          </FormGroup>
+        </Col>
+
+        <Col>
           <FormGroup className="formCont">
             <Label htmlFor="Volumen">Volumen</Label>
             <br></br>
@@ -139,14 +131,14 @@ function IngredienteForm(Obj){
               <option value="gal">gal</option>
             </select>
           </FormGroup>
-          </Col>
+        </Col>
 
-          <button type="submit" className="submitInsertButton">
-            Agregar al almacén!
-          </button>
-        </Form>
-      </Container>
-    );
+        <button type="submit" className="submitInsertButton">
+        {Obj._id ? "Actualizar" : "Agregar al almacén!"}
+        </button>
+      </Form>
+    </Container>
+  );
 }
 
-export default IngredienteForm;
+export default RecipienteForm;

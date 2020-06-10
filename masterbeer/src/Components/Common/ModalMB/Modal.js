@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-const Modal = ({ isShowing, hide ,form, textH,obj}) => isShowing ? ReactDOM.createPortal(
+const Modal = ({ isShowing, hide ,form, textH,Obj}) => isShowing ? ReactDOM.createPortal(
     <div className="row modal-overlay justify-content-center" tabIndex={-1}>
       <div className="modalContent justify-content-center">
         <h2 className="subPageTitleH">{textH}</h2>
@@ -13,7 +13,7 @@ const Modal = ({ isShowing, hide ,form, textH,obj}) => isShowing ? ReactDOM.crea
         >
         Cancelar
         </button>
-        {React.createElement(form,obj)}
+        {React.createElement(form,{Obj,hide})}
 
       </div>
     </div>

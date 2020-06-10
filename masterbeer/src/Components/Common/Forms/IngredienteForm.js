@@ -5,30 +5,23 @@ import {
   updateIngrediente,
 } from "../../../Redux/Actions/IngredienteActions";
 
-import {
-  Container,
-  Col,
-  Form,
-  FormGroup,
-  Label,
-  Input,
-} from "reactstrap";
+import { Container, Col, Form, FormGroup, Label, Input } from "reactstrap";
 
-function IngredienteForm(Ingrediente) {
+function IngredienteForm({ Obj, hide }) {
   const dispatch = useDispatch();
 
   const [ingredienteInput, setIngredienteInput] = useReducer(
     (state, newState) => ({ ...state, ...newState }),
     {
-      Precio: Ingrediente.Precio,
-      Stock: Ingrediente.Stock,
-      Nombre: Ingrediente.Nombre,
-      Tipo: Ingrediente.Tipo,
+      Precio: Obj.Precio,
+      Stock: Obj.Stock,
+      Nombre: Obj.Nombre,
+      Tipo: Obj.Tipo,
       Volumen: {
-        Cantidad: Ingrediente.Volumen.Cantidad,
-        Unidad: Ingrediente.Volumen.Unidad,
+        Cantidad: Obj.Volumen.Cantidad,
+        Unidad: Obj.Volumen.Unidad,
       },
-      _id: Ingrediente._id
+      _id: Obj._id,
     }
   );
 
@@ -55,14 +48,13 @@ function IngredienteForm(Ingrediente) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (Ingrediente._id)
-      dispatch(updateIngrediente(JSON.stringify(ingredienteInput)));
+    if (Obj._id) dispatch(updateIngrediente(JSON.stringify(ingredienteInput)));
     else dispatch(crearIngrediente(JSON.stringify(ingredienteInput)));
+    hide();
   };
 
   return (
     <Container className="botellaForm">
-    {console.log(Ingrediente.Nombre)}
       <Form id="botellaForm" onSubmit={handleSubmit}>
         <Col>
           <FormGroup className="formCont">
@@ -147,7 +139,8 @@ function IngredienteForm(Ingrediente) {
         </Col>
 
         <button type="submit" className="submitInsertButton">
-          Agregar al almacén!
+        
+        { (Obj._id) ? 'Actualizar' : 'Agregar al almacén!'}  
         </button>
       </Form>
     </Container>

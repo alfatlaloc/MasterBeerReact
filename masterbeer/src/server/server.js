@@ -38,3 +38,6 @@ app.use('/Recipiente',RecipienteRoutes);
 
 const BartenderRoutes = require('./Routes/Bartender');
 app.use('/Bartender',BartenderRoutes);
+
+const ExtraRoutes = require('./Routes/Bartender');
+app.use('/Extra',ExtraRoutes);

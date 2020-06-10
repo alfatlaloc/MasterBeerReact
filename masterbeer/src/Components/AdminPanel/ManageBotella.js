@@ -78,7 +78,7 @@ function ManageBotella() {
       <Modal
         isShowing={isShowing}
         hide={toggle}
-        obj={Obj}
+        Obj={Obj}
         form={BotellaForm}
         textH={"Editar Botella"}
       />

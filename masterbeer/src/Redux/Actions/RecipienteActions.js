@@ -15,6 +15,19 @@ export function crearRecipiente(data)
   };
 }
 
+export function updateRecipiente(data)
+{
+  return function (dispatch){
+    return RecipienteApi.updateRecipiente(data)
+    .then((Recipiente) => {
+      dispatch({type: types.UPDATE_RECIPIENTE,Recipiente})
+    })
+    .catch((error) => {
+      throw error;
+    });
+  };
+}
+
 export function loadRecipienteSuccess(Recipientes) {
     return { type: types.LOAD_RECIPIENTE_SUCCESS,Recipientes };
 }

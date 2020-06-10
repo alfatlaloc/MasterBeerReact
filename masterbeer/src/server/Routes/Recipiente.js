@@ -20,7 +20,7 @@ router.post("/", async (req, res) => {
     Material: req.body.Material,
     Volumen: req.body.Volumen,
     Stock: req.body.Stock,
-    AlcoholP:req.body.AlcoholP
+    AlcoholP: req.body.AlcoholP,
   });
   try {
     const newRecipiente = await recipiente.save();
@@ -30,7 +30,22 @@ router.post("/", async (req, res) => {
   }
 });
 
-router.delete("/", getItem, async (req, res) => {
+router.patch("/", getRecipiente, async (req, res) => {
+  console.log("patch");
+  if (req.body.AlcoholP !== null) res.Recipiente.AlcoholP = req.body.AlcoholP;
+  if (req.body.Volumen !== null) res.Recipiente.Volumen = req.body.Volumen;
+  if (req.body.Stock !== null) res.Recipiente.Stock = req.body.Stock;
+  if (req.body.Material !== null) res.Recipiente.Material = req.body.Material;
+  if (req.body.Tipo !== null) res.Recipiente.Tipo = req.body.Tipo;
+  try {
+    const updatedRecipiente = await res.Recipiente.save();
+    res.json(updatedRecipiente);
+  } catch (err) {
+    res.status(400).json({ message: err.message });
+  }
+});
+
+router.delete("/", getRecipiente, async (req, res) => {
   console.log(req.query._id);
   try {
     await res.Recipiente.remove();
@@ -40,13 +55,15 @@ router.delete("/", getItem, async (req, res) => {
   }
 });
 
-async function getItem(req, res, next) {
+async function getRecipiente(req, res, next) {
   try {
-    const obj = await RecipienteM.findById(req.query._id);
-    if (obj == null) {
+    let Recipiente;
+    if (req.params.id) Recipiente = await RecipienteM.findById(req.params.id);
+    if (req.body._id) Recipiente = await RecipienteM.findById(req.body._id);
+    if (Recipiente == null) {
       return res.status(404).json({ message: "Cant find subscriber" });
     }
-    res.Recipiente = obj;
+    res.Recipiente = Recipiente;
   } catch (err) {
     return res.status(500).json({ message: err.message });
   }

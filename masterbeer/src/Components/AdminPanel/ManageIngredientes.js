@@ -73,7 +73,7 @@ function ManageIngredientes() {
       <Modal
         isShowing={isShowing}
         hide={toggle}
-        obj={Obj}
+        Obj={Obj}
         form={IngredienteForm}
         textH={"Editar Ingrediente"}
       />

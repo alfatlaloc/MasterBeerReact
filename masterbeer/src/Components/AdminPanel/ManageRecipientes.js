@@ -77,7 +77,7 @@ function ManageRecipiente() {
       <Modal
         isShowing={isShowing}
         hide={toggle}
-        obj={Obj}
+        Obj={Obj}
         form={RecipienteForm}
         textH={"Editar Recipiente"}
       />
