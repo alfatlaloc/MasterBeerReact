@@ -12,7 +12,7 @@ export default function botellaReducer(state = initialState.Botellas, action) {
     case types.UPDATE_BOTELLA:
       return state.map((e) => {
         if (e._id === action.Botella._id) {
-          return action.Ingrediente;
+          return action.Botella;
         }
         return e;
       });

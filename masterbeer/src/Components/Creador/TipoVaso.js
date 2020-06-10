@@ -16,7 +16,7 @@ function TipoVaso({ Recipiente, setRecipiente }) {
     var a = Object.assign(
       {},
       RecipientesArray.find((aux) => {
-        return aux.Tipo === e.target.value.toString();
+        return aux._id === e.target.value.toString();
       })
     );
     if(a.Volumen.Unidad === "lt")
@@ -49,8 +49,8 @@ function TipoVaso({ Recipiente, setRecipiente }) {
         >
           {RecipientesArray.map((elements) => {
             return (
-              <option key={elements._id} value={elements.Tipo}>
-                {elements.Tipo}
+              <option key={elements._id} value={elements._id}>
+                {`${elements.Tipo} de ${elements.Volumen.Cantidad} ${elements.Volumen.Unidad}`}
               </option>
             );
           })}

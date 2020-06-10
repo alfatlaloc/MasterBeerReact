@@ -46,8 +46,8 @@
 
 .lead{
     margin-top: 20px;
-    font-weight: bold;
-
+    font-weight: bolder;
+    font-size: 30px;
 }
 .QuienesSomos{
     background:#151944;

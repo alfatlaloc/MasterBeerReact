@@ -5,6 +5,7 @@ import Carrito from './carritoReducer';
 import Ingrediente from './ingredienteReducer';
 import Session from './SessionReducer';
 import Recipientes from './recipienteReducer';
+import Extras from './extrasReducer';
 
 const rootReducer = combineReducers({
     Usuarios,
@@ -12,6 +13,7 @@ const rootReducer = combineReducers({
     Botellas,
     Ingrediente,
     Recipientes,
+    Extras,
     Session
 });
 

@@ -36,8 +36,14 @@ const newIngrediente = {
     AlcoholP:0
   };
 
+  const newExtra = {
+    Nombre:"",
+    Precio:0
+  };
+
   module.exports = {
       newBotella,
       newIngrediente,
-      newRecipiente
+      newRecipiente,
+      newExtra
   };

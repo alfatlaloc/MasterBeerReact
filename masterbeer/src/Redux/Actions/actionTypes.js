@@ -40,6 +40,13 @@ export const CREATE_RECIPIENTE = "CREATE_RECIPIENTE";
 export const ELIMINAR_RECIPIENTE = "ELIMINAR_RECIPIENTE";
 export const UPDATE_RECIPIENTE = "UPDATE_RECIPIENTE";
 
+
+//Extras
+export const LOAD_EXTRAS_SUCCESS = "LOAD_EXTRAS_SUCCESS";
+export const CREATE_EXTRA = "CREATE_EXTRA";
+export const ELIMINAR_EXTRA = "ELIMINAR_EXTRA";
+export const UPDATE_EXTRA = "UPDATE_EXTRA";
+
 //Session
 export const LOG_IN = "LOG_IN";
 export const LOG_OUT = "LOG_OUT";
