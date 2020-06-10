@@ -6,6 +6,7 @@ import { newBotella } from "../../API/DefaultObjects/DefObjects";
 import useModal from "../Common/ModalMB/useModalObject";
 import Modal from "../Common/ModalMB/Modal";
 import BotellaForm from "../Common/Forms/BotellaForm";
+import BK from './backButton';
 
 function BotellaTable({ BotellaArray ,toggle,changeObject}){
   const dispatch = useDispatch();
@@ -54,7 +55,9 @@ function ManageBotella() {
 
   return (
     <div className="ManageAdmin" id="ManageBotella">
+    <BK />
       <h2 className="subPageTitleH">Manage Botellas</h2>
+      
       <Buscador />
       <button className="buttonAddBotella" onClick={function(event){ toggle(); changeObject(newBotella)}}>
         Crear Botella
