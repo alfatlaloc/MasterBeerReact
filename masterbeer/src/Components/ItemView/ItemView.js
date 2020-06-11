@@ -4,12 +4,16 @@ import { useDispatch } from "react-redux";
 import { getOne } from "../../Redux/Actions/BotellaActions";
 import { agregarAlCarrito } from "../../Redux/Actions/CarritoActions";
 import { FormGroup } from "reactstrap";
+import Modal from '../Common/ModalMB/ModalIV';
+import useModal from '../Common/ModalMB/useModal';
+
 import BK from "../Common/backButton";
 function ItemView() {
   const params = useParams();
   const [Item, setItem] = useState();
   const [Cantidad, setCantidad] = useState(1);
   const dispatch = useDispatch();
+  const { isShowing, toggle, Obj, changeObject } = useModal();
 
   useEffect(() => {
     getOne(params._id).then((data) => setItem(data));
@@ -20,7 +24,7 @@ function ItemView() {
     var a = Object.assign({}, Item);
     if (Cantidad <= Item.Stock) {
       a["Cantidad"] = Cantidad;
-      alert("Se agregaron: " + Cantidad + " al carrito");
+      toggle(true);
       if (Cantidad > 0) dispatch(agregarAlCarrito(a));
     } else {
       alert("No hay suficientes en stock");
@@ -83,6 +87,12 @@ function ItemView() {
           </select>
         </FormGroup>
       </div>
+      <Modal 
+        isShowing={isShowing}
+        hide={toggle}
+        textH={"Editar Ingrediente"}
+        Cantidad={Cantidad}
+      />
     </div>
     </React.Fragment>
   );
