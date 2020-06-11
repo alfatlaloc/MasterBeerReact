@@ -1,1 +1,0 @@
-{"options":{},"indexes":[{"v":{"$numberInt":"2"},"key":{"_id":{"$numberInt":"1"}},"name":"_id_","ns":"MasterBeer.Ingrediente"}],"uuid":"a9f86364dfef4ac69ed66d020a0c28a6"}
