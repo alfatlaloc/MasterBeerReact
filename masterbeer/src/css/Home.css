@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap');
 
 .HomeBackground
 {
@@ -8,7 +9,7 @@
 }
 
 *{
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Raleway', sans-serif;
 }
 
 .HomeTitle{

@@ -58,6 +58,7 @@ router.delete("/", getRecipiente, async (req, res) => {
 async function getRecipiente(req, res, next) {
   try {
     let Recipiente;
+    if (req.query._id) Recipiente = await RecipienteM.findById(req.query._id);
     if (req.params.id) Recipiente = await RecipienteM.findById(req.params.id);
     if (req.body._id) Recipiente = await RecipienteM.findById(req.body._id);
     if (Recipiente == null) {

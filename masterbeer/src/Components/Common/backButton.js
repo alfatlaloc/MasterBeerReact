@@ -8,7 +8,7 @@ function BackButton(){
         onClick={
             evt =>{
                 evt.preventDefault();
-                history.push('AdminPanel');
+                history.goBack();
             }
         }
         >

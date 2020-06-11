@@ -55,7 +55,7 @@ function Footer() {
       </div>
       <p className="pFooter">
         © 2020 Copyright:
-        <a href="https://masterber.com/"> MasterBeer.com</a>
+        <a href="/"> MasterBeer.com</a>
         </p>
     </footer>
   );

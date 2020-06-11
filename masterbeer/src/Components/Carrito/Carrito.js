@@ -16,10 +16,11 @@ function CarritoArray({ CarritoArray}){
           <td>{elements.Precio*elements.Cantidad}</td>
           <td>
             <button className="eliminarButtonMB"
-            onClick={()=>{dispatch(eliminarDeCarrito(elements._id))}}>Eliminar</button>
+            onClick={()=>{
+              dispatch(eliminarDeCarrito(elements._id));
+            }}>Eliminar</button>
           </td>
           <td>
-  
           </td>
         </tr>
   
@@ -31,17 +32,19 @@ function Carrito(){
     const Carrito = useSelector(state =>(state.Carrito));
     const dispatch = useDispatch();
     const [Total,setTotal] = useState(0);
+
     useEffect(() => {
-      //Carrito.push(2);
-      if(Carrito.length>0)
+      if(Carrito.length>0){
         setTotal(
-          Carrito.reduce((acc, currProduct) => {
-            const { Precio, Cantidad } = currProduct;
-            const totalPrice = parseFloat(Precio) * Cantidad;
-            return acc + totalPrice;
-          }, 0)
+        Carrito.reduce((acc, currProduct) => {
+          const { Precio, Cantidad } = currProduct;
+          const totalPrice = parseFloat(Precio) * Cantidad;
+          return acc + totalPrice;
+        }, 0)
         );
-          
+    }else{
+      setTotal(0);
+    }
     },[Carrito]);
     
     return( 

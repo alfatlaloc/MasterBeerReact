@@ -9,11 +9,13 @@ export default function sesionReducer(state =initialState.Session,action)
             newState.UserName=action.Usuario.Correo;
             newState.Type=action.Usuario.Tipo;
             newState.logged=true;
+            newState.Alias=action.Usuario.Nombre;
             return newState;
         case types.LOG_OUT:
             newState.UserName="";
             newState.Type="Not_AUT";
             newState.logged=false;
+            newState.Alias="";
             return newState;        
         case types.ACTUAL_USER:
             return state;

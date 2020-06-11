@@ -5,7 +5,6 @@ const BotellaM = require("../Models/BotellaModel");
 // Getting all
 //Obtiene todas las botellas de la BD
 router.get("/", async (req, res) => {
-  console.log("RES" + req.body);
   try {
     const botellas = await BotellaM.find();
     res.json(botellas);
@@ -36,7 +35,7 @@ router.post("/", async (req, res) => {
 });
 
 router.delete("/", getBotella, async (req, res) => {
-  console.log(req.query._id);
+  console.log("Llego aqui");
   try {
     await res.Botella.remove();
     res.json({ message: "Deleted This Botella" });
@@ -75,6 +74,7 @@ router.get("/:id", getBotella, (req, res) => {
 async function getBotella(req, res, next) {
   try {
     let Botella;
+    if (req.query._id) Botella = await BotellaM.findById(req.query._id);
     if (req.params.id) Botella = await BotellaM.findById(req.params.id);
     if (req.body._id) Botella = await BotellaM.findById(req.body._id);
 

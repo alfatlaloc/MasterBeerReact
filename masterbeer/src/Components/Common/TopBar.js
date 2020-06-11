@@ -17,6 +17,7 @@ import {
 function TopBar(){
     const [isOpen, setIsOpen] = useState(false);
     const Session = useSelector(state => state.Session);
+
     const dispatch = useDispatch();
 
     const toggle = () => setIsOpen(!isOpen);
@@ -46,7 +47,8 @@ function TopBar(){
                 <NavLink className="navItemMB" to="/"
                   onClick={() => dispatch(logOut())}
                 >
-                <p>Log out</p></NavLink>
+                <p>Log out: {Session.Alias}</p> </NavLink>
+
                 }
             <NavbarText id="NavBarText">Buenos tragos buenos momentos</NavbarText>
             

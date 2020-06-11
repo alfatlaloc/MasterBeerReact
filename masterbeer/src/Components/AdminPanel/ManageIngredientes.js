@@ -6,7 +6,7 @@ import { newIngrediente } from "../../API/DefaultObjects/DefObjects";
 import useModal from "../Common/ModalMB/useModalObject";
 import Modal from "../Common/ModalMB/Modal";
 import IngredienteForm from "../Common/Forms/IngredienteForm";
-
+import BK from '../Common/backButton';
 function IngredientesTable({IngredienteArray,toggle,changeObject}){
   const dispatch=useDispatch();
   function deleteI(elements){
@@ -49,7 +49,10 @@ function ManageIngredientes() {
 
   return (
     <div className="ManageAdmin" id="ManageBotella">
-      <h2 className="subPageTitleH">Manage Ingredientes</h2>
+    <div className="backButtondiv">
+        <BK />
+      </div>
+      <h2 className="subPageTitleH">Administrar Ingredientes</h2>
       <Buscador /> 
       <button className="buttonAddBotella" onClick={function(event){ toggle(); changeObject(newIngrediente)}}>
         Crear Ingrediente

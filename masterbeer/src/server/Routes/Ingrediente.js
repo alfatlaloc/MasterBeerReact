@@ -57,6 +57,7 @@ router.delete("/", getIngrediente, async (req, res) => {
 async function getIngrediente(req, res, next) {
   try {
     let Ingrediente;
+    if (req.query._id) Ingrediente = await IngredienteM.findById(req.query._id);
     if (req.params.id) Ingrediente = await IngredienteM.findById(req.params.id);
     if (req.body._id) Ingrediente = await IngredienteM.findById(req.body._id);
     if (Ingrediente == null) {

@@ -6,7 +6,7 @@ import {
 } from "../../../Redux/Actions/BotellaActions";
 
 import { Container, Col, Form, FormGroup, Label } from "reactstrap";
-
+import {validarLitros} from './Validations';
 function BotellaForm({ Obj, hide }) {
   const dispatch = useDispatch();
 
@@ -35,12 +35,22 @@ function BotellaForm({ Obj, hide }) {
     setBotellaInput({ [name]: newValue });
   };
 
+  const handleChangeNumeric = (evt) => {
+    const name = evt.target.name;
+    const newValue = evt.target.value;
+    const re = /^[0-9\b]+$/;
+    if (evt.target.value === '' || re.test(newValue)) {
+      setBotellaInput({ [name]: newValue });
+    }    
+  };
+
   const handleChangeA = (evt) => {
     const Name = evt.target.name.toString();
+    const re = /^[0-9\b]+$/;
     const N = {
       Cantidad:
         Name === "Contenido_NC"
-          ? evt.target.value
+          ?  (evt.target.value === '' || re.test(evt.target.value)) ? evt.target.value : botellaInput.Contenido_N.Cantidad
           : botellaInput.Contenido_N.Cantidad,
       Unidad:
         Name === "Contenido_NU"
@@ -52,7 +62,7 @@ function BotellaForm({ Obj, hide }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (botellaInput.Nombre.length < 50) {
+    if (botellaInput.Nombre.length < 50 && validarLitros(botellaInput.Contenido_N)) {
       if (Obj._id) dispatch(updateBotella(JSON.stringify(botellaInput)));
       else dispatch(crearBotella(JSON.stringify(botellaInput)));
       hide();
@@ -105,7 +115,7 @@ function BotellaForm({ Obj, hide }) {
               className="inputFormMB"
               value={botellaInput.Precio}
               type="text"
-              onChange={handleChange}
+              onChange={handleChangeNumeric}
               required
             />
           </FormGroup>
@@ -120,7 +130,7 @@ function BotellaForm({ Obj, hide }) {
               className="inputFormMB"
               value={botellaInput.Stock}
               type="text"
-              onChange={handleChange}
+              onChange={handleChangeNumeric}
               required
             />
           </FormGroup>
@@ -177,7 +187,6 @@ function BotellaForm({ Obj, hide }) {
             >
               <option value="ml">ml</option>
               <option value="lt">lt</option>
-              <option value="gal">gal</option>
             </select>
           </FormGroup>
         </Col>
@@ -191,22 +200,7 @@ function BotellaForm({ Obj, hide }) {
               className="inputFormMB"
               value={botellaInput.Volumen_A}
               type="text"
-              onChange={handleChange}
-              required
-            />
-          </FormGroup>
-        </Col>
-
-        <Col>
-          <FormGroup className="formCont">
-            <Label htmlFor="volBP">Volumen BP</Label>
-            <br></br>
-            <input
-              name="volBP"
-              className="inputFormMB"
-              value={botellaInput.volBP}
-              type="text"
-              onChange={handleChange}
+              onChange={handleChangeNumeric}
               required
             />
           </FormGroup>

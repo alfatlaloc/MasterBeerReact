@@ -133,7 +133,6 @@ function IngredienteForm({ Obj, hide }) {
             >
               <option value="ml">ml</option>
               <option value="lt">lt</option>
-              <option value="gal">gal</option>
             </select>
           </FormGroup>
         </Col>

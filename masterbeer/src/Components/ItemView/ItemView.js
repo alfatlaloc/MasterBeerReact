@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { getOne } from "../../Redux/Actions/BotellaActions";
 import { agregarAlCarrito } from "../../Redux/Actions/CarritoActions";
 import { FormGroup } from "reactstrap";
-
+import BK from "../Common/backButton";
 function ItemView() {
   const params = useParams();
   const [Item, setItem] = useState();
@@ -13,19 +13,28 @@ function ItemView() {
 
   useEffect(() => {
     getOne(params._id).then((data) => setItem(data));
-  },[]);
+  }, []);
 
   function addItem(e) {
     e.preventDefault();
     var a = Object.assign({}, Item);
-    a["Cantidad"] = Cantidad;
-    alert("Se agregaron: " + Cantidad + " al carrito");
-    if (Cantidad > 0) dispatch(agregarAlCarrito(a));
+    if (Cantidad <= Item.Stock) {
+      a["Cantidad"] = Cantidad;
+      alert("Se agregaron: " + Cantidad + " al carrito");
+      if (Cantidad > 0) dispatch(agregarAlCarrito(a));
+    } else {
+      alert("No hay suficientes en stock");
+    }
   }
+
   if (!Item) return null;
 
   return (
-    <div id="ItemView" className="itemView">
+    <React.Fragment>
+      <div className="backButtondiv">
+        <BK />
+      </div>
+      <div id="ItemView" className="itemView">
       <div className="area IVInfo">
         <h2 className="itemName">{Item.Nombre}</h2>
         <hr></hr>
@@ -57,7 +66,7 @@ function ItemView() {
         />
         <br></br>
         <FormGroup className="area">
-          <label for="Cantidad">Cantidad</label>
+          <label htmlFor="Cantidad">Cantidad</label>
           <select
             type="select"
             name="Cantidad"
@@ -75,6 +84,7 @@ function ItemView() {
         </FormGroup>
       </div>
     </div>
+    </React.Fragment>
   );
 }
 

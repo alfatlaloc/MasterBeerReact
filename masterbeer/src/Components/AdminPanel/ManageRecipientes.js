@@ -6,7 +6,7 @@ import useModal from "../Common/ModalMB/useModalObject";
 import Modal from "../Common/ModalMB/Modal";
 import RecipienteForm from "../Common/Forms/RecipienteForm";
 import { loadRecipientes ,eliminarRecipiente} from "../../Redux/Actions/RecipienteActions";
-
+import BK from '../Common/backButton';
 function RecipientesTable({Array,toggle,changeObject}){
   const dispatch=useDispatch();
   function deleteI(elements){
@@ -51,7 +51,10 @@ function ManageRecipiente() {
 
   return (
     <div className="ManageAdmin" id="ManageIngredientes">
-      <h2 className="subPageTitleH">Manage Recipientes</h2>
+    <div className="backButtondiv">
+        <BK />
+      </div>
+      <h2 className="subPageTitleH">Administrar Recipientes</h2>
       <Buscador /> 
       <button className="buttonAddBotella" onClick={function(event){ toggle(); changeObject(newRecipiente)}}>
         Agregar Recipiente

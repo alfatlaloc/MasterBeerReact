@@ -5,12 +5,11 @@ import { newExtra } from "../../API/DefaultObjects/DefObjects";
 import useModal from "../Common/ModalMB/useModalObject";
 import Modal from "../Common/ModalMB/Modal";
 import ExtraForm from "../Common/Forms/ExtraForm";
-import { loadExtras ,eliminarExtra} from "../../Redux/Actions/ExtraActions";
-
-function ExtrasTable({Array,toggle,changeObject}){
-  const dispatch=useDispatch();
-  function deleteI(elements){
-      
+import { loadExtras, eliminarExtra } from "../../Redux/Actions/ExtraActions";
+import BK from '../Common/backButton';
+function ExtrasTable({ Array, toggle, changeObject }) {
+  const dispatch = useDispatch();
+  function deleteI(elements) {
     dispatch(eliminarExtra(elements));
   }
   return Array.map((elements) => {
@@ -20,16 +19,29 @@ function ExtrasTable({Array,toggle,changeObject}){
         <td>{`$ ${elements.Precio} MXN`}</td>
         <td>{elements._id}</td>
         <td>
-          <button className="editarButtonMB"onClick={function(event){ toggle(); changeObject(elements)}}>Editar</button>
-          <button className="eliminarButtonMB"
-          onClick={function(event){ deleteI(elements)}}>ELIMINAR</button>
+          <button
+            className="editarButtonMB"
+            onClick={function (event) {
+              toggle();
+              changeObject(elements);
+            }}
+          >
+            Editar
+          </button>
+          <button
+            className="eliminarButtonMB"
+            onClick={function (event) {
+              deleteI(elements);
+            }}
+          >
+            ELIMINAR
+          </button>
         </td>
-        <td>
-        </td>
+        <td></td>
       </tr>
     );
   });
-};
+}
 
 const Buscador = () => {
   return <div></div>;
@@ -37,37 +49,49 @@ const Buscador = () => {
 
 function ManageExtra() {
   const Extras = useSelector((state) => state.Extras);
-  const { isShowing, toggle ,Obj,changeObject} = useModal();
+  const { isShowing, toggle, Obj, changeObject } = useModal();
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if(Extras.length===0) dispatch(loadExtras());
-  },[]);
-
+    if (Extras.length === 0) dispatch(loadExtras());
+  }, []);
 
   return (
     <div className="ManageAdmin" id="ManageIngredientes">
-      <h2 className="subPageTitleH">Manage Extras</h2>
-      <Buscador /> 
-      <button className="buttonAddBotella" onClick={function(event){ toggle(); changeObject(newExtra)}}>
+      <div className="backButtondiv">
+        <BK />
+      </div>
+      <h2 className="subPageTitleH">Administrar Extras</h2>
+      <Buscador />
+      <button
+        className="buttonAddBotella"
+        onClick={function (event) {
+          toggle();
+          changeObject(newExtra);
+        }}
+      >
         Agregar Extra
       </button>
       <div className="container ">
-      <Table dark id="ManageBotellaTable" className="col manageTable">
-        <thead>
-          <tr>
-            <th>Nombre</th>          
-            <th>Precio</th>
-            <th>ID</th>
-            <th>MB</th>
-          </tr>
-        </thead>
-        <tbody>
-          <ExtrasTable Array={Extras}  toggle={toggle} changeObject={changeObject}/>
-        </tbody>
-      </Table>
-    </div>
+        <Table dark id="ManageBotellaTable" className="col manageTable">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Precio</th>
+              <th>ID</th>
+              <th>MB</th>
+            </tr>
+          </thead>
+          <tbody>
+            <ExtrasTable
+              Array={Extras}
+              toggle={toggle}
+              changeObject={changeObject}
+            />
+          </tbody>
+        </Table>
+      </div>
       <Modal
         isShowing={isShowing}
         hide={toggle}

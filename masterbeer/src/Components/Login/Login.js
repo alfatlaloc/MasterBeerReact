@@ -31,7 +31,7 @@ function Login (){
   
   useEffect(()=>{
     if(Session.logged)
-      history.push("/");
+      history.goBack();
   });
   function logear(event)
   {

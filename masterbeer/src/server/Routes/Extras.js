@@ -52,6 +52,7 @@ router.delete("/", getExtra, async (req, res) => {
 async function getExtra(req, res, next) {
   try {
     let Extra;
+    if (req.query._id) Extra = await ExtraM.findById(req.query._id);
     if (req.params.id) Extra = await ExtraM.findById(req.params.id);
     if (req.body._id) Extra = await ExtraM.findById(req.body._id);
     if (Extra == null) {

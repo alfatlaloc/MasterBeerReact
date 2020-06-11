@@ -6,6 +6,7 @@ import HomePage from './HomePage/HomePage';
 import Catalogo from './Catalogo/Catalogo';
 import AdminPanel from './AdminPanel/AdminPanel';
 import Creador from './Creador/Creador';
+import CreadorM from './Creador/CreadorM';
 import ManageBotella from './AdminPanel/ManageBotella';
 import ManageIngrediente from './AdminPanel/ManageIngredientes';
 import ManageRecipiente from './AdminPanel/ManageRecipientes';
@@ -29,6 +30,7 @@ function App() {
         <Route path="/Catalogo" component={Catalogo}/>
         <Route path="/Login" component={Login}/>
         <Route path="/Creador" component={Creador}/>
+        <Route path="/CreadorM" component={CreadorM}/>
         <Route path="/Register" component={Register}/>
         <Route path="/AdminPanel" component={AdminPanel}/>
         <Route path="/ManageBotella" component={ManageBotella}/>
