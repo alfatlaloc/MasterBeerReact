@@ -14,6 +14,7 @@ function ItemView() {
   const [Cantidad, setCantidad] = useState(1);
   const dispatch = useDispatch();
   const { isShowing, toggle, Obj, changeObject } = useModal();
+  const [SetTextH, setSetTextH] = useState("Aceptar");
 
   useEffect(() => {
     getOne(params._id).then((data) => setItem(data));
@@ -27,7 +28,8 @@ function ItemView() {
       toggle(true);
       if (Cantidad > 0) dispatch(agregarAlCarrito(a));
     } else {
-      alert("No hay suficientes en stock");
+      toggle(true);
+      //alert("No hay suficientes en stock");
     }
   }
 
@@ -79,7 +81,7 @@ function ItemView() {
               setCantidad(evt.target.value);
             }}
           >
-            <option value="3">1</option>
+            <option value="1">1</option>
             <option value="3">3</option>
             <option value="6">6</option>
             <option value="12">12</option>
@@ -90,8 +92,11 @@ function ItemView() {
       <Modal 
         isShowing={isShowing}
         hide={toggle}
-        textH={"Editar Ingrediente"}
+        Item={Item}
+        textH={SetTextH}
+        setSetTextH={setSetTextH}
         Cantidad={Cantidad}
+        setCantidad={setCantidad}
       />
     </div>
     </React.Fragment>
