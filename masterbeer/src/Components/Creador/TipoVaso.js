@@ -4,7 +4,7 @@ import RecipienteIMG from "../../img/Creador/Recipiente.png";
 import { loadRecipientes } from "../../Redux/Actions/RecipienteActions";
 import { FormGroup, Label, Input } from "reactstrap";
 
-function TipoVaso({ Recipiente, setRecipiente }) {
+function TipoVaso({ Recipiente, setRecipiente, nextStep}) {
   const RecipientesArray = useSelector((state) => state.Recipientes);
   const dispatch = useDispatch();
 
@@ -56,6 +56,8 @@ function TipoVaso({ Recipiente, setRecipiente }) {
           })}
         </Input>
       </FormGroup>
+
+      <button onClick={nextStep}>Next Step</button>
     </div>
   );
 }

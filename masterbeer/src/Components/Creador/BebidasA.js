@@ -3,7 +3,7 @@ import { FormGroup, Label, Input } from "reactstrap";
 import { useSelector, useDispatch } from "react-redux";
 import { loadBotellas } from "../../Redux/Actions/BotellaActions";
 
-function BebidasA({ botellaArray, setBotellaArray }) {
+function BebidasA({ botellaArray, setBotellaArray, nextStep, pStep }) {
   const BotellasArray = useSelector((state) => state.Botellas);
   const dispatch = useDispatch();
   const [tipoBotella, setTipoBotella] = useState("Todo");
@@ -14,17 +14,28 @@ function BebidasA({ botellaArray, setBotellaArray }) {
     if (BotellasArray.length === 0) dispatch(loadBotellas());
   });
 
+  function deleteB(_id) {
+    setBotellaArray(
+      botellaArray.filter((e) => {
+        return e._id !== _id;
+      })
+    );
+  }
+
   function addToBebida(evt) {
     evt.preventDefault();
     if (botellaArray.length < 3) {
-      var a = Object.assign(
-        {},
-        BotellasArray.find((el) => {
-          return el.Nombre === BotellaActual;
-        })
-      );
-      a["Porcentaje"] = 30;
-      setBotellaArray([...botellaArray, a]);
+      if (botellaArray.some((e) => e.Tipo.match(regexPattern)))
+        alert("No puedes agregar mas");
+      else {
+        var a = Object.assign(
+          {},
+          BotellasArray.find((el) => {
+            return el.Nombre === BotellaActual;
+          })
+        );
+        setBotellaArray([...botellaArray, a]);
+      }
     } else alert("Ya hay tres botellas");
   }
 
@@ -86,13 +97,35 @@ function BebidasA({ botellaArray, setBotellaArray }) {
         </Input>
       </FormGroup>
 
-      <button className="submitInsertButton"
+      <button
+        className="submitInsertButton"
         onClick={(evt) => {
           addToBebida(evt);
         }}
       >
         Agregar la bebida
       </button>
+
+      {botellaArray.map((elements) => {
+        return (
+          <div key={elements._id}>
+            {elements.Nombre}
+            <p>{elements.Tipo}</p>
+            <button
+              className="MBButtonC"
+              onClick={(e) => {
+                e.preventDefault();
+                deleteB(elements._id);
+              }}
+            >
+              Eliminar
+            </button>
+          </div>
+        );
+      })}
+
+      <button onClick={pStep}>previous Step</button>
+      <button onClick={nextStep}>Next Step</button>
     </div>
   );
 }

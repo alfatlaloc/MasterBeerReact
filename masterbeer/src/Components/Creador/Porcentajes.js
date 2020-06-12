@@ -1,43 +1,19 @@
 import React from "react";
-import Porcentaje from "../../img/Creador/Porcentaje.png";
+import PorcentajeIMG from "../../img/Creador/Porcentaje.png";
 import { useState } from "react";
 
-function Porcentajes({botellaArray,setBotellaArray,Recipiente,Progress,setProgress}) {
+function Porcentajes({Recipiente,Porcentaje,setPorcentaje,nextStep,pStep}) {
   const [MaxValue,setMaxValue] = useState(Recipiente.milis);
 
-    function deleteB(_id){
-        alert("Hago algo")
-        setBotellaArray(botellaArray.filter(e => { return e._id !== _id}));
-    }
-
-    function reCalc(){
-        
-    }
-
-    function handleP(evt,_id){
-      let arr = botellaArray.slice();
-      arr.map(
-        el => {
-          if( el._id === _id)
-            el.Porcentaje=evt.target.value;
-          return el;
-        }
-      );
-      let milis = arr.reduce(
-
-      );
-      console.log(arr);
-      console.log(Recipiente.milis);
-      setBotellaArray(arr);
-    }
-
+  const handleRangeSlider = (evt) => {
+    setPorcentaje(evt.target.value);
+  };
   return (
     <div className="area2 Porcentajes">
       <h2>Porcentajes</h2>
-      <img src={Porcentaje} alt="" />
+      <img src={PorcentajeIMG} alt="" />
       <p>
-        Aqui ver las bebidas que has agregado, recuerda que cada recipiente tiene un limite en
-        mililitros de lo que le puedes agregar.
+        QUe tanto vol de alchol deseas?
       </p>
       <div className="PorcentajeWork">
       {MaxValue}
@@ -45,18 +21,13 @@ function Porcentajes({botellaArray,setBotellaArray,Recipiente,Progress,setProgre
         <div className={ (Recipiente.Tipo==="") ? 'RecipienteC': 'RecipienteCP'}>{`A escogido ${Recipiente.Tipo} con volumen ${Recipiente.Volumen.Cantidad} ${Recipiente.Volumen.Unidad}`}</div>
       ) : null}
         <hr></hr>
-        {botellaArray.map((elements) => {
-          return (
-            <div key={elements._id}>
-              {elements.Nombre}
-              <p>{`Militros:${elements.Porcentaje} ml`}</p>
-              <input value={elements.Porcentaje} onChange={evt => {handleP(evt,elements._id)}}></input>
-              <button className="MBButtonC"
-              onClick={e => { e.preventDefault(); deleteB(elements._id)}}
-              > Eliminar </button>
-            </div>
-          );
-        })}
+        <p>Porcentaje: {Porcentaje}</p>
+        <input 
+        onChange={handleRangeSlider}
+        type="range" min="1" max={MaxValue} value={Porcentaje} 
+        className="slider sliderP"></input>
+<button onClick={pStep}>previous Step</button>
+      <button onClick={nextStep}>Next Step</button>
       </div>
     </div>
   );
