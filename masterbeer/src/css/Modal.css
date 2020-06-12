@@ -41,6 +41,21 @@
   font-weight: bolder;
   overflow-y: auto;
 }
+.modalVContent{
+  border-radius: 30px;
+  text-align: center;
+  color: white;
+  padding-top:20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 30px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  font-weight: bolder;
+  overflow-y: auto;
+}
 
   .button-default {
     background: #8f2213;
