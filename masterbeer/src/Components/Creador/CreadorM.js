@@ -2,6 +2,7 @@ import React,{useState,useEffect} from 'react';
 import BebidasA from './BebidasA';
 import TipoVaso from './TipoVaso';
 import Porcentajes from './Porcentajes';
+import Ingrediente from './Ingredientes';
 
 /*
     1 - Tipo Vaso
@@ -17,7 +18,9 @@ function CreadorM(){
     const [Recipiente,setRecipiente] = useState({});
     const [BotellaA,setBotellaA] = useState([]);
     const [volA,setVolA] = useState(0);
-
+    const [tipo,setTipo] =useState('');
+    const [Descripcion,setDescripcion] = useState("");
+    const [IngredienteArray,setIngredienteArray] = useState([]);
     const [sB,setSB] = useState({});
 
     function previuosStep(){
@@ -42,6 +45,8 @@ function CreadorM(){
                 setBotellaArray={setBotellaA}
                 pStep={previuosStep}
                 nextStep={nextStep}
+                Tipo={tipo}
+                setTipo={setTipo}
             />
         );
 
@@ -53,6 +58,17 @@ function CreadorM(){
                 setPorcentaje={setVolA}
                 pStep={previuosStep}
                 nextStep={nextStep}
+                Tipo={tipo}
+                Descripcion={Descripcion}
+                setDescripcion={setDescripcion}
+            />
+        );
+        if(Step === 4)
+        return(
+            <Ingrediente
+                IngredienteArray={IngredienteArray}
+                setIngredienteArray={setIngredienteArray}
+                volumenRestante={Recipiente.Volumen.Cantidad - volA}
             />
         );
     }
@@ -62,11 +78,9 @@ function CreadorM(){
 
     return(
     <div className="Creador">
+           <h2 className="creadorTitle breakFB">Creador</h2> 
 
-           <h2 className="subPageTitleH">Creador</h2> 
-           <br></br>
-           <h4>Step {Step} of 4</h4>
-           <p> Paso actual {Step} </p>
+           <h5 className="breakFB">Step {Step} of 4</h5>
            <br></br>
            {showStep()}
         </div>

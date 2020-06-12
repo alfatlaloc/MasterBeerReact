@@ -3,7 +3,7 @@ import { FormGroup, Label, Input } from "reactstrap";
 import { useSelector, useDispatch } from "react-redux";
 import { loadBotellas } from "../../Redux/Actions/BotellaActions";
 
-function BebidasA({ botellaArray, setBotellaArray, nextStep, pStep }) {
+function BebidasA({ botellaArray, setBotellaArray, nextStep, pStep,Tipo,setTipo }) {
   const BotellasArray = useSelector((state) => state.Botellas);
   const dispatch = useDispatch();
   const [tipoBotella, setTipoBotella] = useState("Todo");
@@ -24,6 +24,10 @@ function BebidasA({ botellaArray, setBotellaArray, nextStep, pStep }) {
 
   function addToBebida(evt) {
     evt.preventDefault();
+    if(Tipo === 'Trago' && tipoBotella=== 'Cerveza'){ 
+      alert("No puedes agregar cerveza a un trago");  
+      return;
+    }
     if (botellaArray.length < 3) {
       if (botellaArray.some((e) => e.Tipo.match(regexPattern)))
         alert("No puedes agregar mas");
@@ -35,8 +39,18 @@ function BebidasA({ botellaArray, setBotellaArray, nextStep, pStep }) {
           })
         );
         setBotellaArray([...botellaArray, a]);
+        if(a.Tipo.match(regexPattern))
+          setTipo('Cerveza');
+        else
+          setTipo('Trago');
       }
     } else alert("Ya hay tres botellas");
+  }
+
+  function handleNS(){
+    if(botellaArray.length > 0)
+      nextStep();
+    else  alert("No ah elejido");
   }
 
   return (
@@ -71,6 +85,7 @@ function BebidasA({ botellaArray, setBotellaArray, nextStep, pStep }) {
             setBotellaActual(e.target.value);
           }}
         >
+        <option key="sel" value="Sel">Seleccionar {tipoBotella}</option>
           {BotellasArray.map((elements) => {
             if (tipoBotella === "Cerveza") {
               if (elements.Tipo.match(regexPattern))
@@ -105,7 +120,7 @@ function BebidasA({ botellaArray, setBotellaArray, nextStep, pStep }) {
       >
         Agregar la bebida
       </button>
-
+      <hr></hr>
       {botellaArray.map((elements) => {
         return (
           <div key={elements._id}>
@@ -123,9 +138,9 @@ function BebidasA({ botellaArray, setBotellaArray, nextStep, pStep }) {
           </div>
         );
       })}
-
-      <button onClick={pStep}>previous Step</button>
-      <button onClick={nextStep}>Next Step</button>
+      <hr></hr>
+      <button className="prevStep" onClick={pStep}>previous Step</button>
+      <button className="nextStep" onClick={handleNS}>Next Step</button>
     </div>
   );
 }

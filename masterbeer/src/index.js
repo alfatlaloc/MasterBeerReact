@@ -23,7 +23,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import StoreR from './Redux/configureStore';
 import {Provider as ReduxProvider} from 'react-redux';
 
-
 ReactDOM.render(
     <ReduxProvider store={StoreR}>
       <Router>

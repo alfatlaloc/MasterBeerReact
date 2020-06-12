@@ -13,6 +13,7 @@ function TipoVaso({ Recipiente, setRecipiente, nextStep}) {
   });
 
   function recip(e) {
+    if(e.target.value==='sel') return;
     var a = Object.assign(
       {},
       RecipientesArray.find((aux) => {
@@ -30,6 +31,12 @@ function TipoVaso({ Recipiente, setRecipiente, nextStep}) {
     setRecipiente(a);
   }
 
+  function handleNs(){
+    if(Recipiente.Tipo && document.getElementById("tipoVasoSelect").value !== 'sel')
+      nextStep();
+    else
+      alert("No ah seleccionado Recipiente");
+  }
   return (
     <div className="area TipoVaso">
       <h2>Tipo de vaso</h2>
@@ -41,12 +48,14 @@ function TipoVaso({ Recipiente, setRecipiente, nextStep}) {
       <FormGroup className="area">
         <Label for="exampleSelectMulti">Recipientes Disponibles</Label>
         <Input
+          id="tipoVasoSelect"
           type="select"
           value={Recipiente.Nombre}
           onChange={(e) => {
             recip(e);
           }}
         >
+        <option key="sel" value="sel"> Seleccione un Recipiente</option>
           {RecipientesArray.map((elements) => {
             return (
               <option key={elements._id} value={elements._id}>
@@ -57,7 +66,7 @@ function TipoVaso({ Recipiente, setRecipiente, nextStep}) {
         </Input>
       </FormGroup>
 
-      <button onClick={nextStep}>Next Step</button>
+      <button className="nextStep" onClick={handleNs}>Next Step</button>
     </div>
   );
 }
