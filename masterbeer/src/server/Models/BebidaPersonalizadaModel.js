@@ -12,6 +12,7 @@ mongoose.connect("mongodb://localhost:27017/MasterBeer", { useNewUrlParser: true
 const BebidaPersonalizadaSchema = new mongoose.Schema({
       Nombre: {
         type: String,
+        unique: true,
         required: true
       },
       Precio: {
