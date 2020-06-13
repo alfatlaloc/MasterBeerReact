@@ -1,0 +1,27 @@
+const mongoose = require('mongoose')
+const Botella = require('./BotellaModel')
+const BotellaSchema = mongoose.model('Botella').schema
+const Ingrediente = require('./IngredienteModel')
+const IngredienteSchema = mongoose.model('Ingrediente').schema
+const Extra = require('./ExtrasModel')
+const ExtrasSchema = mongoose.model('Extra').schema
+const Recipiente = require('./RecipienteModel')
+const RecipienteSchema = mongoose.model('Recipiente').schema
+
+mongoose.connect("mongodb://localhost:27017/MasterBeer", { useNewUrlParser: true ,useUnifiedTopology: true});
+const BebidaPersonalizadaSchema = new mongoose.Schema({
+      Nombre: {
+        type: String,
+        required: true
+      },
+      Precio: {
+        type: Number,
+        required: true,
+      },
+      Botellas: [BotellaSchema],
+      Ingredientes: [IngredienteSchema],
+      Extras: [ExtrasSchema],
+      Recipientes: [RecipienteSchema]
+})
+
+module.exports = mongoose.model('BebidaPersonalizada', BebidaPersonalizadaSchema,'BebidaPersonalizada');
