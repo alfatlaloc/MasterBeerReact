@@ -25,6 +25,24 @@ function IngredienteForm({ Obj, hide }) {
     }
   );
 
+  const handleChangeNumericWP = (evt) => {
+    const name = evt.target.name;
+    const newValue = evt.target.value;
+    const re = /^[0-9]*\.?[0-9]*$/;
+    if (evt.target.value === "" || re.test(newValue)) {
+      setIngredienteInput({ [name]: newValue });
+    }
+  };
+
+  const handleChangeNumeric = (evt) => {
+    const name = evt.target.name;
+    const newValue = evt.target.value;
+    const re = /^[0-9\b]+$/;
+    if (evt.target.value === "" || re.test(newValue)) {
+      setIngredienteInput({ [name]: newValue });
+    }
+  };
+
   const handleChange = (evt) => {
     const name = evt.target.name;
     const newValue = evt.target.value;
@@ -33,10 +51,13 @@ function IngredienteForm({ Obj, hide }) {
 
   const handleChangeA = (evt) => {
     const Name = evt.target.name.toString();
+    const re = /^[0-9\b]+$/;
     const N = {
       Cantidad:
         Name === "Contenido_NC"
-          ? evt.target.value
+          ? evt.target.value === "" || re.test(evt.target.value)
+            ? evt.target.value
+            : ingredienteInput.Volumen.Cantidad
           : ingredienteInput.Volumen.Cantidad,
       Unidad:
         Name === "Contenido_NU"
@@ -80,7 +101,7 @@ function IngredienteForm({ Obj, hide }) {
               className="inputFormMB"
               value={ingredienteInput.Precio}
               type="text"
-              onChange={handleChange}
+              onChange={handleChangeNumericWP}
             />
           </FormGroup>
         </Col>
@@ -94,7 +115,7 @@ function IngredienteForm({ Obj, hide }) {
               className="inputFormMB"
               value={ingredienteInput.Stock}
               type="text"
-              onChange={handleChange}
+              onChange={handleChangeNumeric}
             />
           </FormGroup>
         </Col>
@@ -138,8 +159,7 @@ function IngredienteForm({ Obj, hide }) {
         </Col>
 
         <button type="submit" className="submitInsertButton">
-        
-        { (Obj._id) ? 'Actualizar' : 'Agregar al almacén!'}  
+          {Obj._id ? "Actualizar" : "Agregar al almacén!"}
         </button>
       </Form>
     </Container>

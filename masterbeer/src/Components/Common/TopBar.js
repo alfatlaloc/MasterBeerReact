@@ -41,6 +41,22 @@ function TopBar(){
                 </React.Fragment>
                 : null
               }
+              {
+                (Session.Type === "USER") ? 
+                <React.Fragment>
+                <NavLink className="navItemMB" to="/Carrito"><p>Carrito</p></NavLink>
+                <NavLink className="navItemMB" to="/Creador"><p>Creador</p></NavLink>
+                </React.Fragment>
+                : null
+              }
+
+              {
+                (Session.Type === "BARTENDER") ? 
+                <React.Fragment>
+                <NavLink className="navItemMB" to="/Pedidos"><p>Pedidos</p></NavLink>
+                </React.Fragment>
+                : null
+              }
             </Nav>
             { (!Session.logged) ? <NavLink className="navItemMB" to="/Login"><p>Login</p></NavLink>
                 : 

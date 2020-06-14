@@ -25,15 +25,13 @@ function ExtraForm({Obj,hide}) {
     setFormInput({ [name]: newValue });
   };
 
-  const handleChangeA = (evt) => {
-    const Name = evt.target.name.toString();
-    const N = {
-      Cantidad:
-        Name === "Volumen_NC" ? evt.target.value : formInput.Volumen.Cantidad,
-      Unidad:
-        Name === "Volumen_NU" ? evt.target.value : formInput.Volumen.Unidad,
-    };
-    setFormInput({ Volumen: N });
+  const handleChangeNumericWP = (evt) => {
+    const name = evt.target.name;
+    const newValue = evt.target.value;
+    const re = /^[0-9]*\.?[0-9]*$/;
+    if (evt.target.value === '' || re.test(newValue)) {
+      setFormInput({ [name]: newValue });
+    }    
   };
 
   const handleSubmit = (e) => {
@@ -69,7 +67,7 @@ function ExtraForm({Obj,hide}) {
               className="inputFormMB"
               value={formInput.Precio}
               type="text"
-              onChange={handleChange}
+              onChange={handleChangeNumericWP}
             />
           </FormGroup>
         </Col>

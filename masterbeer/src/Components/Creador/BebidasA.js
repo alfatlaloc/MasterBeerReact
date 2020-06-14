@@ -3,7 +3,14 @@ import { FormGroup, Label, Input } from "reactstrap";
 import { useSelector, useDispatch } from "react-redux";
 import { loadBotellas } from "../../Redux/Actions/BotellaActions";
 
-function BebidasA({ botellaArray, setBotellaArray, nextStep, pStep,Tipo,setTipo }) {
+function BebidasA({
+  botellaArray,
+  setBotellaArray,
+  nextStep,
+  pStep,
+  Tipo,
+  setTipo,
+}) {
   const BotellasArray = useSelector((state) => state.Botellas);
   const dispatch = useDispatch();
   const [tipoBotella, setTipoBotella] = useState("Todo");
@@ -24,11 +31,23 @@ function BebidasA({ botellaArray, setBotellaArray, nextStep, pStep,Tipo,setTipo 
 
   function addToBebida(evt) {
     evt.preventDefault();
-    if(Tipo === 'Trago' && tipoBotella=== 'Cerveza'){ 
-      alert("No puedes agregar cerveza a un trago");  
-      return;
-    }
     if (botellaArray.length < 3) {
+      let aux = BotellasArray.find((e) => {
+        return e.Nombre === BotellaActual;
+      });
+      if (!aux) return;
+      if (aux.Tipo.match(regexPattern)) {
+        setTipoBotella("Cerveza");
+        if (botellaArray.length === 0) setTipo("Cerveza");
+      } else {
+        setTipoBotella("Botella");
+        if (botellaArray.length === 0) setTipo("Botella");
+      }
+      if (Tipo === "Trago" && tipoBotella === "Cerveza") {
+        alert("No puedes agregar cerveza a un trago");
+        return;
+      }
+
       if (botellaArray.some((e) => e.Tipo.match(regexPattern)))
         alert("No puedes agregar mas");
       else {
@@ -38,19 +57,18 @@ function BebidasA({ botellaArray, setBotellaArray, nextStep, pStep,Tipo,setTipo 
             return el.Nombre === BotellaActual;
           })
         );
-        setBotellaArray([...botellaArray, a]);
-        if(a.Tipo.match(regexPattern))
-          setTipo('Cerveza');
-        else
-          setTipo('Trago');
+        if (a.Tipo.match(regexPattern) && Tipo === "Trago")
+          alert("Error no puedes agregar cerveza a un trago");
+        else setBotellaArray([...botellaArray, a]);
+        if (a.Tipo.match(regexPattern)) setTipo("Cerveza");
+        else setTipo("Trago");
       }
     } else alert("Ya hay tres botellas");
   }
 
-  function handleNS(){
-    if(botellaArray.length > 0)
-      nextStep();
-    else  alert("No ah elejido");
+  function handleNS() {
+    if (botellaArray.length > 0) nextStep();
+    else alert("No ah elejido");
   }
 
   return (
@@ -85,7 +103,9 @@ function BebidasA({ botellaArray, setBotellaArray, nextStep, pStep,Tipo,setTipo 
             setBotellaActual(e.target.value);
           }}
         >
-        <option key="sel" value="Sel">Seleccionar {tipoBotella}</option>
+          <option key="sel" value="Sel">
+            Seleccionar {tipoBotella}
+          </option>
           {BotellasArray.map((elements) => {
             if (tipoBotella === "Cerveza") {
               if (elements.Tipo.match(regexPattern))
@@ -108,6 +128,7 @@ function BebidasA({ botellaArray, setBotellaArray, nextStep, pStep,Tipo,setTipo 
                   {elements.Nombre}
                 </option>
               );
+            return null;
           })}
         </Input>
       </FormGroup>
@@ -139,8 +160,12 @@ function BebidasA({ botellaArray, setBotellaArray, nextStep, pStep,Tipo,setTipo 
         );
       })}
       <hr></hr>
-      <button className="prevStep" onClick={pStep}>previous Step</button>
-      <button className="nextStep" onClick={handleNS}>Next Step</button>
+      <button className="prevStep" onClick={pStep}>
+        previous Step
+      </button>
+      <button className="nextStep" onClick={handleNS}>
+        Next Step
+      </button>
     </div>
   );
 }

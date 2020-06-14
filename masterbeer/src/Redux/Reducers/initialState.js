@@ -8,6 +8,7 @@ export default {
     Session:{
       UserName:"",
       Type:"",
-      logged:false
+      logged:false,
+      Alias:""
     }
   };

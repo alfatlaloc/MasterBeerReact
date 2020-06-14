@@ -1,0 +1,18 @@
+.Pedidos{
+    background-color: #23253b;
+    color: white;
+    display:flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.PedidoA{
+    border:1px white solid;
+    border-radius: 20px;
+    background-color: white;
+    color: black;
+    margin: 10px;
+    flex:1;
+    flex-basis: 22%;
+    padding: 5px;
+}

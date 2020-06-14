@@ -1,5 +1,5 @@
 .AdminPanel {
-  background-color: #151944;
+  background-color: #23253b;
 }
 .AdminPanel h2 {
   color: white;
@@ -10,6 +10,7 @@
   align-items: flex-end;
   display: flex;
 }
+
 .ManageAdmin {
   padding-bottom: 20px;
   background-color: #23253b;

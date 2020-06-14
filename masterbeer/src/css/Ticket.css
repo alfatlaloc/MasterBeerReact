@@ -1,0 +1,57 @@
+
+.titleTicket{
+    color: black;
+    font-weight: bold;
+}
+
+.TicketA{
+    background-color: black;
+    justify-content: center;
+    display: flex;
+    padding: 15px;
+    border-bottom: white 1px solid;
+}
+.Ticket{
+    display:flex;
+    margin: 0px;
+    padding: 0;
+    justify-content: center;
+    flex-wrap: wrap;
+    background-color: white;
+    max-width: 500px;
+    border-radius: 20px;
+}
+
+.TicketElement{
+    flex: 1;
+    flex-basis: 100%;
+    background-color: white;
+    max-width: 90%;
+    height: auto;
+    color: black;
+    border-radius: 20px;
+    margin: 10px 0 10px 0;
+    box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.15);
+}
+
+.TicketElement p{
+    font-weight: bold;
+    margin: 3px;
+}
+.break{
+    flex-basis: 100%;
+  height: 0;
+}
+
+.proTicket{
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+    max-width: 100px;
+    margin: auto;
+}
+
+.pagoTicket{
+    background-color: #d62222;
+    color: white;
+}

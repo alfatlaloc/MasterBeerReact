@@ -25,6 +25,14 @@ function RecipienteForm({Obj,hide}) {
     }
   );
 
+  const handleChangeNumeric = (evt) => {
+    const name = evt.target.name;
+    const newValue = evt.target.value;
+    const re = /^[0-9\b]+$/;
+    if (evt.target.value === '' || re.test(newValue)) {
+      setFormInput({ [name]: newValue });
+    }    
+  };
   const handleChange = (evt) => {
     const name = evt.target.name;
     const newValue = evt.target.value;
@@ -33,9 +41,11 @@ function RecipienteForm({Obj,hide}) {
 
   const handleChangeA = (evt) => {
     const Name = evt.target.name.toString();
+    const re = /^[0-9\b]+$/;
     const N = {
       Cantidad:
-        Name === "Volumen_NC" ? evt.target.value : formInput.Volumen.Cantidad,
+        Name === "Volumen_NC" ? (evt.target.value === '' || re.test(evt.target.value)) ? evt.target.value : formInput.Volumen.Cantidad : formInput.Volumen.Cantidad
+        ,
       Unidad:
         Name === "Volumen_NU" ? evt.target.value : formInput.Volumen.Unidad,
     };
@@ -75,7 +85,7 @@ function RecipienteForm({Obj,hide}) {
               className="inputFormMB"
               value={formInput.Stock}
               type="text"
-              onChange={handleChange}
+              onChange={handleChangeNumeric}
             />
           </FormGroup>
         </Col>
@@ -103,7 +113,7 @@ function RecipienteForm({Obj,hide}) {
               className="inputFormMB"
               value={formInput.AlcoholP}
               type="text"
-              onChange={handleChange}
+              onChange={handleChangeNumeric}
             />
           </FormGroup>
         </Col>

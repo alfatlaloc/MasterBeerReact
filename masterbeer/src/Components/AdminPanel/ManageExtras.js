@@ -55,7 +55,7 @@ function ManageExtra() {
 
   useEffect(() => {
     if (Extras.length === 0) dispatch(loadExtras());
-  }, []);
+  }, [Extras.length,dispatch]);
 
   return (
     <div className="ManageAdmin" id="ManageIngredientes">

@@ -35,6 +35,15 @@ function BotellaForm({ Obj, hide }) {
     setBotellaInput({ [name]: newValue });
   };
 
+  const handleChangeNumericWP = (evt) => {
+    const name = evt.target.name;
+    const newValue = evt.target.value;
+    const re = /^[0-9]*\.?[0-9]*$/;
+    if (evt.target.value === '' || re.test(newValue)) {
+      setBotellaInput({ [name]: newValue });
+    }    
+  };
+
   const handleChangeNumeric = (evt) => {
     const name = evt.target.name;
     const newValue = evt.target.value;
@@ -115,7 +124,7 @@ function BotellaForm({ Obj, hide }) {
               className="inputFormMB"
               value={botellaInput.Precio}
               type="text"
-              onChange={handleChangeNumeric}
+              onChange={handleChangeNumericWP}
               required
             />
           </FormGroup>
@@ -200,7 +209,7 @@ function BotellaForm({ Obj, hide }) {
               className="inputFormMB"
               value={botellaInput.Volumen_A}
               type="text"
-              onChange={handleChangeNumeric}
+              onChange={handleChangeNumericWP}
               required
             />
           </FormGroup>

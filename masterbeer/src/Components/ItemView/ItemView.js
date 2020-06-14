@@ -13,12 +13,12 @@ function ItemView() {
   const [Item, setItem] = useState();
   const [Cantidad, setCantidad] = useState(1);
   const dispatch = useDispatch();
-  const { isShowing, toggle, Obj, changeObject } = useModal();
+  const { isShowing, toggle} = useModal();
   const [SetTextH, setSetTextH] = useState("Aceptar");
 
   useEffect(() => {
     getOne(params._id).then((data) => setItem(data));
-  }, []);
+  }, [params._id]);
 
   function addItem(e) {
     e.preventDefault();

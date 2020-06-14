@@ -3,13 +3,18 @@ import { FormGroup, Label, Input } from "reactstrap";
 import { useSelector, useDispatch } from "react-redux";
 import { loadIngredientes } from "../../Redux/Actions/IngredienteActions";
 
-function Ingredientes({ingredienteArray,setIngredienteArray, nextStep, pStep,volumenRestante }) {
+function Ingredientes({
+  ingredienteArray,
+  setIngredienteArray,
+  nextStep,
+  pStep,
+  volumenRestante,
+  DescripcionIn,
+  setDescripcionIn,
+}) {
   const IngredientesArray = useSelector((state) => state.Ingrediente);
   const dispatch = useDispatch();
-  const [tipoIngrediente, setTipoIngrediente] = useState("Todo");
-  const [IngredienteActual, setBotellaActual] = useState("");
-
-  let regexPattern = /LIQUIDO/i;
+  const [IngredienteActual, setIngredienteActual] = useState("");
 
   useEffect(() => {
     if (IngredientesArray.length === 0) dispatch(loadIngredientes());
@@ -25,81 +30,55 @@ function Ingredientes({ingredienteArray,setIngredienteArray, nextStep, pStep,vol
 
   function addToBebida(evt) {
     evt.preventDefault();
+    console.log(IngredientesArray);
+    console.log(ingredienteArray);
+    console.log(IngredienteActual);
+    if (IngredienteActual === "sel") return;
     if (ingredienteArray.length < 5) {
-      if (ingredienteArray.some((e) => e.Tipo.match(regexPattern)))
-        alert("No puedes agregar mas");
-      else {
-        var a = Object.assign(
-          {},
-          ingredienteArray.find((el) => {
-            return el.Nombre === IngredienteActual;
-          })
-        );
-        setIngredienteArray([...IngredientesArray, a]);
-      }
+      var a = Object.assign(
+        {},
+        IngredientesArray.find((el) => {
+          return el.Nombre === IngredienteActual;
+        })
+      );
+      setIngredienteArray([...ingredienteArray, a]);
     } else alert("Ya hay cinco ingredientes");
+  }
+  function handleNS() {
+    if (ingredienteArray.length > 0) nextStep();
+    else alert("Agrega un ingrediente");
   }
 
   return (
     <div className="area bebidaSelector">
       <h2>Ingredientes</h2>
-      {volumenRestante}
-      <FormGroup className="area">
-        <Label for="exampleSelectMulti">Tipo de bebida</Label>
-        <Input
-          type="select"
-          name="Contenido_NU"
-          value={tipoIngrediente}
-          onChange={(evt) => {
-            evt.preventDefault();
-            setTipoIngrediente(evt.target.value);
-          }}
-        >
-          <option value="Todo">Todo</option>
-          <option value="Botella">Botella</option>
-          <option value="Cerveza">Cerveza</option>
-        </Input>
-      </FormGroup>
-
+      {`Mililitros restantes: ${volumenRestante}`}
       <FormGroup className="area">
         <Label for="selectBebidas">Bebidas Disponibles</Label>
         <Input
           type="select"
           id="selectBotellas"
           name="selectBebidas"
-          value={IngredienteActual.Aux}
+          value={IngredienteActual}
           onChange={(e) => {
             e.preventDefault();
-            setBotellaActual(e.target.value);
+            setIngredienteActual(e.target.value);
           }}
         >
+          <option key="key" value="sel">
+            Seleccionar Ingrediente
+          </option>
           {IngredientesArray.map((elements) => {
-            if (tipoIngrediente === "LIQUIDO") {
-              if (elements.Tipo.match(regexPattern))
-                return (
-                  <option value={elements.Nombre} key={elements._id}>
-                    {elements.Nombre}
-                  </option>
-                );
-            } else if (tipoIngrediente === "Botella") {
-              if (!elements.Tipo.match(regexPattern)) {
-                return (
-                  <option value={elements.Nombre} key={elements._id}>
-                    {elements.Nombre}
-                  </option>
-                );
-              }
-            } else
-              return (
-                <option value={elements.Nombre} key={elements._id}>
-                  {elements.Nombre}
-                </option>
-              );
-              return null;
+            return (
+              <option value={elements.Nombre} key={elements._id}>
+                {elements.Nombre}
+              </option>
+            );
           })}
         </Input>
       </FormGroup>
 
+      <hr></hr>
       <button
         className="submitInsertButton"
         onClick={(evt) => {
@@ -112,8 +91,7 @@ function Ingredientes({ingredienteArray,setIngredienteArray, nextStep, pStep,vol
       {ingredienteArray.map((elements) => {
         return (
           <div key={elements._id}>
-            {elements.Nombre}
-            <p>{elements.Tipo}</p>
+            <p>{elements.Nombre}</p>
             <button
               className="MBButtonC"
               onClick={(e) => {
@@ -126,9 +104,31 @@ function Ingredientes({ingredienteArray,setIngredienteArray, nextStep, pStep,vol
           </div>
         );
       })}
-
-      <button onClick={pStep}>previous Step</button>
-      <button onClick={nextStep}>Next Step</button>
+      <hr></hr>
+      <FormGroup>
+        <Label for="DescIngredientes">Agrega una descripción:</Label>
+        <p>
+          Escribe los mas breve y consistente como te gustarían las proporciones
+          de las botellas en tu trago
+        </p>
+        <br></br>
+        <textarea
+          type="text"
+          value={DescripcionIn}
+          className="creadorTextArea"
+          onChange={(e) => setDescripcionIn(e.target.value)}
+          name="DescIngredientes"
+          placeholder="Trago personalizado"
+          required
+        />
+      </FormGroup>
+      <hr></hr>
+      <button className="prevStep" onClick={pStep}>
+        previous Step
+      </button>
+      <button className="nextStep" onClick={handleNS}>
+        Next Step
+      </button>
     </div>
   );
 }

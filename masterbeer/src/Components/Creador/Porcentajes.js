@@ -1,7 +1,7 @@
 import React from "react";
 import PorcentajeIMG from "../../img/Creador/Porcentaje.png";
 import { useState, useEffect } from "react";
-import {FormGroup,Label} from 'reactstrap';
+import { FormGroup, Label } from "reactstrap";
 function Porcentajes({
   Recipiente,
   Porcentaje,
@@ -10,7 +10,8 @@ function Porcentajes({
   pStep,
   Tipo,
   Descripcion,
-  setDescripcion
+  setDescripcion,
+  doubleStep,
 }) {
   const [MaxValue, setMaxValue] = useState(0);
 
@@ -18,7 +19,7 @@ function Porcentajes({
     console.log(Recipiente);
     if (Tipo === "Cerveza") setMaxValue(Recipiente.milis);
     else setMaxValue(Recipiente.AlcoholP);
-  }, [setMaxValue]);
+  }, [setMaxValue, Recipiente, Tipo]);
 
   const handleRangeSlider = (evt) => {
     setPorcentaje(evt.target.value);
@@ -29,7 +30,14 @@ function Porcentajes({
   }
 
   function handleNS() {
-    if (Porcentaje > 0) nextStep();
+    if (Porcentaje > 20) {
+      if (Tipo === "Cerveza") {
+        if (parseFloat(Porcentaje) === MaxValue) doubleStep();
+        else if (Porcentaje <= MaxValue - 20) nextStep();
+      } else if (Tipo === "Trago") {
+        nextStep();
+      }
+    } else alert("Porcentaje no validlll");
   }
   return (
     <div className="area2 Porcentajes">
@@ -43,34 +51,39 @@ function Porcentajes({
           >{`A escogido ${Recipiente.Tipo} con volumen ${Recipiente.Volumen.Cantidad} ${Recipiente.Volumen.Unidad}`}</div>
         ) : null}
         <hr></hr>
-        <p>{(Tipo === "Cerveza") ? 'Porcentaje' : 'Porcentaje (Alcohol)' }:{` ${calc()} %`}</p>
+        <p>
+          {Tipo === "Cerveza" ? "Porcentaje" : "Porcentaje (Alcohol)"}:
+          {` ${calc()} %`}
+        </p>
         <p>Mililitros: {Porcentaje}</p>
         <input
           onChange={handleRangeSlider}
           type="range"
-          min="1"
+          min="20"
           max={MaxValue}
           value={Porcentaje}
           className="slider sliderP"
         ></input>
         <hr></hr>
-        { (Tipo !== "Cerveza") ?
-        <FormGroup>
+        {Tipo !== "Cerveza" ? (
+          <FormGroup>
             <Label for="DescIngredientes">Agrega una descripción:</Label>
-            <p>Escribe los mas breve y consistente como te gustarían las proporciones 
-            de las botellas en tu trago</p>
+            <p>
+              Escribe los mas breve y consistente como te gustarían las
+              proporciones de las botellas en tu trago
+            </p>
             <br></br>
-            <input
+            <textarea
               type="text"
               value={Descripcion}
-              onChange={(e) => setDescripcion(e.target.Name)}
+              className="creadorTextArea"
+              onChange={(e) => setDescripcion(e.target.value)}
               name="DescIngredientes"
               placeholder="Trago personalizado"
               required
             />
           </FormGroup>
-        : null
-        }
+        ) : null}
         <hr></hr>
         <button className="prevStep" onClick={pStep}>
           previous Step

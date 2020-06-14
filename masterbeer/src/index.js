@@ -15,7 +15,8 @@ import './css/Buttons.css';
 import './css/subPages/titles.css';
 import './css/ItemView.css';
 import './css/AdminPanelForms/bkbutton.css';
-
+import './css/Ticket.css'
+import './css/Pedidos.css'
 import App from './Components/App';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter as Router } from "react-router-dom";

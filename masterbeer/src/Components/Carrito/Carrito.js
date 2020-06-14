@@ -2,10 +2,11 @@ import React,{useEffect,useState} from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import { Table } from "reactstrap";
 import { eliminarDeCarrito ,vaciarCarrito} from "../../Redux/Actions/CarritoActions";
-
+import {useHistory} from 'react-router-dom';
 
 function CarritoArray({ CarritoArray}){
     const dispatch = useDispatch();
+
     return CarritoArray.map((elements) => {
       return (
           
@@ -32,7 +33,7 @@ function Carrito(){
     const Carrito = useSelector(state =>(state.Carrito));
     const dispatch = useDispatch();
     const [Total,setTotal] = useState(0);
-
+    const history = useHistory();
     useEffect(() => {
       if(Carrito.length>0){
         setTotal(
@@ -47,6 +48,11 @@ function Carrito(){
     }
     },[Carrito]);
     
+    function procederPago(evt){
+      evt.preventDefault();
+      if(Carrito.length>0)
+        history.push("/TicketCarrito");
+    }
     return( 
         <div className="Carrito" id="Carrito">
             <div className="row no-gutters">
@@ -83,7 +89,7 @@ function Carrito(){
                     <hr></hr>
                     
                     <h4>MXN $ {Total}</h4>
-                    <button className="MBButton">Proceder al pago</button>
+                    <button className="MBButton" onClick={procederPago}>Proceder al pago</button>
                 </div>
             </div>
         </div>
