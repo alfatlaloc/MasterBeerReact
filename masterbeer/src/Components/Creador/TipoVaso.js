@@ -4,7 +4,7 @@ import RecipienteIMG from "../../img/Creador/Recipiente.png";
 import { loadRecipientes } from "../../Redux/Actions/RecipienteActions";
 import { FormGroup, Label, Input } from "reactstrap";
 
-function TipoVaso({ Recipiente, setRecipiente, nextStep}) {
+function TipoVaso({ Recipiente, setRecipiente, nextStep,setAlertText,toggle}) {
   const RecipientesArray = useSelector((state) => state.Recipientes);
   const dispatch = useDispatch();
 
@@ -26,16 +26,17 @@ function TipoVaso({ Recipiente, setRecipiente, nextStep}) {
         a.milis=a.Volumen.Cantidad*4546;
     else
       a.milis=a.Volumen.Cantidad;
-    console.log("Object");
-    console.log(a);
     setRecipiente(a);
   }
 
   function handleNs(){
     if(Recipiente.Tipo && document.getElementById("tipoVasoSelect").value !== 'sel')
       nextStep();
-    else
-      alert("No ah seleccionado Recipiente");
+    else{
+      setAlertText("No ah seleccionado un recipiente");
+      toggle(true);
+    }
+      
   }
   return (
     <div className="area TipoVaso">

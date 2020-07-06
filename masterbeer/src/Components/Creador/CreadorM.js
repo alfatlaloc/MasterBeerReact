@@ -7,6 +7,10 @@ import ExtrasA from './Extras';
 import FormBP from './FormBP';
 import Ticket from './Ticket';
 import {useSelector} from 'react-redux';
+
+import useModal from "../Common/ModalMB/useModalObject";
+import ModalAlert from "../Common/ModalMB/ModalAlert";
+
 /*
     1 - Tipo Vaso
     2 - Bebidas - Cerveza / Botella
@@ -32,6 +36,9 @@ function CreadorM(){
     const [Precio,setPrecio] = useState(0);
     const [Cantidad,setCantidad] = useState(1);
 
+    const { isShowing, toggle } = useModal();
+
+    const [alertText,setAlertText] = useState("");
     useEffect(()=>{},[]);
 
     function calcularPrecio(){
@@ -99,6 +106,8 @@ function CreadorM(){
                 Recipiente={Recipiente}
                 setRecipiente={setRecipiente}
                 nextStep={nextStep}
+                setAlertText={setAlertText}
+                toggle={toggle}
             />);
         if(Step === 2)
         return (
@@ -180,6 +189,13 @@ function CreadorM(){
            <br></br>
            <br></br>
            {showStep()}
+
+        <ModalAlert
+        isShowing={isShowing}
+        hide={toggle}
+        alertText={alertText}
+        textHeader={"Alerta"}
+      />
         </div>
     );
 };

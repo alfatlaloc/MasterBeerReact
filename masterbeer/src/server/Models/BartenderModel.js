@@ -30,6 +30,10 @@ const BartenderSchema = new mongoose.Schema({
         type: Date,
         required: true,
       },
+      TIpo: {
+        type: String,
+        required: true,
+      },
       Sueldo: {
         type: Number,
         required: true,

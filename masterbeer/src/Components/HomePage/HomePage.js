@@ -111,8 +111,7 @@ const HomePage = () => (
                 </div>
                 <div className="card-text">
                   <h3>
-                    Visualización y compra del catálogo de tragos predefinido
-                    del bar
+                    Administración de el almacen y los empleados.
                   </h3>
                 </div>
               </div>
