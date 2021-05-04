@@ -1,48 +1,48 @@
 const mongoose = require('mongoose')
 
-mongoose.connect("mongodb://localhost:27017/MasterBeer", { useNewUrlParser: true ,useUnifiedTopology: true});
+mongoose.connect("mongodb+srv://aternam:masterbeer@cluster0.h0bpw.mongodb.net/MasterBeer?retryWrites=true&w=majority", { useNewUrlParser: true, useUnifiedTopology: true });
 const BartenderSchema = new mongoose.Schema({
     Correo: {
         type: String,
         unique: true,
         required: true
-      },
-      Nombre: {
+    },
+    Nombre: {
         type: String,
         required: true
-      },
-      Contrasena: {
+    },
+    Contrasena: {
         type: String,
         minlength: 6,
         required: true,
-      },
-      Apellido: {
+    },
+    Apellido: {
         type: String,
         required: true,
-      },
-      RFC: {
+    },
+    RFC: {
         type: String,
-        minlength:12,
-        maxlength:13,
+        minlength: 12,
+        maxlength: 13,
         required: true,
-      },
-      Fecha: {
+    },
+    Fecha: {
         type: Date,
         required: true,
-      },
-      TIpo: {
+    },
+    TIpo: {
         type: String,
         required: true,
-      },
-      Sueldo: {
+    },
+    Sueldo: {
         type: Number,
         required: true,
-      },
-      Horario: {
+    },
+    Horario: {
         type: String,
         required: true,
-      }
+    }
 
 })
 
-module.exports = mongoose.model('Bartender', BartenderSchema,'Usuario');
+module.exports = mongoose.model('Bartender', BartenderSchema, 'Usuario');
