@@ -1,12 +1,10 @@
 const express = require("express");
 const cors = require("cors");
-const bodyParser = require("body-parser");
 
 const app = express();
 const port = 8080;
 
 app.use(cors({ origin: "http://localhost:3000" }));
-
 
 const UsuarioRoutes = require("./Routes/Usuario");
 app.use("/Usuario", UsuarioRoutes);
